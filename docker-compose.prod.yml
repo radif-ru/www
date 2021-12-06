@@ -6,13 +6,12 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    expose:
-      - 80
+    ports:
+      - "80:80"
     volumes:
-      - /etc/letsencrypt/live:/etc/letsencrypt/live
-      - /home/radif/www:/home/radif/www
-      - nginx:/etc/nginx
+      - www-html:/var/www/html
+      - /home/radif/www/etc/letsencrypt:/etc/letsencrypt
+      - /home/radif/www/etc/nginx:/etc/nginx
 
 volumes:
-    nginx:
-    
+  www-html:
