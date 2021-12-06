@@ -1,0 +1,10 @@
+server {
+    listen pro-gidroizolyaciya.ru:80;
+    server_name pro-gidroizolyaciya.ru;
+    # Устанавливаем/обновляем сертификат Let's Encrypt.
+    include acme;
+
+    location / {
+        return 404;
+    }
+}

@@ -2,7 +2,7 @@ server {
     listen django.radif.ru:80; 
 #    listen django.radif.ru:5432;
     server_name django.radif.ru;
-# Устанавливаем/обновляем сертификат Let's Encrypt
+# Устанавливаем/обновляем сертификат Let's Encrypt. include раскомментировать, return закомментировать
 #    include acme;
     return 301 https://$host$request_uri;
 }

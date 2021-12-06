@@ -1,22 +1,7 @@
-#server {
-#    listen 80;
-#    listen [::]:80;
-#    server_name 45.89.230.30;
-
-#    # Устанавливаем/обновляем сертификат Let's Encrypt
-##    include acme;
-#    location / {
-#        root /home/radif/www;
-#        index index.html index.htm;
-#        autoindex on;
-#    }
-#}
-
-
 server {
     listen radif.ru:80;
     server_name radif.ru;
-    # Устанавливаем/обновляем сертификат Let's Encrypt. Раскомментировать include, закомментировать return
+# Устанавливаем/обновляем сертификат Let's Encrypt. Раскомментировать include, закомментировать return
 #    include acme;
     return 301 https://$host$request_uri;
 }
@@ -43,7 +28,7 @@ server {
 
     # явно "сломаем" все картинки с http://
     add_header Content-Security-Policy "img-src https: data:; upgrade-insecure-requests";
-        
+
     location / {
         root /home/radif/www;
 	index index.html index.htm;

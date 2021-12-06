@@ -1,23 +1,7 @@
-#server {
-#    listen 80;
-#    server_name pro-gidroizolyaciya.ru 45.89.230.30;
-
-#    location = /favicon.ico { access_log off; log_not_found off; }
-#    location /static/ {
-#        root /home/radif/Intex_Stroy;
-#    }
-    
-#    include acme;
-#    location / {
-#        include proxy_params;
-#        proxy_pass http://unix:/run/gunicorn.sock;
-#    }
-#}
-
 server {
     listen pro-gidroizolyaciya.ru:80;
     server_name pro-gidroizolyaciya.ru;
-    # Устанавливаем/обновляем сертификат Let's Encrypt. include раскомментировать, return закомментировать
+# Устанавливаем/обновляем сертификат Let's Encrypt. include раскомментировать, return закомментировать
 #    include acme;
     return 301 https://$host$request_uri;
 }

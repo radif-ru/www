@@ -1,20 +1,7 @@
-#server {
-#    listen pro-remont-otdelka.ru:80;
-#    server_name pro-remont-otdelka.ru;
-    
-##    include acme;
-#    location / {
-#        root /home/radif/pro-remont-otdelka.ru;
-#        index index.html index.htm;
-#        autoindex on;
-#    }
-#}
-
-
 server {
     listen pro-remont-otdelka.ru:80;
     server_name pro-remont-otdelka.ru;
-# перед обновлением сертификата раскомментировать эту строку и закомментировать return
+# Устанавливаем/обновляем сертификат Let's Encrypt. include раскомментировать, return закомментировать
 #    include acme;
     return 301 https://$host$request_uri;
 }
