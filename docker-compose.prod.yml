@@ -9,9 +9,10 @@ services:
     expose:
       - 80
     volumes:
-      - /home/radif/www/etc:/etc
-      - /home/radif/www/var:/var
+      - /etc/letsencrypt/live:/etc/letsencrypt/live
+      - /home/radif/www:/home/radif/www
+      - nginx:/etc/nginx
 
 volumes:
-  /home/radif/www/etc:
-  /home/radif/www/var:
+    nginx:
+    
