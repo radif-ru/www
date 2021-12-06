@@ -6,14 +6,5 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    depends_on:
-      - backend
     ports:
-      - "3333:80"
-    volumes:
-      - static_volume:/home/app/backend/staticfiles
-      - media_volume:/home/app/backend/mediafiles
-
-volumes:
-  static_volume:
-  media_volume:
+      - "80:80"
