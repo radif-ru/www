@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   nginx:
-    restart: always
+    restart: unless-stopped
     build:
       context: ./
       dockerfile: Dockerfile
@@ -10,8 +10,7 @@ services:
       - "80:80"
     volumes:
       - www-html:/var/www/html
-      - /home/radif/www/etc/letsencrypt:/etc/letsencrypt
-      - /home/radif/www/etc/nginx:/etc/nginx
-
+      
 volumes:
   www-html:
+    
