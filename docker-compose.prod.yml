@@ -8,3 +8,10 @@ services:
       dockerfile: Dockerfile
     expose:
       - 80
+    volumes:
+      - /home/radif/www/etc:/etc
+      - /home/radif/www/var:/var
+
+volumes:
+  /home/radif/www/etc:
+  /home/radif/www/var:
