@@ -9,7 +9,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - www-html:/var/www/html
+      - www-html:/var/www
       
 volumes:
   www-html:

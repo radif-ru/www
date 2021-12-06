@@ -30,7 +30,7 @@ server {
     add_header Content-Security-Policy "img-src https: data:; upgrade-insecure-requests";
 
     location / {
-        root /var/www/html;
+        root /var/www;
 	index index.html index.htm;
 	autoindex on;
     }

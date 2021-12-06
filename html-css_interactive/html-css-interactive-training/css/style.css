@@ -1,0 +1,334 @@
+body {
+    background: #f8f8f8;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/*Главная*/
+.header {
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3% 5%;
+    background: url(../img/gallery_bg.png) no-repeat -400px -410px fixed #E8E9E9;
+    width: 100%;
+    
+}
+
+.footer {
+    padding: 3% 0;
+    background-color:beige ;
+}
+
+.footer p, a {
+    margin-left: 15px
+}
+
+.footer-copy {
+    text-align: right;
+    margin: 3% 3% 0 0;
+}
+
+.logo {
+    display: inline-block;
+}
+.logo img {
+    background: white;
+    transition: 0.3s;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+    border-radius: 25px;
+}
+
+.menu {
+    color: green;
+    font-family: fantasy;
+    font-style: italic;
+    font-size: 23px;
+    display: inline-block;
+    position: relative;
+    padding: 0;
+}
+
+.menu li {
+    list-style-type: none;
+    border: 1px solid #000;
+    text-align: center;
+    transition-duration: 0.3s;
+    display: inline-block;
+    padding: 0;
+}
+
+.menu li a {
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+}
+
+.menu li a div {
+    padding-top: 7px;
+    display: inline-block
+}
+
+.menu li:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.menu li:last-child {
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.menu li:nth-child(2n-1) {
+    background-color: gainsboro;
+}
+
+.menu li:nth-child(2n) {
+    background-color: #f8f8f8;
+}
+
+.menu li:hover {
+    background-color:antiquewhite;
+}
+
+.menu li:not(:last-child):hover div::after {
+    content: " >>";
+    color: red;
+    font-size: 23px;
+}
+
+.menu li:last-child:hover div::before {
+    content: " >>";
+    color: red;
+    font-size: 23px;
+}
+
+.menu li a, .catalogue figure a, .catalogue-page a {
+    text-decoration: none;
+    color: inherit;
+    transition-duration: 0.3s;
+}
+
+.menu li a:hover, .catalogue figure a:hover, .catalogue-page a:hover {
+    color: brown;
+}
+
+.menu li a:active, .catalogue figure a:active {
+    color: salmon
+} 
+
+.menu-add {
+    display: none;
+    position: absolute;
+    left: 0;
+}
+
+.menu-add li {
+    margin-top: 5px;
+}
+
+.menu-add li a {
+    width: 60%;
+    height: auto;
+}
+
+.menu li:nth-child(2):hover .menu-add {
+    display: block;
+}
+
+h1,
+h2,
+h3 {
+    color: black;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 400;
+    background: #eaeaea;
+    text-align: center;
+}
+
+
+img[alt="gidro"] {
+    outline: 5px blue dashed;
+    padding: 5px;
+    height: 100%;
+    margin: 25px 45px;
+    transition: 0.1s;
+}
+
+.gidro img:hover {
+    transform: scale(1.2);
+    outline-width: 0px;
+}
+
+.gidro {
+    background: url(../img/footer_bg.png) no-repeat -490px -450px fixed #E8E9E9;
+    width: 100%;
+}
+
+.gidro h1 {
+    border-bottom: 3px gray dashed;
+    width: 60%;
+    margin: 2% auto;
+}
+
+.gidro i {
+    font-size: 18px;
+    padding-left: 15px;
+    font-weight: 400;
+    color: beige;
+}
+
+.text-decor::first-letter {
+    font-size: 22px;
+    color:blue;
+    font-weight: 800;
+}
+
+.gidro ul {
+    display: inline-block;
+    color: brown;
+    font-size: 28px;
+    font-weight: 800;
+    font-style: italic;
+    line-height: 30px;
+    list-style-image: url(../img/timetable.png)
+}
+
+.decisions {
+    color: #707070;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 16px;
+}
+
+.approach,
+.catalogue-page {
+    color: #484343;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+}
+
+.table {
+    border: 1px solid red;
+    width: 400px;
+    height: 300px;
+    border-spacing: 10px;
+    border-collapse: collapse; /*при collapse spacing перествёт работать*/
+}
+
+.table td {
+    border: 1px solid green;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table-menu {
+    background-color: greenyellow;
+    height: 30px;
+}
+
+.table-vmenu {
+    background-color: greenyellow;
+    width: 75px;
+}
+.table-merge {
+    background-color:aqua;
+}
+/*Главная*/
+
+/*Каталог*/
+.catalogue div {
+    display: flex;
+    justify-content: space-around;
+}
+
+.catalogue figure {
+    margin: 0;
+    display: inline-block;
+    width: 100%;
+}
+
+.catalogue img, .catalogue-page img {
+    outline: 5px solid green;
+    transition-duration: 0.2s;
+}
+
+.catalogue img:hover, .catalogue-page img:hover {
+    outline-width: 0;
+}
+
+.catalogue-page p::first-letter {
+    font-size: 22px;
+    color: brown;
+    font-weight: 800;
+}
+
+.catalogue-page img {
+    float: left;
+    margin: 3%;
+}
+
+.catalogue-page button {
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.catalogue-page button:hover{
+    background-color: brown;
+}
+
+.catalogue-page button:active{
+    background: red;
+    font-weight: 600;
+}
+
+hr {
+    clear: both
+}
+/*Каталог*/
+
+/*Контакты*/
+.contacts-user input {
+    margin: 5px 0;
+    border-radius: 7px;
+}
+
+.contacts-user input[type="text"] {
+    height: 1.5em;
+    width: 15em;
+}
+
+.contacts-user input[type="text"],
+.contacts-user textarea {
+    color: green;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    padding: 0.2em 0.3em;
+    text-transform: capitalize;
+}
+
+.contacts-user input[type="text"]:focus, .contacts-user textarea:focus {
+    background-color:aquamarine;
+}
+
+.contacts {
+    background: white;
+}
+
+.contacts iframe {
+    width: 100%;
+    height: 374px;
+}
+/*Контакты*/

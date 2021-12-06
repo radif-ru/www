@@ -1,0 +1,60 @@
+server {
+    listen radif.ru:80;
+    server_name radif.ru;
+    # Устанавливаем/обновляем сертификат Let's Encrypt.
+    include acme;
+
+    location / {
+        return 404;
+    }
+}
+
+server {
+    listen backend.radif.ru:80;
+    server_name backend.radif.ru;
+    include acme;
+
+    location / {
+        return 404;
+    }
+}
+
+server {
+    listen frontend.radif.ru:80;
+    server_name frontend.radif.ru;
+    include acme;
+
+    location / {
+        return 404;
+    }
+}
+
+server {
+    listen django.radif.ru:80;
+    server_name django.radif.ru;
+    include acme;
+
+    location / {
+        return 404;
+    }
+}
+
+server {
+    listen intergalactic.radif.ru:80;
+    server_name intergalactic.radif.ru;
+    include acme;
+
+    location / {
+        return 404;
+    }
+}
+
+server {
+    listen pro-gidroizolyaciya.ru:80;
+    server_name pro-gidroizolyaciya.ru;
+    include acme;
+
+    location / {
+        return 404;
+    }
+}

@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>THE BRAND</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+          rel="stylesheet">
+    <link rel="stylesheet" href="css/fontello.css">
+    <link rel="stylesheet" href="sass/style.css?ver=33" type="text/css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+    <link rel="stylesheet"
+          href="bower_components/jquery-ui/themes/base/all.css">
+</head>
+<body>
+<div class="wrapper" id="root">
+    <div class="content">
+        <div class="container fixed-top">
+            <header-main/>
+            <navigation/>
+        </div>
+        <div class="slider">
+            <div class="container slider-back">
+                <div class="bounce-in-left"></div>
+                <div class="slider-text roll-in-left">
+                    <div>THE BRAND</div>
+                    <div>OF LUXERIOUS</div>
+                    <div>FASHION</div>
+                </div>
+            </div>
+        </div>
+        <div class="container badges">
+            <div class="badges-left">
+                <div class="badge">
+                    <img src="img/badge-1.jpg" alt="FOR MEN">
+                    <div class="badge-name">
+                        <a href="product.html">
+                            <div>HOT DEAL</div>
+                            <div>FOR MEN</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="badge">
+                    <img src="img/badge-2.jpg" alt="ACCESORIES">
+                    <div class="badge-name">
+                        <a href="#">
+                            <div>LUXIROUS & TRENDY</div>
+                            <div>ACCESORIES</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="badges-right">
+                <div class="badge">
+                    <img src="img/badge-3.jpg" alt="WOMEN">
+                    <div class="badge-name">
+                        <a href="single-page.html">
+                            <div>30% OFFER</div>
+                            <div>WOMEN</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="badge">
+                    <img src="img/badge-4.jpg" alt="FOR KIDS">
+                    <div class="badge-name">
+                        <a href="#">
+                            <div>NEW ARRIVALS</div>
+                            <div>FOR KIDS</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="container">
+            <div class="product-text">
+                <h2>Fetured Items</h2>
+                <h3>Shop for items based on what we featured in this week</h3>
+            </div>
+
+            <div class="product-box" id="observer">
+                <!--генерация из js-->
+                <div v-if="goods.length === 0">Данные не получены</div>
+                <goods-list :goods="goods"></goods-list>
+<!--                Код ниже перенёс в компоненты Vue-->
+                <!--                <div class="parent-product" v-for="(product, id) in goods"-->
+                <!--                     :key="`product_${id}`">-->
+                <!--                    <a class="product" href="shopping-cart.html">-->
+                <!--                        <img :src="product.img_src" :alt="product.img_alt">-->
+                <!--                        <p class="description-product">-->
+                <!--                            {{ product.product_name }}</p>-->
+                <!--                        <p class="price">${{ product.price }}.00</p>-->
+                <!--                    </a>-->
+                <!--                    <div class="product-link-flex">-->
+                <!--                        <a class="add-to-cart buyBtn" href="#">-->
+                <!--                            <img src="img/cart-white.svg" alt="cart-white">-->
+                <!--                            Add to Cart-->
+                <!--                        </a>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+            </div>
+
+            <div class="browse-all">
+                <a class="button" href="product.html">Browse All Product<img
+                        src="img/right-arrow.png" alt="right-arrow"></a>
+            </div>
+        </section>
+        <div class="container offer">
+            <div class="offer-img">
+                <img src="img/offer-30-women.jpg" alt="offer-30-women">
+                <img src="img/offer-30-women-2.jpg" alt="offer-30-women-2">
+            </div>
+            <a class="offer-30" href="#">
+                <div>30%</div>
+                <div>OFFER</div>
+                <div>FOR WOMEN</div>
+            </a>
+            <div class="offer-text">
+                <div class="offer-text-icon">
+                    <div><img src="img/offer-icon-delivery.png" alt="delivery">
+                    </div>
+                    <div class="offer-text-text">
+                        <div>Free Delivery</div>
+                        Worldwide delivery on all. Authorit tively morph
+                        next-generation innov tion with extensive models.
+                    </div>
+                </div>
+                <div class="offer-text-icon">
+                    <div><img src="img/offer-icon-sales.png" alt="sales"></div>
+                    <div class="offer-text-text">
+                        <div>Sales & discounts</div>
+                        Worldwide delivery on all. Authorit tively morph
+                        next-generation innov tion with extensive models.
+                    </div>
+                </div>
+                <div class="offer-text-icon">
+                    <div><img src="img/offer-icon-quality.png" alt="quality">
+                    </div>
+                    <div class="offer-text-text">
+                        <div>Quality assurance</div>
+                        Worldwide delivery on all. Authorit tively morph
+                        next-generation innov tion with extensive models.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="reviews">
+            <!--            Генерация из js old_Rewiews.js-->
+        </div>
+
+        <subscribe-box/>
+        <container-brand/>
+
+    </div>
+
+    <footer-wrap/>
+
+</div>
+
+<script src="node_modules/vue/dist/vue.global.prod.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script src="bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
+
+<script src="js/vue_main.js"></script>
+
+<script src="js/old_Cart.js"></script>
+<script src="js/old_autocomplete.js"></script>
+<script src="js/old_Reviews.js"></script>
+<script src="js/old_slider-range.js"></script>
+<script src="js/old_owl-carousel.js"></script>
+
+<script src="js/old_main.js" defer></script>
+
+</body>
+</html>
