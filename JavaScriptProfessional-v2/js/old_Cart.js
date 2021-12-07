@@ -10,7 +10,7 @@ class Cart {
     }
 
     _render() {
-        let $totalGoods = $(`<a href="checkout.html"><img src="img/cart.svg" alt="cart"><div class="cart-circle-five sum-goods"></div></a>`);
+        let $totalGoods = $(`<a href="#"><img src="img/cart.svg" alt="cart"><div class="cart-circle-five sum-goods"></div></a>`);
         let $cartItemsDiv = $('<form/>', {
             class: 'cart-items-wrap cart-box'
         });
