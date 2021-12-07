@@ -21,6 +21,8 @@
   "dependencies": {
     "core-js": "^3.11.2",
     "express": "^4.17.1",
+    "jquery-ui": "^1.13.0",
+    "owl.carousel": "^2.3.4",
     "vue": "^3.0.11"
   },
   "devDependencies": {
