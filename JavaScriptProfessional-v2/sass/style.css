@@ -2509,5 +2509,38 @@ button:hover {
     animation-timing-function: ease-out;
   }
 }
+@media (hover: none) {
+  .header {
+    width: fit-content !important;
+  }
+
+  .menu {
+    background: #ffffff !important;
+  }
+
+  .subscribe-box {
+    width: fit-content !important;
+  }
+
+  .footer-wrap {
+    width: fit-content !important;
+  }
+
+  .new-arrivals {
+    width: fit-content;
+  }
+
+  .single-form {
+    width: 1140px;
+  }
+
+  .women-collection-select__button_right {
+    right: -160px;
+  }
+
+  .new-arrivals-offer {
+    width: fit-content !important;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
