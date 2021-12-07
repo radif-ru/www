@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   nginx:
-    restart: unless-stopped
+    restart: always
     build:
       context: ./
       dockerfile: Dockerfile
@@ -10,8 +10,4 @@ services:
       - "443:443"
       - "80:80"
     volumes:
-      - www-html:/var/www
-      
-volumes:
-  www-html:
-    
+      - /home/radif/www:/var/www
