@@ -2526,15 +2526,15 @@ button:hover {
   }
 
   .new-arrivals {
-    width: fit-content;
+    width: fit-content !important;
   }
 
   .single-form {
-    width: 1140px;
+    width: 1140px !important;
   }
 
   .women-collection-select__button_right {
-    right: -160px;
+    right: -160px !important;
   }
 
   .new-arrivals-offer {
