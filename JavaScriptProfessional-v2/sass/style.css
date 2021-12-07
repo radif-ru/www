@@ -308,7 +308,6 @@ input::-webkit-input-placeholder {
 .cart:hover .cart-box {
   display: inline-block;
   overflow: auto;
-  height: 80vh;
 }
 
 .cart-flex {
