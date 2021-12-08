@@ -3,17 +3,19 @@ version: "3.7"
 services:
   nginx:
 # Постоянная перезагрузка контейнера. Даже в случае остановки или рестарта ОС
-    restart: unless-stopped
+    restart: always
     build:
       context: ./
       dockerfile: Dockerfile
-    expose:
-      - 443
-      - 80
+    ports:
+      - "80:80"
+      - "443:443"
     volumes:
 # Для экономии места напрямую монтирую файлы с хоста, без копирования.
 # Так же это позволяет редактировать файлы и они моментально отобразятся в ВМ.
 # Существует риск, что докер затрёт данные хоста. Но здесь не принципиально.
+      - ./index.html:/var/www/index.html
+      - ./images:/var/www/images
       - ./html-css_interactive:/var/www/html-css_interactive
       - ./HTML-CSS-Base:/var/www/HTML-CSS-Base
       - ./HTML-CSS-Prof:/var/www/HTML-CSS-Prof
@@ -21,30 +23,44 @@ services:
       - ./JavaScriptProfessional-v2:/var/www/JavaScriptProfessional-v2
       - /etc/letsencrypt:/etc/letsencrypt
       - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf
-#      - ./etc/nginx/sites-enabled:/etc/nginx/sites-enabled
+      - ./etc/nginx/sites-enabled:/etc/nginx/sites-enabled
+      - ./Intergalactic_Entertainment/intergalactic/staticfiles:/var/www/intergalactic/staticfiles
+      - ./Intergalactic_Entertainment/intergalactic/media:/var/www/intergalactic/media
+    networks:
+      - my_network
   intergalactic:
-    restart: unless-stopped
+    restart: always
     build:
       context: Intergalactic_Entertainment/intergalactic
       dockerfile: Dockerfile
     expose:
       - 8000
     volumes:
-      - ./Intergalactic_Entertainment/intergalactic/db.sqlite3:/var/www/Intergalactic_Entertainment/intergalactic/db.sqlite3
-      - ./Intergalactic_Entertainment/intergalactic/staticfiles:/var/www/Intergalactic_Entertainment/intergalactic/staticfiles
-      - ./Intergalactic_Entertainment/intergalactic/media:/var/www/Intergalactic_Entertainment/intergalactic/media
-  nginx_intergalactic:
-    restart: unless-stopped
-    build:
-      context: Intergalactic_Entertainment/intergalactic
-      dockerfile: Nginx.Dockerfile
-    expose:
-      - 80
-      - 443
-    volumes:
-      - /etc/letsencrypt:/etc/letsencrypt
-      - ./Intergalactic_Entertainment/intergalactic/nginx.conf:/etc/nginx/nginx.conf
-      - ./Intergalactic_Entertainment/intergalactic/staticfiles:/var/intergalactic/staticfiles
+      - ./Intergalactic_Entertainment/intergalactic/db.sqlite3:/var/www/intergalactic/db.sqlite3
+      - ./Intergalactic_Entertainment/intergalactic/staticfiles:/var/www/intergalactic/staticfiles
       - ./Intergalactic_Entertainment/intergalactic/media:/var/www/intergalactic/media
-    depends_on:
-      - intergalactic
+    networks:
+      - my_network
+#  nginx_intergalactic:
+#    restart: unless-stopped
+#    build:
+#      context: Intergalactic_Entertainment/intergalactic
+#      dockerfile: Nginx.Dockerfile
+#    expose:
+#      - 80
+#      - 443
+#    volumes:
+#      - /etc/letsencrypt:/etc/letsencrypt
+#      - ./Intergalactic_Entertainment/intergalactic/nginx.conf:/etc/nginx/nginx.conf
+#      - ./Intergalactic_Entertainment/intergalactic/staticfiles:/var/intergalactic/staticfiles
+#      - ./Intergalactic_Entertainment/intergalactic/media:/var/www/intergalactic/media
+#    depends_on:
+#      - intergalactic
+#    networks:
+#      - this_network
+
+networks:
+  my_network:
+    driver: bridge
+#  this_network:
+#    driver: bridge
