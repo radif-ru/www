@@ -1,7 +1,0 @@
-[
-  {"id": 1, "author": "Ann", "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid omnis pariatur provident voluptates. Aperiam deleniti dolores dolorum maiores nam nemo, perspiciatis sequi similique temporibus voluptates? Aliquam culpa dolorem nostrum! Quae!", "isApproved": false},
-  {"id": 2, "author": "Anny", "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo iure numquam quibusdam? Dicta dolores ea, incidunt molestiae nam officia repellendus rerum temporibus veniam veritatis? Aliquam fugit in libero necessitatibus tenetur.", "isApproved": true},
-  {"id": 3, "author": "Victor", "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt eligendi libero magni quas rem voluptas? Aliquam amet architecto atque, cumque dignissimos doloremque error itaque, iusto minima modi quasi veritatis vitae.", "isApproved": false},
-  {"id": 4, "author": "Egor", "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci animi corporis dicta dignissimos distinctio error eveniet hic illo ipsum iusto laborum libero minima officia officiis possimus quod, tenetur vel voluptates.", "isApproved": false},
-  {"id": 5, "author": "Igor", "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, animi at incidunt ipsa odio repellendus saepe. Architecto corporis cupiditate minima neque nobis quae. Sunt, temporibus, voluptatibus. Dolores ex odit quae?", "isApproved": true}
-]
