@@ -26,6 +26,8 @@ services:
       - ./etc/nginx/sites-enabled:/etc/nginx/sites-enabled
       - ./Intergalactic_Entertainment/intergalactic/staticfiles:/var/www/intergalactic/staticfiles
       - ./Intergalactic_Entertainment/intergalactic/media:/var/www/intergalactic/media
+      - ./Django_optimization_tools/staticfiles:/var/www/geekshop/staticfiles
+      - ./Django_optimization_tools/media:/var/www/geekshop/media
     networks:
       - my_network
   intergalactic:
@@ -41,26 +43,20 @@ services:
       - ./Intergalactic_Entertainment/intergalactic/media:/var/www/intergalactic/media
     networks:
       - my_network
-#  nginx_intergalactic:
-#    restart: unless-stopped
-#    build:
-#      context: Intergalactic_Entertainment/intergalactic
-#      dockerfile: Nginx.Dockerfile
-#    expose:
-#      - 80
-#      - 443
-#    volumes:
-#      - /etc/letsencrypt:/etc/letsencrypt
-#      - ./Intergalactic_Entertainment/intergalactic/nginx.conf:/etc/nginx/nginx.conf
-#      - ./Intergalactic_Entertainment/intergalactic/staticfiles:/var/intergalactic/staticfiles
-#      - ./Intergalactic_Entertainment/intergalactic/media:/var/www/intergalactic/media
-#    depends_on:
-#      - intergalactic
-#    networks:
-#      - this_network
+  geekshop:
+    restart: always
+    build:
+      context: Django_optimization_tools
+      dockerfile: Dockerfile
+    expose:
+      - 9999
+    volumes:
+      - ./Django_optimization_tools/staticfiles:/var/www/geekshop/staticfiles
+      - ./Django_optimization_tools/media:/var/www/geekshop/media
+    networks:
+      - my_network
+
 
 networks:
   my_network:
     driver: bridge
-#  this_network:
-#    driver: bridge
