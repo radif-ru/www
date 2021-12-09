@@ -26,11 +26,16 @@ server {
     ssl_stapling_verify on;
 #    resolver 127.0.0.1 8.8.8.8;
 
+# Перенаправление схемы запросов в https
+    proxy_set_header X-Forwarded-Proto $scheme;
+
 # Исключаю возврат на http-версию сайта
-#     add_header Strict-Transport-Security "max-age=31536000";
+    add_header Strict-Transport-Security "max-age=31536000";
 
 # Явно "ломаю" все картинки с http://
     add_header Content-Security-Policy "img-src https: data:; upgrade-insecure-requests";
+
+    location = /favicon.ico { access_log off; log_not_found off; }
 
     location / {
 # Перенаправляю все запросы в сервис бэкенда

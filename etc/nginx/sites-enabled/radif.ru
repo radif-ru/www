@@ -25,8 +25,11 @@ server {
 #    resolver 127.0.0.1 8.8.8.8;
 #     resolver 45.89.230.30;
 
+# Перенаправление схемы запросов в https
+    proxy_set_header X-Forwarded-Proto $scheme;
+
 # Исключаю возврат на http-версию сайта
-#     add_header Strict-Transport-Security "max-age=31536000";
+    add_header Strict-Transport-Security "max-age=31536000";
 
 # Явно "ломаю" все картинки с http://
     add_header Content-Security-Policy "img-src https: data:; upgrade-insecure-requests";
