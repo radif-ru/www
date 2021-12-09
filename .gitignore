@@ -32,6 +32,9 @@
 # Компоненты Bower
 **/bower_components/
 
+# Код для продакшн
+**/build
+
 # Дополнительно:
 **/dist
 **.DS_Store
