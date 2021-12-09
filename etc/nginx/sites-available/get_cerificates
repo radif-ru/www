@@ -48,13 +48,3 @@ server {
         return 404;
     }
 }
-
-server {
-    listen pro-gidroizolyaciya.ru:80;
-    server_name pro-gidroizolyaciya.ru;
-    include acme;
-
-    location / {
-        return 404;
-    }
-}

@@ -12,7 +12,7 @@ services:
       - "443:443"
     volumes:
 # Для экономии места напрямую монтирую файлы с хоста, без копирования.
-# Так же это позволяет редактировать файлы и они моментально отобразятся в ВМ.
+# Так же это позволяет редактировать файлы и они моментально отобразятся на ВМ.
 # Существует риск, что докер затрёт данные хоста. Но здесь не принципиально.
       - ./index.html:/var/www/index.html
       - ./images:/var/www/images
@@ -28,6 +28,9 @@ services:
       - ./Intergalactic_Entertainment/intergalactic/media:/var/www/intergalactic/media
       - ./Django_optimization_tools/staticfiles:/var/www/geekshop/staticfiles
       - ./Django_optimization_tools/media:/var/www/geekshop/media
+      - ./Full_Stack_Django_REST_React/frontend/build:/var/www/frontend
+      - static_volume:/home/app/backend/staticfiles
+      - media_volume:/home/app/backend/mediafiles
     networks:
       - my_network
   intergalactic:
@@ -41,6 +44,7 @@ services:
       - ./Intergalactic_Entertainment/intergalactic/db.sqlite3:/var/www/intergalactic/db.sqlite3
       - ./Intergalactic_Entertainment/intergalactic/staticfiles:/var/www/intergalactic/staticfiles
       - ./Intergalactic_Entertainment/intergalactic/media:/var/www/intergalactic/media
+      - /var/sec:/var/sec
     networks:
       - my_network
   geekshop:
@@ -56,7 +60,18 @@ services:
     networks:
       - my_network
 
+volumes:
+  static_volume:
+# Объявляю том внешним, подключаю из запущенного контейнера в другом каталоге
+    external: true
+  media_volume:
+    external: true
 
 networks:
   my_network:
+# Драйвер сети
     driver: bridge
+# Имя сети
+    name: my_network
+# Подключение к внешней сети. Если её нет - необходимо создать!
+    external: true
