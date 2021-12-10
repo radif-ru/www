@@ -38,12 +38,13 @@ server {
     location = /favicon.ico { access_log off; log_not_found off; }
 
     location / {
-# Перенаправляю все запросы в сервис бэкенда
+# Перенаправляю все запросы в сервис бэкенда, к Gunicorn, запущенному на порту 3333
         proxy_pass http://todos;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header Host $host;
         proxy_redirect off;
 
+# CORS headers - кроссдоменные запросы
 ### ### ###
         # add_header Access-Control-Allow-Origin *;
         if ($request_method = 'OPTIONS') {

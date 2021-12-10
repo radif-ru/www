@@ -38,13 +38,13 @@ server {
     location = /favicon.ico { access_log off; log_not_found off; }
 
     location / {
-# Перенаправляю все запросы в сервис бэкенда
+# Перенаправляю все запросы в сервис бэкенда, к Gunicorn, запущенному на порту 8000
         proxy_pass http://intergalactic;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header Host $host;
         proxy_redirect off;
 
-
+# CORS headers - кроссдоменные запросы
 # У каких адресов есть доступ. Включены все. Для безопасности можно указать конкретные!
         add_header 'Access-Control-Allow-Origin' '*';
         add_header 'Access-Control-Allow-Credentials' 'true';
