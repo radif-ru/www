@@ -61,4 +61,7 @@ server {
     location /media/ {
         alias /var/www/geekshop/media/;
     }
+
+    # Устанавливаю максимальный размер загружаемых данных
+    client_max_body_size 230M;
 }

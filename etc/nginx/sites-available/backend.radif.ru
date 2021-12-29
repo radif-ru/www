@@ -105,4 +105,7 @@ server {
     location /media/ {
         alias /home/app/backend/mediafiles/;
     }
+
+    # Устанавливаю максимальный размер загружаемых данных
+    client_max_body_size 230M;
 }

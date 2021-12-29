@@ -63,4 +63,7 @@ server {
     location ~ ^.+\..+$ {
         try_files $uri =404;
         }
+
+    # Устанавливаю максимальный размер загружаемых данных
+    client_max_body_size 230M;
 }
