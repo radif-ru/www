@@ -44,7 +44,6 @@ services:
       - ./Intergalactic_Entertainment/intergalactic/db.sqlite3:/var/www/intergalactic/db.sqlite3
       - ./Intergalactic_Entertainment/intergalactic/staticfiles:/var/www/intergalactic/staticfiles
       - ./Intergalactic_Entertainment/intergalactic/media:/var/www/intergalactic/media
-      - /var/sec:/var/sec
     networks:
       - my_network
   geekshop:
