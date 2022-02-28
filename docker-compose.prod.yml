@@ -16,11 +16,13 @@ services:
 # Существует риск, что докер затрёт данные хоста. Но здесь не принципиально.
       - ./index.html:/var/www/index.html
       - ./images:/var/www/images
+      - ./audio:/var/www/audio
       - ./html-css_interactive:/var/www/html-css_interactive
       - ./HTML-CSS-Base:/var/www/HTML-CSS-Base
       - ./HTML-CSS-Prof:/var/www/HTML-CSS-Prof
       - ./JavaScriptProfessional:/var/www/JavaScriptProfessional
       - ./JavaScriptProfessional-v2:/var/www/JavaScriptProfessional-v2
+      - ./Intex_Stroy:/var/www/Intex_Stroy
       - /etc/letsencrypt:/etc/letsencrypt
       - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./etc/nginx/sites-enabled:/etc/nginx/sites-enabled
