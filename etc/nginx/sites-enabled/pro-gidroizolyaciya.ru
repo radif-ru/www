@@ -1,20 +1,17 @@
 server {
-# Перенаправление с http на https
-    listen radif.ru:80;
-    server_name radif.ru;
-# Устанавливаем/обновляем сертификат Let's Encrypt. Раскомментировать include, закомментировать return
-#    include acme;
+    listen pro-gidroizolyaciya.ru:80;
+    server_name pro-gidroizolyaciya.ru;
     return 301 https://$host$request_uri;
 }
 
-
 server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-    listen 443 ssl http2 default_server;
-    listen [::]:443 ssl http2 default_server;
-    # выше можно добавить default_server для клиентов без SNI
-    server_name radif.ru;
+    listen 80;
+    listen [::]:80;
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    
+    server_name pro-gidroizolyaciya.ru;
+#     listen pro-gidroizolyaciya.ru:443 ssl;
 
 # Подключаю сертификаты, которые получил в центре сертификации - Let's Encrypt
     ssl_certificate /etc/letsencrypt/live/radif.ru/fullchain.pem;
@@ -34,9 +31,8 @@ server {
     add_header Content-Security-Policy "img-src https: data:; upgrade-insecure-requests";
 
     location = /favicon.ico { access_log off; log_not_found off; }
-
     location / {
-        root /var/www;
+        root /var/www/Intex_Stroy;
         index index.html index.htm;
         autoindex on;
     }
@@ -44,4 +40,3 @@ server {
     # Устанавливаю максимальный размер загружаемых данных
     client_max_body_size 230M;
 }
-

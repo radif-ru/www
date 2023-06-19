@@ -20,11 +20,13 @@ server {
     server_name django.radif.ru;
 
 # Подключаю сертификаты, которые получил в центре сертификации - Let's Encrypt
-    ssl_certificate /etc/letsencrypt/live/django.radif.ru-0001/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/django.radif.ru-0001/privkey.pem;
-    ssl_trusted_certificate /etc/letsencrypt/live/django.radif.ru-0001/chain.pem;
+    ssl_certificate /etc/letsencrypt/live/radif.ru/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/radif.ru/privkey.pem;
+    ssl_trusted_certificate /etc/letsencrypt/live/radif.ru/chain.pem;
+
     ssl_stapling on;
     ssl_stapling_verify on;
+
 #    resolver 127.0.0.1 8.8.8.8;
 
 # Перенаправление схемы запросов в https
