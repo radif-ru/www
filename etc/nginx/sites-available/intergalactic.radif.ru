@@ -18,13 +18,12 @@ server {
     server_name intergalactic.radif.ru;
 
 # Подключаю сертификаты, которые получил в центре сертификации - Let's Encrypt
-    ssl_certificate /etc/letsencrypt/live/intergalactic.radif.ru/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/intergalactic.radif.ru/privkey.pem;
-    ssl_trusted_certificate /etc/letsencrypt/live/intergalactic.radif.ru/chain.pem;
+    ssl_certificate /etc/letsencrypt/live/radif.ru/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/radif.ru/privkey.pem;
+    ssl_trusted_certificate /etc/letsencrypt/live/radif.ru/chain.pem;
 
     ssl_stapling on;
     ssl_stapling_verify on;
-#    resolver 127.0.0.1 8.8.8.8;
 
 # Перенаправление схемы запросов в https
     proxy_set_header X-Forwarded-Proto $scheme;
