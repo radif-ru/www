@@ -21,8 +21,6 @@ server {
     ssl_stapling on;
     ssl_stapling_verify on;
 
-#         resolver 127.0.0.1 8.8.8.8;
-
 # Перенаправление схемы запросов в https
     proxy_set_header X-Forwarded-Proto $scheme;
 
