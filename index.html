@@ -22,13 +22,14 @@
   <meta name="twitter:title" content="Радиф Илалтдинов — Full Stack и Backend разработчик (Python), внедрение ИИ">
   <meta name="twitter:description" content="Python, FastAPI, Django, AsyncIO, PostgreSQL. Внедряю ИИ/LLM в разработку. Казань, удалённо.">
   <meta name="twitter:image" content="https://radif.ru/images/XpcecZp7H6A.jpg">
-  <meta name="theme-color" content="#0a0e16">
+  <meta name="theme-color" content="#070b13">
   <link rel="shortcut icon" href="images/XpcecZp7H6A.jpg" type="image/jpeg">
   <style>
 /* Резюме — Радиф Илалтдинов. Тёмная тема + светлая печать/PDF. */
 :root {
   --bg: #070b13; --bg2: #0c1322;
-  --panel: rgba(20, 28, 44, 0.62); --panel-solid: #111a2b;
+  /* Видимость анимации за карточками: меньше альфа (последнее число, по умолчанию 0.62) = карточки прозрачнее, фон-анимация виднее. */
+  --panel: rgba(20, 28, 44, 0.3); --panel-solid: #111a2b;
   --border: rgba(120, 160, 220, 0.16);
   --text: #e8eef8; --muted: #9fb0c8; --faint: #6f819b;
   --accent: #36d1c4; --accent2: #7cf2a0; --accent3: #8aa2ff;
@@ -38,16 +39,26 @@
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 76px; }
-body {
-  margin: 0; font-family: var(--sans); color: var(--text); line-height: 1.62;
-  background:
+html {
+  scroll-behavior: smooth; scroll-padding-top: 76px;
+  /* Фон-подложку держим на html (не на body): покрывает весь вьюпорт — нет белой
+     полосы при сворачивании адресной строки — и лежит позади canvas #bg, поэтому
+     фоновая анимация остаётся видимой. */
+  background-color: var(--bg);
+  background-image:
     radial-gradient(1200px 700px at 85% -10%, rgba(54, 209, 196, 0.10), transparent 60%),
     radial-gradient(900px 600px at 5% 10%, rgba(138, 162, 255, 0.10), transparent 60%),
     linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
-  background-attachment: fixed; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  background-repeat: no-repeat; background-attachment: fixed;
 }
-#bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+body {
+  margin: 0; font-family: var(--sans); color: var(--text); line-height: 1.62;
+  min-height: 100vh; background: transparent;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+/* height: 100lvh — «large viewport»: на смартфоне не меняется при показе/скрытии адресной строки,
+   поэтому canvas не прыгает при листании. 100vh — фолбэк для старых браузеров. */
+#bg { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; height: 100lvh; z-index: -1; pointer-events: none; background: transparent; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { color: var(--accent2); text-decoration: underline; text-underline-offset: 3px; }
 .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 20px 80px; }
@@ -61,6 +72,20 @@ a:hover { color: var(--accent2); text-decoration: underline; text-underline-offs
 .nav a { color: var(--muted); font-size: 0.92rem; font-weight: 600; }
 .nav a:hover { color: var(--text); text-decoration: none; }
 .nav .links { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.nav-toggle {
+  display: none; align-items: center; justify-content: center; width: 42px; height: 38px;
+  padding: 0; border-radius: 10px; border: 1px solid var(--chip-border); background: var(--chip);
+  color: var(--text); cursor: pointer; transition: border-color .15s, background .15s;
+}
+.nav-toggle:hover { border-color: var(--accent); }
+.nav-toggle .bars { position: relative; display: block; width: 20px; height: 14px; }
+.nav-toggle .bars span { position: absolute; left: 0; width: 100%; height: 2px; border-radius: 2px; background: currentColor; transition: transform .25s ease, opacity .2s ease, top .25s ease; }
+.nav-toggle .bars span:nth-child(1) { top: 0; }
+.nav-toggle .bars span:nth-child(2) { top: 6px; }
+.nav-toggle .bars span:nth-child(3) { top: 12px; }
+.nav.open .nav-toggle .bars span:nth-child(1) { top: 6px; transform: rotate(45deg); }
+.nav.open .nav-toggle .bars span:nth-child(2) { opacity: 0; }
+.nav.open .nav-toggle .bars span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
 .btn {
   display: inline-flex; align-items: center; gap: 7px; padding: 9px 15px; border-radius: 999px;
   border: 1px solid var(--chip-border); background: var(--chip); color: var(--text);
@@ -97,6 +122,9 @@ h2.section-title::before { content: ""; width: 10px; height: 22px; border-radius
   font-family: var(--mono); font-size: 0.82rem; padding: 5px 11px; border-radius: 8px;
   background: var(--chip); border: 1px solid var(--chip-border); color: var(--text); white-space: nowrap;
 }
+.chips.wrap-chips .chip { white-space: normal; line-height: 1.35; }
+a.chip { transition: border-color .15s, background .15s; }
+a.chip:hover { border-color: var(--accent); color: var(--text); text-decoration: none; background: var(--chip-border); }
 .job { padding: 4px 0; }
 .job + .job { margin-top: 8px; border-top: 1px dashed var(--border); padding-top: 22px; }
 .job-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; align-items: baseline; }
@@ -126,10 +154,34 @@ blockquote.quote cite { display: block; margin-top: 6px; font-style: normal; col
 .foot .profiles { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 10px 0; }
 .foot .descriptors { color: var(--faint); font-size: 0.88rem; margin-top: 14px; }
 .foot .reg { font-size: 0.82rem; color: var(--faint); margin-top: 8px; }
+.flagship {
+  position: relative; margin: 14px 0 8px; padding: 18px 20px; border-radius: 14px;
+  background: linear-gradient(135deg, rgba(54, 209, 196, 0.10), rgba(138, 162, 255, 0.08));
+  border: 1px solid rgba(54, 209, 196, 0.32);
+}
+.flagship h3 { margin: 0 0 6px; font-size: 1.18rem; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.flagship .badge {
+  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.7px; text-transform: uppercase; font-weight: 700;
+  padding: 3px 9px; border-radius: 999px; color: #06231f; background: linear-gradient(135deg, var(--accent), var(--accent2));
+}
+.flagship .tech-line { margin-top: 12px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media (max-width: 720px) {
+  .nav { gap: 8px 12px; padding: 10px 16px; }
+  .nav-toggle { display: inline-flex; }
+  .nav .links {
+    position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0;
+    background: rgba(7, 11, 19, 0.97); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    padding: 0 18px; max-height: 0; overflow: hidden; opacity: 0;
+    transition: max-height .28s ease, opacity .2s ease, padding .28s ease;
+  }
+  .nav.open .links { max-height: 80vh; opacity: 1; padding: 8px 18px 14px; }
+  .nav .links a { display: block; padding: 12px 4px; font-size: 1rem; border-bottom: 1px solid rgba(120, 160, 220, 0.10); }
+  .nav .links a:last-child { border-bottom: 0; }
+}
 @media (max-width: 620px) {
   .card { padding: 20px 18px; }
-  .nav .links { display: none; }
   .job-period { white-space: normal; }
 }
 @media print {
@@ -148,6 +200,8 @@ blockquote.quote cite { display: block; margin-top: 6px; font-style: normal; col
   .chip { background: #f1f4f8; border: 1px solid #cbd3de; color: #1d2733; font-size: 9.5px; padding: 2px 6px; }
   .gar { background: #f7f9fc; border-left-color: #0b2a4a; }
   .gar.res, blockquote.quote { background: #f3faf5; }
+  .flagship { background: #f3faf5 !important; border: 1px solid #bfe3d6; padding: 10px 12px; break-inside: avoid; }
+  .flagship .badge { background: #0b2a4a !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .contacts .btn { border: 1px solid #cbd3de; background: #fff; color: #111; padding: 3px 8px; }
   @page { margin: 12mm 10mm; }
 }
@@ -175,7 +229,23 @@ blockquote.quote cite { display: block; margin-top: 6px; font-style: normal; col
       { "@type": "CollegeOrUniversity", "name": "КНИТУ-КАИ им. А.Н. Туполева" },
       { "@type": "EducationalOrganization", "name": "GeekBrains / GeekUniversity (Mail.ru Group)" }
     ],
-    "knowsAbout": ["Python","FastAPI","Django","Django REST framework","AsyncIO","SQLAlchemy","PostgreSQL","Redis","Socket.IO","WebSocket","Docker","Linux","Nginx","GitLab CI/CD","JavaScript","TypeScript","React","Vue.js","PHP","внедрение ИИ в разработку","LLM","мульти-агентные системы","fine-tuning","системный анализ","микросервисы"],
+    "knowsAbout": ["Python","FastAPI","Django","Django REST framework","AsyncIO","SQLAlchemy","PostgreSQL","Redis","Socket.IO","WebSocket","Docker","Linux","Nginx","GitLab CI/CD","JavaScript","TypeScript","React","Vue.js","PHP","внедрение ИИ в разработку","LLM","мульти-агентные системы","RAG","MCP","fine-tuning","системный анализ","микросервисы"],
+    "knowsLanguage": [
+      { "@type": "Language", "name": "Русский" },
+      { "@type": "Language", "name": "Английский (технический)" }
+    ],
+    "hasOccupation": {
+      "@type": "Occupation",
+      "name": "Full Stack / Backend разработчик (Python)",
+      "occupationalCategory": "15-1252.00 Software Developers",
+      "experienceRequirements": "7+ лет",
+      "skills": "Python, FastAPI, Django, Django REST framework, AsyncIO, SQLAlchemy, PostgreSQL, Redis, Socket.IO, Celery, RabbitMQ, Docker, Linux, Nginx, GitLab CI/CD, JavaScript, TypeScript, React, Vue.js, внедрение ИИ и LLM в разработку, мульти-агентные системы, RAG, MCP, fine-tuning, системный анализ, микросервисы"
+    },
+    "hasCredential": [
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "educationalLevel": "Магистр", "name": "Магистр — КНИТУ-КАИ им. А.Н. Туполева", "dateCreated": "2015" },
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "educationalLevel": "Бакалавр", "name": "Бакалавр — КНИТУ-КАИ им. А.Н. Туполева", "dateCreated": "2013" },
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "Профессиональная переподготовка", "name": "Разработка программного обеспечения — GeekBrains / GeekUniversity (Mail.ru Group)", "dateCreated": "2021", "recognizedBy": { "@type": "EducationalOrganization", "name": "GeekBrains / GeekUniversity (Mail.ru Group)" } }
+    ],
     "sameAs": [
       "https://github.com/radif-ru",
       "https://pypi.org/user/radif.ru/",
@@ -191,9 +261,9 @@ blockquote.quote cite { display: block; margin-top: 6px; font-style: normal; col
 </head>
 <body>
 <canvas id="bg" aria-hidden="true"></canvas>
-<nav class="nav">
+<nav class="nav" id="nav">
   <span class="brand">Радиф Илалтдинов</span>
-  <span class="links">
+  <span class="links" id="navLinks">
     <a href="#about">Обо мне</a>
     <a href="#skills">Навыки</a>
     <a href="#experience">Опыт</a>
@@ -201,7 +271,10 @@ blockquote.quote cite { display: block; margin-top: 6px; font-style: normal; col
     <a href="#education">Образование</a>
     <a href="#contacts">Контакты</a>
   </span>
-  <button id="printBtn" class="btn btn-primary" type="button">Скачать PDF</button>
+  <button id="printBtn" class="btn btn-primary no-print" type="button">Скачать PDF</button>
+  <button id="navToggle" class="nav-toggle no-print" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="navLinks">
+    <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+  </button>
 </nav>
 
 <main class="wrap">
@@ -229,7 +302,7 @@ blockquote.quote cite { display: block; margin-top: 6px; font-style: normal; col
   <section id="about" class="card">
     <h2 class="section-title">Обо мне</h2>
     <p class="lead">Backend-разработчик на Python с фуллстек-практикой. Беру задачу целиком: от архитектуры базы данных и серверной логики до деплоя на чистый Linux-сервер. Фронтенд подключаю по необходимости, как часть фуллстека.</p>
-    <p>Веду продукт почти в одиночку и плотно занимаюсь внедрением ИИ в разработку: мульти-агентные системы, локальные LLM, дообучение моделей. За счёт этого ускорил процессы на порядки.</p>
+    <p>Веду продукт почти в одиночку и плотно занимаюсь внедрением ИИ в разработку: мульти-агентные системы, локальные LLM, дообучение моделей. За счёт этого заметно ускорил работу над задачами.</p>
     <p>Люблю докапываться до сути и быстро осваиваю новое. То, что заинтересовало, изучаю до уровня, на котором могу применять в работе. Веду здоровый образ жизни, занимаюсь спортом.</p>
     <p class="muted">Приоритеты: backend и серверная разработка в основе. Фронтенд (web, mobile, desktop) по необходимости, как часть Full Stack.</p>
   </section>
@@ -258,7 +331,11 @@ blockquote.quote cite { display: block; margin-top: 6px; font-style: normal; col
       </div>
       <div class="skill-group">
         <h3>ИИ и LLM</h3>
-        <div class="chips"><span class="chip">Внедрение ИИ в разработку</span><span class="chip">Cursor AI</span><span class="chip">Claude Code</span><span class="chip">GPT</span><span class="chip">Локальные LLM (Ollama)</span><span class="chip">Мульти-агентные системы</span><span class="chip">Fine-tuning</span><span class="chip">Эмбеддинги / RAG</span></div>
+        <div class="chips"><span class="chip">Внедрение ИИ в разработку</span><span class="chip">Локальные LLM (Ollama)</span><span class="chip">Мульти-агентные системы</span><span class="chip">Fine-tuning</span><span class="chip">Эмбеддинги / RAG</span><span class="chip">MCP</span><span class="chip">GPT</span><span class="chip">Claude</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>ИИ-ассистенты в разработке</h3>
+        <div class="chips"><span class="chip">Cursor</span><span class="chip">Windsurf</span><span class="chip">Devin</span><span class="chip">Claude Code</span><span class="chip">GitHub Copilot</span><span class="chip">JetBrains AI Assistant</span><span class="chip">PyCharm Professional</span></div>
       </div>
       <div class="skill-group">
         <h3>Инструменты и подходы</h3>
@@ -297,11 +374,17 @@ blockquote.quote cite { display: block; margin-top: 6px; font-style: normal; col
       <div class="gar act"><p><b class="tag tag-act">Действие</b> Перестроил архитектуру, расширил и местами переписал логику, структуры моделей и таблиц с сохранением данных тысяч пользователей из множества связанных таблиц. Заложил особенности дизайна и логики под каждую компанию.</p></div>
       <div class="gar res"><p><b class="tag tag-res">Результат</b> Одно приложение работает под две компании в РФ, начата подготовка к запуску в других странах.</p></div>
 
-      <p><b>2026.</b> Принял на себя backend, frontend, DevOps, QA, архитектуру и системную аналитику, в том числе поддержку проектов на других языках из смежных отделов. Полноценно внедрил ИИ в процессы разработки на профессиональном уровне (мульти-агентные системы, локальные LLM, дообучение моделей) и <b>на порядки ускорил процессы разработки</b>. Теперь отвечаю практически за всё, что связано с разработкой ПО в компании. Помог маркетингу с интеграциями и автоматизацией: Битрикс24, GetCourse, Tilda, Albato, eLama, RIS.Promo, Марквиз, ВКонтакте. Открытые примеры моих ИИ-наработок (рабочие проекты под NDA): <a href="https://github.com/radif-ru/ai-multi-agent-system" target="_blank" rel="noopener">ai-multi-agent-system</a>, <a href="https://github.com/radif-ru/fine-tuning" target="_blank" rel="noopener">fine-tuning</a>, <a href="https://github.com/radif-ru/ai-tg-bot" target="_blank" rel="noopener">ai-tg-bot</a>.</p>
+      <p><b>2026.</b> Принял на себя backend, frontend, DevOps, QA, архитектуру и системную аналитику, в том числе поддержку проектов на других языках из смежных отделов. Теперь отвечаю практически за всё, что связано с разработкой ПО в компании.</p>
+
+      <div class="gar goal"><p><b class="tag tag-goal">Цель</b> Ускорить разработку и держать единое качество кода, когда над проектом работают разные ИИ-ассистенты и агенты.</p></div>
+      <div class="gar act"><p><b class="tag tag-act">Действие</b> Внедрил собственный процесс ИИ-ассистированной разработки: единый свод правил для всех агентов (один источник истины плюс скиллы-дисциплины), доску со спринтами, этапами и задачами, Definition of Ready и Done, ритуал коммитов, обязательные тесты и линтеры до коммита, синхронную документацию. Любой агент (Cursor, Windsurf, Devin, Claude Code, GitHub Copilot, JetBrains AI) читает одни и те же документы и пишет код единообразно. В ежедневной работе совмещаю несколько ассистентов и под задачу выбираю подходящий.</p></div>
+      <div class="gar res"><p><b class="tag tag-res">Результат</b> Процессы разработки ускорились <b>на порядки</b>, код приходит с тестами и пройденными линтерами, документация не отстаёт от кода.</p></div>
+
+      <p>Сами мульти-агентные системы, локальные LLM, RAG и дообучение моделей — мой полигон: на нём учусь, проверяю идеи и оттачиваю этот процесс. Методику выложил в открытом виде во флагманском проекте <a href="https://github.com/radif-ru/ai-multi-agent-system" target="_blank" rel="noopener">ai-multi-agent-system</a> (каталоги _board, _docs, .agents и файл AGENTS.md). Другие открытые наработки (рабочие проекты под NDA): <a href="https://github.com/radif-ru/local-rag-mcp" target="_blank" rel="noopener">local-rag-mcp</a>, <a href="https://github.com/radif-ru/fine-tuning" target="_blank" rel="noopener">fine-tuning</a>, <a href="https://github.com/radif-ru/ai-tg-bot" target="_blank" rel="noopener">ai-tg-bot</a>. Помог маркетингу с интеграциями и автоматизацией: Битрикс24, GetCourse, Tilda, Albato, eLama, RIS.Promo, Марквиз, ВКонтакте.</p>
 
       <div class="tech-line">
         <div class="label">Стек</div>
-        <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">AsyncIO</span><span class="chip">PostgreSQL</span><span class="chip">SQLAlchemy</span><span class="chip">Pydantic</span><span class="chip">Alembic</span><span class="chip">Redis</span><span class="chip">Socket.IO</span><span class="chip">WebSocket</span><span class="chip">JWT</span><span class="chip">S3</span><span class="chip">RESTful API</span><span class="chip">OpenAPI / Swagger / ReDoc</span><span class="chip">Pytest</span><span class="chip">Flake8</span><span class="chip">Docker Compose</span><span class="chip">GitLab</span><span class="chip">Linux</span><span class="chip">TypeScript</span><span class="chip">React</span><span class="chip">Cursor AI</span><span class="chip">Claude Code</span><span class="chip">Ollama</span><span class="chip">Мульти-агенты</span><span class="chip">Fine-tuning</span></div>
+        <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">AsyncIO</span><span class="chip">PostgreSQL</span><span class="chip">SQLAlchemy</span><span class="chip">Pydantic</span><span class="chip">Alembic</span><span class="chip">Redis</span><span class="chip">Socket.IO</span><span class="chip">WebSocket</span><span class="chip">JWT</span><span class="chip">S3</span><span class="chip">RESTful API</span><span class="chip">OpenAPI / Swagger / ReDoc</span><span class="chip">Pytest</span><span class="chip">Flake8</span><span class="chip">Docker Compose</span><span class="chip">GitLab</span><span class="chip">Linux</span><span class="chip">TypeScript</span><span class="chip">React</span><span class="chip">Cursor</span><span class="chip">Windsurf</span><span class="chip">Devin</span><span class="chip">JetBrains AI Assistant</span><span class="chip">GitHub Copilot</span><span class="chip">Claude Code</span><span class="chip">PyCharm Professional</span><span class="chip">Ollama</span><span class="chip">Мульти-агенты</span><span class="chip">Fine-tuning</span></div>
       </div>
     </article>
     <article class="job">
@@ -402,11 +485,29 @@ blockquote.quote cite { display: block; margin-top: 6px; font-style: normal; col
     <h2 class="section-title">Проекты и open source</h2>
     <p class="muted">Весь код реализован мной. Развёрнутые проекты работают на моём VPS: чистый Linux, контейнеры Docker Compose с общей сетью, домены под SSL и HTTPS через Nginx.</p>
 
-    <div class="edu-item">
-      <h3>ИИ и LLM</h3>
+    <div class="flagship">
+      <h3><a href="https://github.com/radif-ru/ai-multi-agent-system" target="_blank" rel="noopener">ai-multi-agent-system</a> <span class="badge">Флагман</span></h3>
+      <p>Локальная мульти-агентная система на self-hosted LLM через Ollama. Принимает задачу и крутит цикл «мысль → действие → наблюдение» до финального ответа. Это моя самая свежая и полная наработка: в неё вошли прежние ИИ-проекты, Telegram-бот и RAG, в переработанном виде.</p>
       <ul class="clean">
-        <li><a href="https://github.com/radif-ru/ai-multi-agent-system" target="_blank" rel="noopener">ai-multi-agent-system</a> — локальная мульти-агентная система (Planner / Executor / Critic) на self-hosted LLM через Ollama. Telegram, консоль, MAX через единый контракт ядра. Память на sqlite-vec, инструменты: calculator, OCR (Tesseract), web, погода. Без облачных API.</li>
-        <li><a href="https://github.com/radif-ru/fine-tuning" target="_blank" rel="noopener">fine-tuning</a> — дообучение моделей. <a href="https://github.com/radif-ru/ai-tg-bot" target="_blank" rel="noopener">ai-tg-bot</a> — Telegram-бот-чат на локальной LLM с памятью контекста и суммаризацией истории.</li>
+        <li>Роли Planner, Executor и Critic с режимами рефлексии off / normal / deep, переключение под пользователя.</li>
+        <li>Одно ядро обслуживает три канала: Telegram (aiogram 3), консоль и MAX. Адаптеры тонкие, новый канал не трогает логику ядра.</li>
+        <li>Под разные задачи разные локальные модели: отдельно для рассуждений, эмбеддингов и зрения, плюс распознавание речи через faster-whisper.</li>
+        <li>Долгосрочная семантическая память на sqlite-vec. Инструменты: точная арифметика, OCR (Tesseract), веб-поиск, погода, чтение файлов, поиск по памяти.</li>
+        <li>Тесты на pytest без сетевых вызовов, структурные JSON-логи с trace_id, маскирование секретов. Всё локально, без облачных LLM-API.</li>
+        <li>Заодно это полигон для процесса ИИ-ассистированной разработки: AGENTS.md как единый источник правил для всех агентов, скиллы-дисциплины в .agents/skills, доска со спринтами и задачами в _board (process.md, plan.md, sprints), Definition of Done, обязательные тесты и линтеры до коммита. Тот же подход внедрил на работе и на порядки ускорил разработку.</li>
+      </ul>
+      <div class="tech-line">
+        <div class="label">Стек</div>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Ollama</span><span class="chip">aiogram 3</span><span class="chip">httpx</span><span class="chip">sqlite-vec</span><span class="chip">faster-whisper</span><span class="chip">Tesseract OCR</span><span class="chip">Pydantic</span><span class="chip">Pytest</span><span class="chip">Multi-agent</span><span class="chip">RAG</span><span class="chip">MAX API</span></div>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <h3>Другие ИИ-наработки</h3>
+      <ul class="clean">
+        <li><a href="https://github.com/radif-ru/local-rag-mcp" target="_blank" rel="noopener">local-rag-mcp</a> — локальная privacy-first база знаний на RAG и MCP. Гибридный поиск (BM25 и векторный с объединением через RRF), cross-encoder reranker (BAAI/bge-reranker-base), расширение коротких запросов, FAISS, эмбеддинги SentenceTransformers, ответы локальной LLM через Ollama. Инструменты MCP (read / list / search) модель вызывает сама. Без облачных API.</li>
+        <li><a href="https://github.com/radif-ru/fine-tuning" target="_blank" rel="noopener">fine-tuning</a> — дообучение моделей под конкретные задачи.</li>
+        <li><a href="https://github.com/radif-ru/ai-tg-bot" target="_blank" rel="noopener">ai-tg-bot</a> — Telegram-бот-чат на локальной LLM с памятью контекста и суммаризацией истории. Ранняя версия идей, которые развиты во флагмане.</li>
       </ul>
     </div>
 
@@ -443,17 +544,44 @@ blockquote.quote cite { display: block; margin-top: 6px; font-style: normal; col
 
     <div class="edu-item">
       <h3>Самообучение: ИИ и LLM <span class="when">— постоянно</span></h3>
-      <p>Мульти-агентные системы, локальные LLM (Ollama), дообучение моделей (fine-tuning), эмбеддинги и RAG, работа с vision и речью. Открытые репозитории веду как примеры и полигон для практики.</p>
+      <p>Мульти-агентные системы, локальные LLM (Ollama), дообучение моделей (fine-tuning), эмбеддинги, RAG и MCP, работа с vision и речью. Открытые репозитории веду как примеры и полигон для практики.</p>
     </div>
 
     <div class="edu-item">
       <h3>GeekBrains / GeekUniversity (Mail.ru Group) <span class="when">— Декабрь 2019 — Сентябрь 2021</span></h3>
-      <p>Full-Stack разработчик: Python, Django, JavaScript, базы данных, Linux. Диплом государственного образца. <a href="https://radif.ru/images/диплом.jpg" target="_blank" rel="noopener">Диплом</a>.</p>
+      <p>Профессиональная переподготовка «Разработка программного обеспечения». Full-Stack разработчик: Python, Django, JavaScript, базы данных, Linux. Диплом государственного образца. <a href="https://radif.ru/images/диплом.jpg" target="_blank" rel="noopener">Диплом</a>.</p>
     </div>
 
     <div class="edu-item">
-      <h3>КНИТУ-КАИ им. А.Н. Туполева <span class="when">— 2009 — 2015</span></h3>
-      <p>Магистр, Инженерно-экономический институт. Казанский национальный исследовательский технический университет им. А.Н. Туполева (бывший КГТУ).</p>
+      <h3>Сертификаты GeekBrains <span class="when">— 2021</span></h3>
+      <p class="muted">Курсы в рамках программы переподготовки (кликабельны):</p>
+      <div class="chips wrap-chips">
+        <a class="chip" href="https://gb.ru/go/tTAbey" target="_blank" rel="noopener">Django REST framework</a>
+        <a class="chip" href="https://gb.ru/go/F~33sw" target="_blank" rel="noopener">Django Framework. Инструменты оптимизации</a>
+        <a class="chip" href="https://gb.ru/go/Y-QuQ6" target="_blank" rel="noopener">Клиент-серверные приложения на Python</a>
+        <a class="chip" href="https://gb.ru/go/Hvomnh" target="_blank" rel="noopener">Архитектура и шаблоны проектирования на Python</a>
+        <a class="chip" href="https://gb.ru/go/yOKXnh" target="_blank" rel="noopener">Алгоритмы и структуры данных на Python</a>
+        <a class="chip" href="https://gb.ru/go/yNNoIM" target="_blank" rel="noopener">Базы данных и PyQt</a>
+        <a class="chip" href="https://gb.ru/go/wy9zss" target="_blank" rel="noopener">Основы реляционных БД. MySQL</a>
+        <a class="chip" href="https://gb.ru/go/tQzoef" target="_blank" rel="noopener">Методы сбора и обработки данных из интернета</a>
+        <a class="chip" href="https://gb.ru/go/1GCjuw" target="_blank" rel="noopener">Продвинутый JavaScript</a>
+        <a class="chip" href="https://gb.ru/go/QHja~e" target="_blank" rel="noopener">ReactJS</a>
+        <a class="chip" href="https://gb.ru/go/mHV7dk" target="_blank" rel="noopener">HTML / CSS. Интерактивный курс</a>
+        <a class="chip" href="https://gb.ru/go/iTJf2r" target="_blank" rel="noopener">Git. Базовый курс</a>
+        <a class="chip" href="https://gb.ru/go/HmMRQ0" target="_blank" rel="noopener">Linux. Рабочая станция</a>
+        <a class="chip" href="https://gb.ru/go/i46ezB" target="_blank" rel="noopener">Компьютерные сети</a>
+        <a class="chip" href="https://gb.ru/go/qfkPlq" target="_blank" rel="noopener">Командная разработка по Agile: SCRUM</a>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <h3>КНИТУ-КАИ им. А.Н. Туполева <span class="when">— 2013 — 2015</span></h3>
+      <p>Магистр. Казанский национальный исследовательский технический университет им. А.Н. Туполева (бывший КГТУ).</p>
+    </div>
+
+    <div class="edu-item">
+      <h3>КНИТУ-КАИ им. А.Н. Туполева <span class="when">— 2009 — 2013</span></h3>
+      <p>Бакалавр. Казанский национальный исследовательский технический университет им. А.Н. Туполева (бывший КГТУ).</p>
     </div>
   </section>
   <section id="achievements" class="card">
@@ -461,7 +589,7 @@ blockquote.quote cite { display: block; margin-top: 6px; font-style: normal; col
 
     <blockquote class="quote">
       «Нацелен на результат, доводит работу до конца. Имеет хорошую техническую эрудицию и всегда предлагает варианты оптимальной реализации. Прислушивается к обратной связи и сам даёт обратную связь.»
-      <cite>akozich1, коллега — рекомендательное письмо на Habr Career</cite>
+      <cite>akozich1, коллега — рекомендательное письмо на <a href="https://career.habr.com/radif-ru/opinions" target="_blank" rel="noopener">Habr Career</a></cite>
     </blockquote>
 
     <div class="ach-item">
@@ -512,44 +640,60 @@ blockquote.quote cite { display: block; margin-top: 6px; font-style: normal; col
   if (!canvas || !canvas.getContext) return;
   var ctx = canvas.getContext("2d");
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var W = 0, H = 0, dpr = 1, raf = 0, nodes = [], tokens = [];
+  var W = 0, H = 0, dpr = 1, raf = 0, nodes = [], tokens = [], lastW = 0, lastH = 0, resizeTimer = 0, lastT = 0;
   var pointer = { x: -9999, y: -9999 };
+  // Линии-связи сети: LINK — макс. расстояние соединения узлов (больше = больше и длиннее линий).
+  // Толщина линий — ctx.lineWidth во frame(); цвет/прозрачность — strokeStyle там же.
   var LINK = 150, LINK2 = LINK * LINK;
   var WORDS = ["def","async","await","class","{ }","</>","AI","LLM","token","model","RAG","agent",
     "prompt","vector","fn()","git","SQL","==>","λ","0x1F","npm","docker","yield","return","import",
     "GPT","embed","tensor","->","::","neural","fastapi","redis","k8s","[ ]","self"];
   function rand(a, b) { return a + Math.random() * (b - a); }
-  function resize() {
+  function setup(reinit) {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
-    W = canvas.clientWidth || window.innerWidth;
-    H = canvas.clientHeight || window.innerHeight;
+    var w = canvas.clientWidth || window.innerWidth || document.documentElement.clientWidth;
+    var h = canvas.clientHeight || window.innerHeight || document.documentElement.clientHeight;
+    if (!w || !h) return false;
+    W = w; H = h;
     canvas.width = Math.floor(W * dpr); canvas.height = Math.floor(H * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    init();
+    if (reinit || !nodes.length) init();
+    return true;
   }
   function init() {
+    // Скорость анимации: больше числа в rand(...) = быстрее. Две скорости независимы.
+    // Кол-во узлов (точки + основа для линий): больше узлов = плотнее сеть. Делитель 17000 меньше = больше узлов; диапазон min 28 … max 95.
     var count = Math.max(28, Math.min(95, Math.round((W * H) / 17000)));
     nodes = [];
-    for (var i = 0; i < count; i++) nodes.push({ x: Math.random()*W, y: Math.random()*H, vx: rand(-0.22,0.22), vy: rand(-0.22,0.22) });
+    // Узлы сети (точки + связи): скорость дрейфа — rand(-0.22,0.22) по vx и vy.
+    for (var i = 0; i < count; i++) nodes.push({ x: Math.random()*W, y: Math.random()*H, vx: rand(-1.00,1.00), vy: rand(-1.00,1.00) });
+    // Кол-во летящих токенов: count / 5 — уменьши делитель (напр. count / 3) = больше токенов; 6 — нижняя граница (минимум).
     var tcount = Math.max(6, Math.round(count / 5));
     tokens = [];
-    for (var j = 0; j < tcount; j++) tokens.push({ x: Math.random()*W, y: Math.random()*H, vy: rand(-0.55,-0.18), w: WORDS[(Math.random()*WORDS.length)|0], a: rand(0.05,0.16), s: rand(11,17) });
+    // Летящие снизу вверх токены: скорость подъёма — vy: rand(-0.55,-0.18) (значения отрицательные; ближе к нулю = медленнее).
+    for (var j = 0; j < tcount; j++) tokens.push({ x: Math.random()*W, y: Math.random()*H, vy: rand(-2.03,-0.55), w: WORDS[(Math.random()*WORDS.length)|0], a: rand(0.05,0.16), s: rand(11,17) });
   }
-  function frame() {
+  function frame(now) {
+    // Движение привязано ко времени, а не к кадру: при просадках/паузах rAF
+    // (типично во время скролла на мобильных) скорость остаётся ровной, без рывка.
+    var dt = lastT ? (now - lastT) / 16.6667 : 1;
+    lastT = now;
+    if (dt > 3) dt = 3;
     ctx.clearRect(0, 0, W, H);
+    ctx.lineWidth = 0.6; // толщина линий-связей (больше = толще)
     for (var i = 0; i < nodes.length; i++) {
       var n = nodes[i];
-      n.x += n.vx; n.y += n.vy;
+      n.x += n.vx * dt; n.y += n.vy * dt;
       if (n.x < 0 || n.x > W) n.vx *= -1;
       if (n.y < 0 || n.y > H) n.vy *= -1;
       var pdx = pointer.x - n.x, pdy = pointer.y - n.y, pd = pdx*pdx + pdy*pdy;
-      if (pd < 26000) { n.x += pdx * 0.0009; n.y += pdy * 0.0009; }
+      if (pd < 26000) { n.x += pdx * 0.0009 * dt; n.y += pdy * 0.0009 * dt; }
       for (var k = i + 1; k < nodes.length; k++) {
         var m = nodes[k];
         var dx = n.x - m.x, dy = n.y - m.y, d2 = dx*dx + dy*dy;
         if (d2 < LINK2) {
-          var o = (1 - d2 / LINK2) * 0.5;
-          ctx.strokeStyle = "rgba(70,190,210," + o + ")"; ctx.lineWidth = 0.6;
+          var o = (1 - d2 / LINK2) * 0.5; // яркость линий: множитель 0.5 больше = линии ярче
+          ctx.strokeStyle = "rgba(70,190,210," + o + ")"; // цвет линий (RGB)
           ctx.beginPath(); ctx.moveTo(n.x, n.y); ctx.lineTo(m.x, m.y); ctx.stroke();
         }
       }
@@ -560,7 +704,7 @@ blockquote.quote cite { display: block; margin-top: 6px; font-style: normal; col
     }
     for (var t = 0; t < tokens.length; t++) {
       var tk = tokens[t];
-      tk.y += tk.vy;
+      tk.y += tk.vy * dt;
       if (tk.y < -24) { tk.y = H + 24; tk.x = Math.random() * W; }
       ctx.fillStyle = "rgba(150,180,255," + tk.a + ")";
       ctx.font = tk.s + "px ui-monospace, monospace";
@@ -568,14 +712,55 @@ blockquote.quote cite { display: block; margin-top: 6px; font-style: normal; col
     }
     raf = requestAnimationFrame(frame);
   }
-  window.addEventListener("resize", function () { cancelAnimationFrame(raf); resize(); if (!reduce) frame(); });
-  window.addEventListener("pointermove", function (e) { pointer.x = e.clientX; pointer.y = e.clientY; });
-  window.addEventListener("pointerleave", function () { pointer.x = -9999; pointer.y = -9999; });
-  resize();
-  if (reduce) {
+  function drawStatic() {
     ctx.clearRect(0, 0, W, H);
     for (var a = 0; a < nodes.length; a++) { ctx.fillStyle = "rgba(124,242,160,0.55)"; ctx.beginPath(); ctx.arc(nodes[a].x, nodes[a].y, 1.6, 0, 6.2832); ctx.fill(); }
-  } else { frame(); }
+  }
+  function render() { cancelAnimationFrame(raf); lastT = 0; if (reduce) drawStatic(); else raf = requestAnimationFrame(frame); }
+  // При листании на смартфоне адресная строка меняет только ВЫСОТУ вьюпорта и на
+  // небольшую величину. Ресайз canvas в этот момент сбрасывал бы кадр и давал рывок,
+  // поэтому пересобираем сцену лишь при смене ШИРИНЫ (>60px) или КРУПНОМ изменении высоты (>200px).
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      var w = canvas.clientWidth || window.innerWidth;
+      var h = canvas.clientHeight || window.innerHeight;
+      if (Math.abs(w - lastW) <= 60 && Math.abs(h - lastH) <= 200) return;
+      lastW = w; lastH = h;
+      if (setup(true)) render();
+    }, 160);
+  });
+  window.addEventListener("orientationchange", function () {
+    setTimeout(function () { lastW = canvas.clientWidth || window.innerWidth; lastH = canvas.clientHeight || window.innerHeight; if (setup(true)) render(); }, 250);
+  });
+  window.addEventListener("pointermove", function (e) { pointer.x = e.clientX; pointer.y = e.clientY; });
+  window.addEventListener("pointerleave", function () { pointer.x = -9999; pointer.y = -9999; });
+  // Возврат из фона / bfcache / энергосбережения мог остановить rAF — перезапускаем.
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) render(); });
+  window.addEventListener("pageshow", function () { render(); });
+  lastW = canvas.clientWidth || window.innerWidth;
+  lastH = canvas.clientHeight || window.innerHeight;
+  setup(true);
+  render();
+
+  var nav = document.getElementById("nav");
+  var navToggle = document.getElementById("navToggle");
+  if (nav && navToggle) {
+    var setOpen = function (open) {
+      nav.classList.toggle("open", open);
+      navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      navToggle.setAttribute("aria-label", open ? "Закрыть меню" : "Открыть меню");
+    };
+    navToggle.addEventListener("click", function () { setOpen(!nav.classList.contains("open")); });
+    var navLinks = nav.querySelectorAll(".links a");
+    for (var li = 0; li < navLinks.length; li++) {
+      navLinks[li].addEventListener("click", function () { setOpen(false); });
+    }
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" || e.keyCode === 27) setOpen(false); });
+    document.addEventListener("click", function (e) {
+      if (nav.classList.contains("open") && !nav.contains(e.target)) setOpen(false);
+    });
+  }
   var pb = document.getElementById("printBtn");
   if (pb) pb.addEventListener("click", function () { window.print(); });
 })();

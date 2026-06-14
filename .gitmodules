@@ -22,3 +22,6 @@
 [submodule "html-css_interactive"]
 	path = html-css_interactive
 	url = https://github.com/radif-ru/html-css_interactive.git
+[submodule "Intex_Stroy"]
+	path = Intex_Stroy
+	url = git@github.com:radif-ru/Intex_Stroy.git
