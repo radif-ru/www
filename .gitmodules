@@ -1,0 +1,27 @@
+[submodule "Django_optimization_tools"]
+	path = Django_optimization_tools
+	url = https://github.com/radif-ru/Django_optimization_tools.git
+[submodule "Full_Stack_Django_REST_React"]
+	path = Full_Stack_Django_REST_React
+	url = https://github.com/radif-ru/Full_Stack_Django_REST_React.git
+[submodule "HTML-CSS-Base"]
+	path = HTML-CSS-Base
+	url = https://github.com/radif-ru/HTML-CSS-Base.git
+[submodule "HTML-CSS-Prof"]
+	path = HTML-CSS-Prof
+	url = https://github.com/radif-ru/HTML-CSS-Prof.git
+[submodule "Intergalactic_Entertainment"]
+	path = Intergalactic_Entertainment
+	url = https://github.com/radif-ru/Intergalactic_Entertainment.git
+[submodule "JavaScriptProfessional"]
+	path = JavaScriptProfessional
+	url = https://github.com/radif-ru/JavaScriptProfessional.git
+[submodule "JavaScriptProfessional-v2"]
+	path = JavaScriptProfessional-v2
+	url = https://github.com/radif-ru/JavaScriptProfessional-v2.git
+[submodule "html-css_interactive"]
+	path = html-css_interactive
+	url = https://github.com/radif-ru/html-css_interactive.git
+[submodule "Intex_Stroy"]
+	path = Intex_Stroy
+	url = git@github.com:radif-ru/Intex_Stroy.git
