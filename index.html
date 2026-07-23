@@ -2,271 +2,611 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="author" content="Radif">
-  <meta name="contact" content="mail@radif.ru">
-  <meta name="copyright" content="© Radif.ru, 2021.">
-  <title>Мои проекты. Практическая работа</title>
-  <link rel="shortcut icon" href="images/XpcecZp7H6A.jpg" type="image/png">
-  <style>
-      body {
-
-      }
-
-      a:hover {
-          color: red;
-      }
-
-      .site-link {
-          font-size: 1.3em;
-          text-decoration: none;
-          color: salmon;
-          font-weight: bold;
-      }
-
-      .git-link {
-          font-size: 1.3em;
-          text-decoration: none;
-          color: green;
-          font-weight: bold;
-      }
-
-      .site-description {
-          font-size: 1.2em;
-      }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Радиф Илалтдинов — Backend или Full Stack разработчик. Автоматизирую процессы. Внедряю ИИ</title>
+  <meta name="description" content="Радиф Илалтдинов — Backend или Full Stack разработчик. Автоматизирую процессы. Внедряю ИИ. Python: FastAPI, Django, AsyncIO, SQLAlchemy, PostgreSQL, Redis. JavaScript/TypeScript: React, Vue.js. PHP. LLM, мульти-агентные системы, RAG, MCP, fine-tuning. Опыт 7+ лет. Казань, удалённо, гибридно, готов к переезду и командировкам. Подтверждённые ИТ-компетенции (Минцифры). i@radif.ru, +7 987 286-96-93, Telegram @radif_ru.">
+  <meta name="keywords" content="Радиф Илалтдинов, Радиф Рашитович Илалтдинов, radif-ru, Backend разработчик, Full Stack разработчик, фуллстек разработчик, Backend developer, Full Stack developer, автоматизация процессов, внедрение ИИ, внедрение ИИ в разработку, ИИ в разработке, LLM, мульти-агентные системы, RAG, MCP, fine-tuning, Python разработчик, JavaScript разработчик, TypeScript, PHP разработчик, FastAPI, Django, Django REST framework, AsyncIO, SQLAlchemy, PostgreSQL, Redis, Socket.IO, WebSocket, React, Vue.js, Docker, Linux, Nginx, GitLab CI/CD, микросервисы, системный аналитик, Казань, удалённо, гибридно, резюме">
+  <meta name="author" content="Радиф Илалтдинов">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://radif.ru/">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Радиф Илалтдинов — Backend или Full Stack разработчик. Автоматизирую процессы. Внедряю ИИ">
+  <meta property="og:description" content="Backend или Full Stack разработчик. Автоматизирую процессы. Внедряю ИИ. Python (FastAPI, Django, AsyncIO), JavaScript/TypeScript (React, Vue.js), PHP, PostgreSQL, Docker. LLM, RAG, мульти-агентные системы. Опыт 7+ лет. Казань, удалённо, гибридно.">
+  <meta property="og:url" content="https://radif.ru/">
+  <meta property="og:image" content="https://radif.ru/files/XpcecZp7H6A.jpg">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="profile:first_name" content="Радиф">
+  <meta property="profile:last_name" content="Илалтдинов">
+  <meta property="profile:username" content="radif-ru">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Радиф Илалтдинов — Backend или Full Stack разработчик. Автоматизирую процессы. Внедряю ИИ">
+  <meta name="twitter:description" content="Backend или Full Stack разработчик. Автоматизирую процессы. Внедряю ИИ. Python, JavaScript/TypeScript, PHP: FastAPI, Django, React, PostgreSQL, Docker. LLM, RAG. Опыт 7+ лет. Казань, удалённо, гибридно.">
+  <meta name="twitter:image" content="https://radif.ru/files/XpcecZp7H6A.jpg">
+  <meta name="theme-color" content="#070b13">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="icon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="assets/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://radif.ru/#website",
+      "url": "https://radif.ru/",
+      "name": "Радиф Илалтдинов — резюме",
+      "inLanguage": "ru-RU",
+      "publisher": { "@id": "https://radif.ru/#person" }
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://radif.ru/#webpage",
+      "url": "https://radif.ru/",
+      "name": "Радиф Илалтдинов — Backend или Full Stack разработчик. Автоматизирую процессы. Внедряю ИИ",
+      "isPartOf": { "@id": "https://radif.ru/#website" },
+      "about": { "@id": "https://radif.ru/#person" },
+      "mainEntity": { "@id": "https://radif.ru/#person" },
+      "inLanguage": "ru-RU",
+      "dateModified": "2026-07-23"
+    },
+    {
+    "@type": "Person",
+    "@id": "https://radif.ru/#person",
+    "mainEntityOfPage": { "@id": "https://radif.ru/#webpage" },
+    "name": "Радиф Илалтдинов",
+    "alternateName": "Радиф Рашитович Илалтдинов",
+    "givenName": "Радиф",
+    "familyName": "Илалтдинов",
+    "additionalName": "Рашитович",
+    "birthDate": "1991-02-23",
+    "jobTitle": "Backend или Full Stack разработчик; автоматизация процессов; внедрение ИИ в разработку",
+    "description": "Backend или Full Stack разработчик. Автоматизирую процессы. Внедряю ИИ и LLM в разработку: мульти-агентные системы, RAG, MCP, fine-tuning. Python (FastAPI, Django, AsyncIO), JavaScript/TypeScript (React, Vue.js), PHP. Опыт 7+ лет.",
+    "url": "https://radif.ru/",
+    "image": "https://radif.ru/files/XpcecZp7H6A.jpg",
+    "email": "mailto:i@radif.ru",
+    "telephone": "+7-987-286-96-93",
+    "address": { "@type": "PostalAddress", "addressLocality": "Казань", "addressCountry": "RU" },
+    "nationality": "Россия",
+    "worksFor": { "@type": "Organization", "name": "ООО «Творческое Образование»" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "КНИТУ-КАИ им. А.Н. Туполева" },
+      { "@type": "EducationalOrganization", "name": "GeekBrains / GeekUniversity (Mail.ru Group)" },
+      { "@type": "EducationalOrganization", "name": "coders.su — тренинг Михаила Ларченко («Современный Fullstack-инженер»)", "url": "https://coders.su/" }
+    ],
+    "knowsAbout": ["Python","FastAPI","Django","Django REST framework","AsyncIO","SQLAlchemy","PostgreSQL","Redis","Socket.IO","WebSocket","Docker","Linux","Nginx","GitLab CI/CD","JavaScript","TypeScript","React","Vue.js","PHP","внедрение ИИ в разработку","LLM","мульти-агентные системы","RAG","MCP","fine-tuning","системный анализ","микросервисы","автоматизация процессов"],
+    "knowsLanguage": [
+      { "@type": "Language", "name": "Русский" },
+      { "@type": "Language", "name": "Английский (технический)" }
+    ],
+    "hasOccupation": {
+      "@type": "Occupation",
+      "name": "Backend или Full Stack разработчик; автоматизация процессов; внедрение ИИ",
+      "occupationalCategory": "15-1252.00 Software Developers",
+      "experienceRequirements": "7+ лет",
+      "skills": "Python, FastAPI, Django, Django REST framework, AsyncIO, SQLAlchemy, PostgreSQL, Redis, Socket.IO, Celery, RabbitMQ, Docker, Linux, Nginx, GitLab CI/CD, JavaScript, TypeScript, React, Vue.js, внедрение ИИ и LLM в разработку, мульти-агентные системы, RAG, MCP, fine-tuning, системный анализ, микросервисы, автоматизация процессов"
+    },
+    "hasCredential": [
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "educationalLevel": "Магистр", "name": "Магистр — КНИТУ-КАИ им. А.Н. Туполева", "dateCreated": "2015" },
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "educationalLevel": "Бакалавр", "name": "Бакалавр — КНИТУ-КАИ им. А.Н. Туполева", "dateCreated": "2013" },
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "Профессиональная переподготовка", "name": "Разработка программного обеспечения — GeekBrains / GeekUniversity (Mail.ru Group)", "dateCreated": "2021", "recognizedBy": { "@type": "EducationalOrganization", "name": "GeekBrains / GeekUniversity (Mail.ru Group)" } },
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "certificate", "name": "Тренинг для Fullstack-программистов — курс «Современный Fullstack-инженер», Миша Ларченко (coders.su)", "url": "https://radif.ru/files/certificate-ru-114e4643-b57d-49b8-a126-e875a73da968.pdf", "sameAs": "https://coders.su/certificates/114e4643-b57d-49b8-a126-e875a73da968", "dateCreated": "2026-07-04", "recognizedBy": { "@type": "EducationalOrganization", "name": "coders.su — тренинг Михаила Ларченко", "url": "https://coders.su/" } },
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "certificate", "name": "Fullstack Developer Training — Mikhail Larchanka (coders.su)", "url": "https://radif.ru/files/certificate-en-114e4643-b57d-49b8-a126-e875a73da968.pdf", "sameAs": "https://coders.su/certificates/114e4643-b57d-49b8-a126-e875a73da968", "dateCreated": "2026-07-04", "recognizedBy": { "@type": "EducationalOrganization", "name": "coders.su", "url": "https://coders.su/" } },
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "certificate", "educationalLevel": "Продвинутый уровень", "name": "Python — продвинутый уровень (Национальная система оценки ИТ-компетенций)", "url": "https://radif.ru/files/certificate-python.pdf", "expires": "2027-06-21", "recognizedBy": { "@type": "GovernmentOrganization", "name": "Министерство цифрового развития РФ (Минцифры)" } },
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "certificate", "educationalLevel": "Продвинутый уровень", "name": "SQL — продвинутый уровень (Национальная система оценки ИТ-компетенций)", "url": "https://radif.ru/files/certificate-sql.pdf", "expires": "2027-06-21", "recognizedBy": { "@type": "GovernmentOrganization", "name": "Министерство цифрового развития РФ (Минцифры)" } },
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "certificate", "educationalLevel": "Продвинутый уровень", "name": "PHP — продвинутый уровень (Национальная система оценки ИТ-компетенций)", "url": "https://radif.ru/files/certificate-php.pdf", "expires": "2027-06-21", "recognizedBy": { "@type": "GovernmentOrganization", "name": "Министерство цифрового развития РФ (Минцифры)" } },
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "certificate", "educationalLevel": "Продвинутый уровень", "name": "PostgreSQL — продвинутый уровень (Национальная система оценки ИТ-компетенций)", "url": "https://radif.ru/files/certificate-postgresql.pdf", "expires": "2027-06-21", "recognizedBy": { "@type": "GovernmentOrganization", "name": "Министерство цифрового развития РФ (Минцифры)" } },
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "certificate", "educationalLevel": "Продвинутый уровень", "name": "Linux — продвинутый уровень (Национальная система оценки ИТ-компетенций)", "url": "https://radif.ru/files/certificate-linux.pdf", "expires": "2027-06-21", "recognizedBy": { "@type": "GovernmentOrganization", "name": "Министерство цифрового развития РФ (Минцифры)" } },
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "certificate", "educationalLevel": "Продвинутый уровень", "name": "Docker — продвинутый уровень (Национальная система оценки ИТ-компетенций)", "url": "https://radif.ru/files/certificate-docker.pdf", "expires": "2027-06-21", "recognizedBy": { "@type": "GovernmentOrganization", "name": "Министерство цифрового развития РФ (Минцифры)" } },
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "certificate", "educationalLevel": "Продвинутый уровень", "name": "Git — продвинутый уровень (Национальная система оценки ИТ-компетенций)", "url": "https://radif.ru/files/certificate-git.pdf", "expires": "2027-06-21", "recognizedBy": { "@type": "GovernmentOrganization", "name": "Министерство цифрового развития РФ (Минцифры)" } },
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "certificate", "educationalLevel": "Продвинутый уровень", "name": "API — продвинутый уровень (Национальная система оценки ИТ-компетенций)", "url": "https://radif.ru/files/certificate-api.pdf", "expires": "2027-06-21", "recognizedBy": { "@type": "GovernmentOrganization", "name": "Министерство цифрового развития РФ (Минцифры)" } },
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "certificate", "educationalLevel": "Продвинутый уровень", "name": "ООП / архитектура и шаблоны — продвинутый уровень (Национальная система оценки ИТ-компетенций)", "url": "https://radif.ru/files/certificate-oop.pdf", "expires": "2027-06-21", "recognizedBy": { "@type": "GovernmentOrganization", "name": "Министерство цифрового развития РФ (Минцифры)" } },
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "certificate", "educationalLevel": "Продвинутый уровень", "name": "Алгоритмы и структуры данных — продвинутый уровень (Национальная система оценки ИТ-компетенций)", "url": "https://radif.ru/files/certificate-algorithms-and-data-structures.pdf", "expires": "2027-06-21", "recognizedBy": { "@type": "GovernmentOrganization", "name": "Министерство цифрового развития РФ (Минцифры)" } },
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "certificate", "educationalLevel": "Продвинутый уровень", "name": "JavaScript — продвинутый уровень (Национальная система оценки ИТ-компетенций)", "url": "https://radif.ru/files/certificate-javascript.pdf", "expires": "2027-06-21", "recognizedBy": { "@type": "GovernmentOrganization", "name": "Министерство цифрового развития РФ (Минцифры)" } },
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "certificate", "educationalLevel": "Продвинутый уровень", "name": "HTML — продвинутый уровень (Национальная система оценки ИТ-компетенций)", "url": "https://radif.ru/files/certificate-html.pdf", "expires": "2027-06-21", "recognizedBy": { "@type": "GovernmentOrganization", "name": "Министерство цифрового развития РФ (Минцифры)" } },
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "certificate", "educationalLevel": "Продвинутый уровень", "name": "CSS — продвинутый уровень (Национальная система оценки ИТ-компетенций)", "url": "https://radif.ru/files/certificate-css.pdf", "expires": "2027-06-20", "recognizedBy": { "@type": "GovernmentOrganization", "name": "Министерство цифрового развития РФ (Минцифры)" } }
+    ],
+    "sameAs": [
+      "https://github.com/radif-ru",
+      "https://github.com/radif-ru/www",
+      "https://pypi.org/user/radif.ru/",
+      "https://career.habr.com/radif-ru",
+      "https://vk.com/radif_ru",
+      "https://www.instagram.com/radif.ru/",
+      "https://t.me/radif_ru",
+      "https://max.ru/u/f9LHodD0cOI2pcFyBYQKOdJX05bvOOTviarDUdWU_XWtwPR6eytsUZzL2qY",
+      "https://www.gosuslugi.ru/snet/681af8283c28a40629ee605f"
+    ]
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/radif-ru/www",
+      "name": "radif.ru — персональный сайт и резюме",
+      "codeRepository": "https://github.com/radif-ru/www",
+      "programmingLanguage": ["HTML", "CSS", "JavaScript", "Docker", "Nginx"],
+      "author": { "@id": "https://radif.ru/#person" },
+      "about": { "@id": "https://radif.ru/#person" },
+      "description": "Исходный код этого сайта-резюме: семантический HTML5, доступность (skip-link, ARIA-лендмарки), фоновая canvas-анимация на нативном JavaScript (ES6), SEO и структурированные данные (JSON-LD). Деплой в Docker за Nginx: TLS 1.2/1.3, HTTP/2, строгий Content-Security-Policy, gzip, кэш-заголовки."
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/radif-ru/ai-multi-agent-system",
+      "name": "ai-multi-agent-system",
+      "codeRepository": "https://github.com/radif-ru/ai-multi-agent-system",
+      "programmingLanguage": "Python",
+      "author": { "@id": "https://radif.ru/#person" },
+      "description": "Локальная мульти-агентная система на self-hosted LLM (Ollama): агентный цикл «мысль → действие → наблюдение», RAG, мультимодальность, инструменты MCP, долгосрочная память на sqlite-vec, планировщик регулярных cron-задач. Тесты (pytest, покрытие ≥80% как гейт CI), структурные логи и error tracking (self-hosted GlitchTip), CI-гейты без ИИ. 14 закрытых спринтов."
+    }
+    ]
+  }
+  </script>
 </head>
-
 <body>
-<!--<h1 style="text-align: center;">!!!<a
-    href=https://kazan.hh.ru/resume/d2119037ff095027ac0039ed1f775659325270
-    target="_blank">Оформленное резюме на ТУТ</a>!!!<br>А текст ниже для себя, для
-  быстрого доступа к нужной информации
-</h1>-->
-<h1 style="text-align: center;">!!!<a
-    href=https://kazan.hh.ru/resume/d2119037ff095027ac0039ed1f775659325270
-    target="_blank">Переходи по этой ссылке, чтобы увидеть оформленное резюме на HH</a>!!!
-	<br>А текст ниже для себя, для быстрого доступа к нужной информации
-</h1>
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+<canvas id="bg" aria-hidden="true"></canvas>
+<header class="site-header">
+<nav class="nav" id="nav" aria-label="Основная навигация">
+  <span class="brand">Радиф Илалтдинов</span>
+  <span class="links" id="navLinks">
+    <a href="#about">Обо мне</a>
+    <a href="#skills">Навыки</a>
+    <a href="#experience">Опыт</a>
+    <a href="#projects">Проекты</a>
+    <a href="#hardware">Железо</a>
+    <a href="#education">Образование</a>
+    <a href="#certificates">Сертификаты</a>
+    <a href="#contacts">Контакты</a>
+    <button id="printBtn" class="btn btn-primary no-print" type="button">Скачать PDF</button>
+  </span>
+  <button id="navToggle" class="nav-toggle no-print" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="navLinks">
+    <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+  </button>
+</nav>
+</header>
 
-<!--<h1 style="text-align: center;">(на текущий момент трудоустроен, работу не ищу)</h1>-->
+<main class="wrap" id="main" tabindex="-1">
+  <header class="hero">
+    <h1>Радиф Илалтдинов</h1>
+    <p class="role"><b>Backend или Full Stack разработчик.</b> Автоматизирую процессы. Внедряю ИИ</p>
+    <div class="meta">
+      <span><span class="dot">▹</span> Казань, Россия</span>
+      <span><span class="dot">▹</span> Удалённо, гибридно, готов к переезду и командировкам</span>
+      <span><span class="dot">▹</span> Опыт 7+ лет</span>
+      <span><span class="dot">▹</span> Backend · Full Stack · Внедрение ИИ · Автоматизация процессов</span>
+    </div>
+    <div class="contacts">
+      <a class="btn btn-primary" href="tel:+79872869693">+7&nbsp;987&nbsp;286&#8209;96&#8209;93</a>
+      <a class="btn" href="mailto:i@radif.ru">i@radif.ru</a>
+      <a class="btn" href="https://t.me/radif_ru" target="_blank" rel="noopener">Telegram @radif_ru</a>
+      <a class="btn" href="https://wa.me/79872869693" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn" href="https://max.ru/u/f9LHodD0cOI2pcFyBYQKOdJX05bvOOTviarDUdWU_XWtwPR6eytsUZzL2qY" target="_blank" rel="noopener">MAX</a>
+      <a class="btn" href="https://github.com/radif-ru" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://career.habr.com/radif-ru" target="_blank" rel="noopener">Habr Career</a>
+      <a class="btn" href="https://pypi.org/user/radif.ru/" target="_blank" rel="noopener">PyPI</a>
+    </div>
+  </header>
 
-<h2 style="text-align: center;"><a
-    href=https://career.habr.com/radif-ru
-    target="_blank">Добавляйся в друзья на Habr Career (если нет доступа к HH - заходи сюда!)</a><br>
-</h2>
-<h1>Практическая работа</h1>
-<hr>
-<h3>Применял на практике: Python, Django, DRF, Django REST Framework, AsyncIO,
-  Aiohttp, Contextvars, CBV, JWT,
-  JSON Web Token, OpenAPI, Swagger, ReDoc, GraphQL, Celery, Pytest, SQLAlchemy,
-  PyQt, Data mining, Scrapy, BeautifulSoup, Selenium, XPath, Gunicorn, Linux,
-  Bash, Настройка VPS/VDS серверов, Apache, Nginx, Docker, Docker-compose, Базы
-  данных, MySQL, PostgreSQL, MongoDB, Redis, JavaScript, Cookies, LocalStorage,
-  Node.js, Vue.js,
-  React, асинхронные запросы (async, await), Flux-архитектура, Redux, SPA,
-  Webpack, Npm, Bower, AJAX, jQuery, GulpJS, PHP, Composer,
-  Yii2-Advanced, Regex, Sass, HTML5/CSS3, Bootstrap, RabbitMQ, Zabbix, Jira, Git, GitLab (CI/CD), Bitbucket, и т.д. Работал по
-  методологиям Agile, SCRUM. Умею работать с ветками, pull request-ами, решать
-  конфликты при merge в Git, проводить code-review товарищей по команде.
-</h3>
-<hr>
+  <section id="about" class="card">
+    <h2 class="section-title">Обо мне</h2>
+    <p class="lead">Backend-разработчик с полноценным опытом Full Stack. Беру задачу целиком: от архитектуры базы данных и серверной логики до деплоя на чистый Linux-сервер. Фронтенд (web, mobile, desktop) подключаю по необходимости, как часть фуллстека. Опыт разработки 7+ лет в сферах: edtech, финтех, вендинг, телефония, строительство и др.</p>
+    <p>Внедряю ИИ в разработку: мульти-агентные системы, локальные LLM, RAG, дообучение моделей, мультимодальность (текст, документы, голос, изображения), MCP. Выстроил единый процесс ИИ-ассистированной разработки — один свод правил для всех агентов (Cursor, Windsurf, Devin, Claude Code, GitHub Copilot, JetBrains AI), обязательные тесты и линтеры, синхронная документация. Архитектуру, ревью и финальные решения держу за собой — агенты ускоряют рутину, а не заменяют инженера. Результат: скорость разработки выросла в несколько раз, код приходит с тестами, документация не отстаёт от кода. Процесс открыто показываю во <a href="https://github.com/radif-ru/ai-multi-agent-system" target="_blank" rel="noopener">флагманском проекте</a>: единый свод правил — <a href="https://github.com/radif-ru/ai-multi-agent-system/blob/main/AGENTS.md" target="_blank" rel="noopener">AGENTS.md</a>, доска со спринтами — <a href="https://github.com/radif-ru/ai-multi-agent-system/tree/main/_board" target="_blank" rel="noopener">_board</a>, документация — <a href="https://github.com/radif-ru/ai-multi-agent-system/tree/main/_docs" target="_blank" rel="noopener">_docs</a>, скиллы-дисциплины ассистента — <a href="https://github.com/radif-ru/ai-multi-agent-system/tree/main/.agents" target="_blank" rel="noopener">.agents</a>.</p>
+    <p>Автоматизирую рутину на всех уровнях: повторяющиеся операции закрываю скриптами, планировщиками (Celery, APScheduler, cron) и запуском по кнопкам в веб-интерфейсе — вместо ручных команд в консоли. Держусь принципа «детерминированное автоматизируй инструментом, а не ИИ»: где результат должен быть предсказуемым (линтеры, тесты, контроль покрытия, проверки синхронности, миграции данных), работают инструменты — вплоть до скрипта, который одной командой прогоняет весь ритуал проверок перед коммитом, — а ИИ оставляю там, где нужна гибкость. Так автоматизация остаётся надёжной и воспроизводимой, а токены LLM тратятся на суждения, а не на механику.</p>
+    <p>Люблю докапываться до сути и быстро осваиваю новое: интересную тему изучаю глубоко и активно применяю новые знания на практике и в работе. Английский — технический: свободно работаю с документацией. Веду здоровый образ жизни, занимаюсь спортом.</p>
+  </section>
+  <section id="skills" class="card">
+    <h2 class="section-title">Ключевые навыки</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Языки</h3>
+        <div class="chips"><span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">PHP</span><span class="chip">SQL</span><span class="chip">Bash</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>Backend</h3>
+        <div class="chips"><span class="chip">FastAPI</span><span class="chip">Django</span><span class="chip">Django REST framework</span><span class="chip">AsyncIO</span><span class="chip">Aiohttp</span><span class="chip">Celery</span><span class="chip">SQLAlchemy</span><span class="chip">Pydantic</span><span class="chip">Alembic</span><span class="chip">Socket.IO</span><span class="chip">WebSocket</span><span class="chip">GraphQL</span><span class="chip">REST</span><span class="chip">JWT</span><span class="chip">OpenAPI / Swagger</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>Frontend</h3>
+        <div class="chips"><span class="chip">React</span><span class="chip">Vue.js</span><span class="chip">Svelte.js</span><span class="chip">Redux</span><span class="chip">SPA</span><span class="chip">jQuery</span><span class="chip">Webpack</span><span class="chip">Sass</span><span class="chip">HTML5 / CSS3</span><span class="chip">Bootstrap</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>Базы данных и брокеры</h3>
+        <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">SQLite</span><span class="chip">MongoDB</span><span class="chip">Redis</span><span class="chip">RabbitMQ</span><span class="chip">MQTT</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>DevOps и инфраструктура</h3>
+        <div class="chips"><span class="chip">Linux</span><span class="chip">Docker</span><span class="chip">Docker Compose</span><span class="chip">Nginx</span><span class="chip">Gunicorn</span><span class="chip">GitLab CI/CD</span><span class="chip">VPS / VDS</span><span class="chip">Let's Encrypt</span><span class="chip">Zabbix</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>ИИ и LLM</h3>
+        <div class="chips"><span class="chip">Внедрение ИИ в разработку</span><span class="chip">Локальные LLM (Ollama)</span><span class="chip">Мульти-агентные системы</span><span class="chip">Мультимодальность</span><span class="chip">Fine-tuning</span><span class="chip">Эмбеддинги / RAG</span><span class="chip">sqlite-vec</span><span class="chip">MCP</span><span class="chip">OCR (Tesseract)</span><span class="chip">faster-whisper</span><span class="chip">Vision-модели</span><span class="chip">GPT</span><span class="chip">Claude</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>ИИ-ассистенты в разработке</h3>
+        <div class="chips"><span class="chip">Cursor</span><span class="chip">Windsurf</span><span class="chip">Devin</span><span class="chip">Claude Code</span><span class="chip">GitHub Copilot</span><span class="chip">JetBrains AI Assistant</span><span class="chip">PyCharm Professional</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>Инструменты и подходы</h3>
+        <div class="chips"><span class="chip">Git</span><span class="chip">GitLab</span><span class="chip">Bitbucket</span><span class="chip">Jira</span><span class="chip">YouTrack</span><span class="chip">Yandex Tracker</span><span class="chip">Agile / SCRUM</span><span class="chip">Code Review</span><span class="chip">Микросервисы</span><span class="chip">Pytest</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>Автоматизация процессов</h3>
+        <div class="chips"><span class="chip">Автоматизация рутины</span><span class="chip">Планировщики (Celery, APScheduler, cron)</span><span class="chip">CI/CD-гейты</span><span class="chip">flake8 / pytest</span><span class="chip">Контроль покрытия</span><span class="chip">Скрипты миграции данных</span><span class="chip">Запуск по кнопкам</span><span class="chip">Sandbox-запуск скриптов</span><span class="chip">Инструменты вместо ИИ</span><span class="chip">ИИ для рутинных задач</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>Data mining и edge</h3>
+        <div class="chips"><span class="chip">Scrapy</span><span class="chip">BeautifulSoup</span><span class="chip">Selenium</span><span class="chip">XPath</span><span class="chip">PyQt</span><span class="chip">Repka Pi / Orange Pi</span><span class="chip">Modbus</span><span class="chip">Kiosk-режим</span></div>
+      </div>
+    </div>
+  </section>
+  <section id="experience" class="card">
+    <h2 class="section-title">Опыт работы</h2>
 
-<h1><a href="https://github.com/radif-ru" class="git-link" target="_blank">GitHub</a>
-  - Исходные коды, проекты на различных языках программирования</h1>
-<h1><a href="https://pypi.org/user/radif.ru/" target="_blank">PyPI</a> -
-  Проекты загруженные на PyPI</h1>
+    <article class="job">
+      <div class="job-head">
+        <h3><span class="company">ООО «Творческое Образование»</span> — Старший разработчик, системный аналитик</h3>
+        <span class="job-period">Август 2024 — настоящее время</span>
+      </div>
+      <p class="job-sub">Краснодар, удалённо. Федеральные сети онлайн и офлайн школ. Главный разработчик на проектах. <a href="https://grafika-art-school.ru/franchise" target="_blank" rel="noopener">grafika-art-school.ru/franchise</a> (GRAFIKA) и <a href="https://arttech-school.ru/franchise" target="_blank" rel="noopener">arttech-school.ru/franchise</a> (ArtTech)</p>
+      <p class="job-context">Платформу для студентов, преподавателей, менеджеров, руководителей и партнёров делаем с нуля: веб-версия, приложения для Android и iPhone, Telegram-бот. В команде backend- и frontend-разработчики, DevOps, системные аналитики, PM и QA. Я проектирую архитектуру БД и бэкенда, пишу серверную часть, помогаю аналитикам с ТЗ, а фронтендерам с отладкой и оптимизацией запросов.</p>
 
-<!--<h1><a href="https://career.habr.com/radif-ru" target="_blank">Habr Career</a> - Хабр Карьера</h1>-->
+      <div class="gar goal"><p><b class="tag tag-goal">Цель</b> Запустить платформу для федеральной сети школ и довести её до продакшна.</p></div>
+      <div class="gar act"><p><b class="tag tag-act">Действие</b> Спроектировал архитектуру БД и бэкенда, реализовал серверную часть веба и приложений, написал скрипты загрузки и миграции данных.</p></div>
+      <div class="gar res"><p><b class="tag tag-res">Результат</b> Вывели продукт в продакшн. Через мои скрипты в систему заведено около 5 000 студентов, которые активно пользуются приложением.</p></div>
 
-<hr>
+      <div class="gar goal"><p><b class="tag tag-goal">Цель</b> Поддержать сложную логику абонементов и расписаний для разных городов и таймзон.</p></div>
+      <div class="gar act"><p><b class="tag tag-act">Действие</b> Сделал конструктор абонементов (направления со своими лимитами или безлимитом), запись и отмену занятий, заморозки, приостановки, трансферы, присутствие студента сразу в нескольких школах, учёт десятков городов в разных таймзонах.</p></div>
+      <div class="gar res"><p><b class="tag tag-res">Результат</b> Бэкенд сам корректно отрабатывает эти случаи, ручных операций стало заметно меньше.</p></div>
 
-<!--<h2>Скрипты фронтенда на JavaScript, jQuery, Vue.js,
-<br>бэкенд/сервер на Python DJANGO/NGINX/Gunicorn, Ajax. Так же запускал на Node.js. Исходные коды в <a href="https://github.com/radif-ru" target="_blank">GitHub</a></h2>-->
-<h2><a href="https://github.com/radif-ru" class="git-link" target="_blank">Все
-  проекты на GitHub!</a> (чем новее код, тем он чище). Ниже лишь некоторые
-  примеры. Проекты запустил на VPS, на чистом Linux, всё сделал/настроил
-  вручную - без виртуального хостинга. Сервисы запустил в отдельных контейнерах
-  Docker Compose с пробросом общей сети. К доменам/субдоменам получил
-  сертификаты Let's Encrypt, подключил SSL, https.
-</h2>
-<h3>Мой приоритет сфер деятельности:</h3>
-1. BackEnd-разработка, сервер - в основном.<br>
-2. FrontEnd-разработка, клиент (web, mobile, desktop) - можно
-дополнительно.<br>
-3. Вёрстка, HTML, CSS - по необходимости.<br><br>
+      <div class="gar goal"><p><b class="tag tag-goal">Цель</b> Дать живую связь с пользователями.</p></div>
+      <div class="gar act"><p><b class="tag tag-act">Действие</b> Построил систему массовых и индивидуальных push-уведомлений на Socket.IO, Redis (онлайн-сессии и присутствие) и JWT. Добавил отложенные рассылки по расписаниям и событиям, с генерацией текста по шаблонам и учётом таймзон.</p></div>
+      <div class="gar res"><p><b class="tag tag-res">Результат</b> Школы разных городов получают уведомления вовремя, история сообщений сохраняется.</p></div>
 
-<h2>Мой личный проект:</h2>
+      <div class="gar goal"><p><b class="tag tag-goal">Цель</b> Дать прозрачность обучения и обратную связь, упростить контроль для управляющей компании и партнёров.</p></div>
+      <div class="gar act"><p><b class="tag tag-act">Действие</b> Сделал оценку занятий (рейтинги и отзывы), хранение и показ истории действий студента в его профиле, а также инструменты отчётности, рейтингов и контроля для сотрудников управляющей компании, партнёров и школ.</p></div>
+      <div class="gar res"><p><b class="tag tag-res">Результат</b> Активность и качество занятий видны в одном месте — решения принимаются по данным, а не на глаз.</p></div>
 
-<span class="site-description">
-  Для оценки кода лучше всего использовать этот проект. Он не из курсов!
-  Архитектуру, системы: прав, ролей, хранения данных, хранения токенов,
-  коммитов и т.д. придумываю и реализую самостоятельно. Некоторые
-  комментарии в коде или в Readme.md избыточны, так как данный проект я
-  дополнительно использую как библиотеку некоторых знаний.
-</span><br>
-- <a href="https://backend.radif.ru/swagger/" class="site-link"
-     target="_blank">
-  OpenAPI Swagger
-</a>,
-<a href="https://backend.radif.ru/redoc/" class="site-link" target="_blank">
-  OpenAPI ReDoc
-</a>,
-<a href="https://backend.radif.ru/api/" class="site-link" target="_blank">
-  Django REST API
-</a>,
-<a href="https://backend.radif.ru/graphql/" class="site-link" target="_blank">
-  GraphiQL
-</a>
-- Сервер. Подробнее в
-<a href="https://github.com/radif-ru/Full_Stack_Django_REST_React"
-   class="git-link" target="_blank">
-  Git
-</a>.
-<a href="https://frontend.radif.ru" class="site-link" target="_blank">
-  FrontEnd - Клиент
-</a>,
-<a href="https://github.com/radif-ru/Full_Stack_Django_REST_React"
-   class="git-link" target="_blank">
-  Full Stack разработка
-</a> - код.
-<span class="site-description"> -
-  В процессе! Применяю технологии: Django REST framework, React, JWT, GraphQL,
-  AsyncIO, Aiohttp, Contextvars, Cookies,
-  асинхронные запросы (async, await), OpenAPI, Swagger, ReDoc, PostgreSQL,
-  Gunicorn, Nginx, Docker-compose, Linux, VPS-сервер,
-  свои Middleware, Метаклассы, декораторы, миксины и т.д.
-</span><br>
+      <div class="gar goal"><p><b class="tag tag-goal">Цель</b> Масштабировать продукт на две федеральные сети (<a href="https://grafika-art-school.ru/franchise" target="_blank" rel="noopener">GRAFIKA</a> и <a href="https://arttech-school.ru/franchise" target="_blank" rel="noopener">ArtTech</a>) и подготовить выход за рубеж.</p></div>
+      <div class="gar act"><p><b class="tag tag-act">Действие</b> Перестроил архитектуру, расширил и местами переписал логику, структуры моделей и таблиц с сохранением данных тысяч пользователей из множества связанных таблиц. Заложил особенности дизайна и логики под каждую компанию.</p></div>
+      <div class="gar res"><p><b class="tag tag-res">Результат</b> Одно приложение работает на две федеральные сети (<a href="https://grafika-art-school.ru/franchise" target="_blank" rel="noopener">GRAFIKA</a> и <a href="https://arttech-school.ru/franchise" target="_blank" rel="noopener">ArtTech</a>) в РФ, начата подготовка к запуску в других странах.</p></div>
 
-<h2>Учебные проекты для прокачки скиллов:</h2>
+      <p><b>2026.</b> Принял на себя backend, frontend, DevOps, QA, архитектуру и системную аналитику, в том числе поддержку проектов на других языках из смежных отделов. Теперь отвечаю практически за всё, что связано с разработкой ПО в компании.</p>
 
-- <a href="https://github.com/radif-ru/Desktop_Apps_Messenger_PyQt"
-     class="git-link" target="_blank">Десктопные приложения. Мессенджер на
-  основе PyQt5.</a> - код. <span class="site-description"> - Создал как клиентское, так и серверное приложения. Использовал PyQt5, SQLAlchemy, Метаклассы, потоки (Threads) и другие технологии и библиотеки...</span><br><br>
+      <div class="gar goal"><p><b class="tag tag-goal">Цель</b> Ускорить разработку и держать единое качество кода, когда над проектом работают разные ИИ-ассистенты и агенты.</p></div>
+      <div class="gar act"><p><b class="tag tag-act">Действие</b> Внедрил собственный процесс ИИ-ассистированной разработки: единый свод правил для всех агентов (один источник истины плюс скиллы-дисциплины), доску со спринтами, этапами и задачами, Definition of Ready и Done, ритуал коммитов, обязательные тесты и линтеры до коммита, синхронную документацию. Любой агент (Cursor, Windsurf, Devin, Claude Code, GitHub Copilot, JetBrains AI) читает одни и те же документы и пишет код единообразно. В ежедневной работе совмещаю несколько ассистентов и под задачу выбираю подходящий. Архитектуру, ревью и финальные решения держу за собой — агенты ускоряют рутину, а не заменяют инженера.</p></div>
+      <div class="gar res"><p><b class="tag tag-res">Результат</b> Скорость разработки выросла в несколько раз: код приходит с тестами и пройденными линтерами, документация не отстаёт от кода, единое качество держится даже при работе с разными агентами.</p></div>
 
-- <a href="https://github.com/radif-ru/data_mining" class="git-link"
-     target="_blank">Data Mining</a> - код. <span class="site-description"> - Сбор и обработка данных. Различные парсеры, пауки, краулеры для сбора инфы из соцсетей, площадок объявлений, магазинов и т.д. Использовал Scrapy, BeautifulSoup, Selenium, XPath, MongoDB, MySQL и т.д. </span><br><br>
+      <p>Сами мульти-агентные системы, локальные LLM, RAG и дообучение моделей — мой полигон: на нём учусь, проверяю идеи и оттачиваю этот процесс. Методику выложил в открытом виде во флагманском проекте <a href="https://github.com/radif-ru/ai-multi-agent-system" target="_blank" rel="noopener">ai-multi-agent-system</a> — открыто лежат <a href="https://github.com/radif-ru/ai-multi-agent-system/blob/main/AGENTS.md" target="_blank" rel="noopener">AGENTS.md</a>, <a href="https://github.com/radif-ru/ai-multi-agent-system/tree/main/_board" target="_blank" rel="noopener">_board</a>, <a href="https://github.com/radif-ru/ai-multi-agent-system/tree/main/_docs" target="_blank" rel="noopener">_docs</a> и <a href="https://github.com/radif-ru/ai-multi-agent-system/tree/main/.agents" target="_blank" rel="noopener">.agents</a>. Другие открытые наработки: <a href="https://github.com/radif-ru/local-rag-mcp" target="_blank" rel="noopener">local-rag-mcp</a>, <a href="https://github.com/radif-ru/fine-tuning" target="_blank" rel="noopener">fine-tuning</a>, <a href="https://github.com/radif-ru/ai-tg-bot" target="_blank" rel="noopener">ai-tg-bot</a>. Помог маркетингу с интеграциями и автоматизацией: Битрикс24, GetCourse, Tilda, Albato, eLama, RIS.Promo, Марквиз, ВКонтакте.</p>
 
-- <a href="https://github.com/radif-ru/reactjs-18.11" class="git-link"
-     target="_blank">Мессенджер на основе ReactJS</a> - код. <span
-    class="site-description">Применял React, Flux архитектуру - Redux, Webpack, Babel и другие технологии.</span><br><br>
+      <div class="tech-line">
+        <div class="label">Стек</div>
+        <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">AsyncIO</span><span class="chip">PostgreSQL</span><span class="chip">SQLAlchemy</span><span class="chip">Pydantic</span><span class="chip">Alembic</span><span class="chip">Redis</span><span class="chip">Socket.IO</span><span class="chip">WebSocket</span><span class="chip">JWT</span><span class="chip">S3</span><span class="chip">RESTful API</span><span class="chip">OpenAPI / Swagger / ReDoc</span><span class="chip">Pytest</span><span class="chip">Flake8</span><span class="chip">Docker Compose</span><span class="chip">GitLab CI/CD</span><span class="chip">Jira</span><span class="chip">Confluence</span><span class="chip">Битрикс24</span><span class="chip">Linux</span><span class="chip">TypeScript</span><span class="chip">React</span><span class="chip">Cursor</span><span class="chip">Windsurf</span><span class="chip">Devin</span><span class="chip">JetBrains AI Assistant</span><span class="chip">GitHub Copilot</span><span class="chip">Claude Code</span><span class="chip">PyCharm Professional</span><span class="chip">Ollama</span><span class="chip">Мульти-агенты</span><span class="chip">Fine-tuning</span><span class="chip">RAG</span></div>
+      </div>
+    </article>
+    <article class="job">
+      <div class="job-head">
+        <h3><span class="company">Pel-Meni</span> — Ведущий разработчик</h3>
+        <span class="job-period">Июль 2023 — Август 2024</span>
+      </div>
+      <p class="job-sub">Казань. Вендинговые аппараты, интернет-магазин, одноплатные ПК и серверы. <a href="https://pel-meni.ru/" target="_blank" rel="noopener">pel-meni.ru</a></p>
 
-- <a href="https://intergalactic.radif.ru/" class="site-link" target="_blank">Командная
-  разработка</a> - развёрнутый проект, <a
-    href="https://github.com/radif-ru/Intergalactic_Entertainment"
-    class="git-link" target="_blank">Командная разработка</a> - код. <span
-    class="site-description"> - В этом проекте, кроме меня, участвовали рандомные участники. <b>Целью проекта была отработка командного взаимодействия по методологии Agile, SCRUM. </b><a
-    href="https://trello.com/b/hzmUNlWf/itergalacticintertainment-копия-без-активности-и-участников"
-    target="_blank">Посмотреть в Trello</a> <b>Залогиниться от суперпользователя: login: intergalactic / password: intergalactic</b></span><br><br>
+      <div class="gar goal"><p><b class="tag tag-goal">Цель</b> Привести сырой legacy к рабочему и развиваемому состоянию.</p></div>
+      <div class="gar act"><p><b class="tag tag-act">Действие</b> Исправил баги, отрефакторил код под PEP-8 и GitFlow, добавил аннотации типов, документацию и Docstrings, ввёл Code Review и трекинг задач в Yandex Tracker, перевёл данные с SQLite на PostgreSQL.</p></div>
+      <div class="gar res"><p><b class="tag tag-res">Результат</b> Проект стало возможно развивать командой, а не латать в одиночку.</p></div>
 
-<h2>В проектах ниже, кроме FrontEnd и BackEnd, так же использую Pixel
-  Perfect вёрстку по макетам для ПК</h2>
+      <div class="gar goal"><p><b class="tag tag-goal">Цель</b> Разделить монолит и упростить разработку.</p></div>
+      <div class="gar act"><p><b class="tag tag-act">Действие</b> Разделил frontend и backend (Django REST framework и Vue.js), перевёл систему на микросервисную архитектуру, добавил логирование сервисов с веб-интерфейсом, брокеры сообщений (MQTT, RabbitMQ) и Docker Compose.</p></div>
+      <div class="gar res"><p><b class="tag tag-res">Результат</b> Сервисы стало можно размещать и обновлять по отдельности.</p></div>
 
-- <a href="https://django.radif.ru" class="site-link" target="_blank">Интернет
-  магазин на Django</a> - развёрнутый проект,
-<a
-    href="https://github.com/radif-ru/Django_optimization_tools"
-    class="git-link" target="_blank">Интернет магазин на Django
-</a> - код.
-<span class="site-description"> - Для демонстрации запущен в режиме отладки с доп. инструментами разработчика -
-  то есть работает на повышенной нагрузке! Сервер запустил с помощью Python DJANGO/NGINX/Gunicorn.
-  Ajax, JS, JQuery, работа с товарами, сделана собственная админка, регистрация напрямую/через соцсети и т.д.
-  <!--<b>Для входа в Админку от суперпользователя: login: django / password: geekbrains</b>-->
-</span><br><br>
+      <div class="gar goal"><p><b class="tag tag-goal">Цель</b> Убрать риск поломки продакшна при разработке.</p></div>
+      <div class="gar act"><p><b class="tag tag-act">Действие</b> Собрал локальную среду разработки (любой разработчик запускает backend, frontend, монолиты и микросервисы вендинга, магазина, админки и ЛК у себя на ПК) и удалённую предпродакшн-среду на отдельной системе.</p></div>
+      <div class="gar res"><p><b class="tag tag-res">Результат</b> Тестировать и дебажить можно без опасения сломать продакшн.</p></div>
 
-- <a href="JavaScriptProfessional-v2" class="site-link" target="_blank">Интернет
-  магазин на JS</a> - развёрнутый проект,
-<a
-    href="https://github.com/radif-ru/JavaScriptProfessional-v2"
-    class="git-link" target="_blank">Интернет магазин, работа с товарами,
-  отзывами и т.д. при помощи JS
-  (бэкенд не подключен, всё хранится в хранилищах клиентов).
-</a> - код.
-<span class="site-description">
-  - Применял JavaScript, jQuery, Vue.js, Node.js, LocalStorage, Npm, Bower, HTML5, SASS, Flexbox, Grid, Bootstrap,
-  товары можно добавлять в корзину при помощи Drag and drop, в поисковике при начале вводе (настроено для англ.)
-  автоматически предлагаются слова из словаря, в разделе Women карусель, работа с корзиной в меню и т.д.
-</span><br><br>
+      <p>Параллельно программировал вендинговые аппараты (Repka Pi, Orange Pi, Chromium и Firefox Kiosk, Modbus, Vendista), настраивал сети и VPN.</p>
 
-<a href="HTML-CSS-Prof/Site%20-%20FENGO%20(кусок%20вёрстки)" target="_blank">Кусок
-  вёрстки
-</a><br><br>
+      <div class="tech-line">
+        <div class="label">Стек</div>
+        <div class="chips"><span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">Svelte.js</span><span class="chip">Vue.js</span><span class="chip">Django</span><span class="chip">Django REST framework</span><span class="chip">WebSocket</span><span class="chip">Linux Ubuntu</span><span class="chip">PostgreSQL</span><span class="chip">SQLite</span><span class="chip">Redis</span><span class="chip">MQTT</span><span class="chip">RabbitMQ</span><span class="chip">GitLab</span><span class="chip">Docker Compose</span><span class="chip">Repka Pi</span><span class="chip">Orange Pi</span><span class="chip">Modbus</span><span class="chip">Vendista</span><span class="chip">RESTful API</span><span class="chip">OpenAPI</span></div>
+      </div>
+    </article>
+    <article class="job">
+      <div class="job-head">
+        <h3><span class="company">«Ваш инвестор»</span> — Старший программист</h3>
+        <span class="job-period">Декабрь 2022 — Июль 2023</span>
+      </div>
+      <p class="job-sub">Новосибирск. Сервис займов (финтех). <a href="https://vashinvestor.ru/company" target="_blank" rel="noopener">vashinvestor.ru/company</a></p>
 
-<span>Данные проекты были выполнены мной самостоятельно или в команде.
-  <a href="https://radif.ru/images/диплом.jpg" target="_blank">
-    Некоторые в качестве курсовых работ в рамках GeekUniversity (более глубокое и масштабное обучение в GeekBrains, Mail.ru Group, получил дипломом гос образца)
-  </a>
-</span>
+      <div class="gar goal"><p><b class="tag tag-goal">Цель</b> Наладить мониторинг внешних сервисов, с которыми Zabbix не справлялся напрямую.</p></div>
+      <div class="gar act"><p><b class="tag tag-act">Действие</b> Разработал промежуточные сервисы на Django REST framework для сложной авторизации (в том числе по сертификату) и для парсинга сложных данных, связал их с Zabbix.</p></div>
+      <div class="gar res"><p><b class="tag tag-res">Результат</b> Под мониторинг завёл десятки внешних сервисов — там, где Zabbix не справлялся напрямую.</p></div>
 
-<hr>
-<h2>Тестовые задания (чем выше, тем новее):</h2>
-<h3>
-  <a href="https://github.com/radif-ru/mvp_api_for_blog"
-     class="git-link" target="_blank">MVP API для блога (DRF использовать запрещено).
-  </a>Стек технологий: Python, Django, Gunicorn, PostgreSQL, Docker, Docker-compose, Dotenv, Mixer
-</h3>
-<h3>
-  <a href="https://github.com/radif-ru/ipavlov.ai_mipt.ru" class="git-link"
-     target="_blank">Управления потоками людей в медицинском учреждении
-  </a> - задание для
-  <a href="http://ipavlov.ai/" target="_blank">ipavlov.ai</a> и
-  <a href="https://mipt.ru/" target="_blank">МФТИ</a>. Стек технологий:
-  Python, Django, Django Rest Framework (DRF), CBV, JSON Web Token (JWT),
-  PostgreSQL, Celery, Pytest, Docker, Docker-compose
-</h3>
-<h3>
-  <a href="https://github.com/radif-ru/test_task_from_nekidaem.ru"
-     class="git-link" target="_blank">Персональный блог
-  </a> - задание для <a href="https://nekidaem.ru" target="_blank">nekidaem.ru
-</a>. Стек технологий: Python, Django, CBV, PostgreSQL, Docker, Docker-compose
-</h3>
-<hr>
+      <p>Дополнительно администрировал сервер, проводил Code Review, координировал внешнюю команду разработки.</p>
 
-<!--<span style="font-size: 12px">Первые шаги, основы вёрстки, начальные тренировки без макета: <a href="HTML-CSS-Base" target="_blank">HTML-CSS-Base</a>
-<a href="html-css_interactive/html-css-interactive-training" target="_blank">HTML-CSS_interactive-training</a></span>
-  <hr>-->
+      <div class="tech-line">
+        <div class="label">Стек</div>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Django</span><span class="chip">Django REST framework</span><span class="chip">AsyncIO</span><span class="chip">PostgreSQL</span><span class="chip">SQLAlchemy</span><span class="chip">Django ORM</span><span class="chip">Celery</span><span class="chip">Redis</span><span class="chip">Zabbix</span><span class="chip">GitLab</span><span class="chip">Linux (CentOS 7)</span><span class="chip">YouTrack</span><span class="chip">Битрикс24</span></div>
+      </div>
+    </article>
 
-<span><b>Не имею вредных привычек. Веду здоровый образ жизни. Занимаюсь спортом. <br>
-  Развиваюсь разносторонне. Нравится докапываться до сути, новая информация, новые технологии. Считаю, что при желании можно понять и усвоить всё, что угодно.</b></span><br>
-<br>
-<span>Например - мне предложили интересную тему и я увлекся трейдингом. Торговал на своём личном счёте у брокера, <b>успешно использовал фундаментальный и технический анализ данных</b>, побеждал в конкурсах:</span><br>
-<a href="https://radif.ru/images/trading.jpg" target="_blank">2 место во
-  Всероссийском Студенческом Конкурсе Трейдеров, среди ВУЗов России (Финал)
-</a>
-<b>на счёте ММВБ с реальными деньгами. ﻿В задачу входило максимально увеличить
-  стоимость портфеля.
-</b><br>
-<a href="https://radif.ru/images/trading2.jpg" target="_blank">1 место во
-  Всероссийском Студенческом Конкурсе Трейдеров, среди ВУЗов Казани.</a><br>
-<span>Тут нужно учесть тот факт, что мой ВУЗ и специальность были не профильные
-  и до этого конкурса я не знал, что такое трейдинг и не разбирался в финансовом рынке.
-  То есть мои соперники были, в том числе, из финансовых университетов, отлично знающие тему,
-  а я всё это изучил самостоятельно в кратчайшие сроки.
-</span><br>
-<hr>
-<span>Высшее образование - <b>Магистр. КНИТУ-КАИ им. А.Н. Туполева.</b> Казанский национальный исследовательский технический университет (бывший КГТУ) им. А. Н. Туполева</span><br>
-<br>
-<span>
-  Дополнительное образование -
-  <a href="https://radif.ru/images/диплом.jpg" target="_blank">
-    <b> GeekBrains, GeekUniversity, Mail.ru Group - Python разработчик</b>
-  </a>
-</span><br>
-<hr>
-<h2>Телефон, Telegram, WhatsApp: <a href="tel:89872869693">89872869693</a></h2>
-<h2>E-mail: <a href="mailto:mail@radif.ru">mail@radif.ru</a></h2>
-<h2>Skype, Telegram: silverforwings</h2>
-<h2>Добавляйся в друзья на Habr Career: <a target="_blank" href="https://career.habr.com/radif-ru">https://career.habr.com/radif-ru</a></h2>
+    <article class="job">
+      <div class="job-head">
+        <h3><span class="company">«Робот Карл»</span> — Ведущий разработчик</h3>
+        <span class="job-period">Февраль 2022 — Декабрь 2022</span>
+      </div>
+      <p class="job-sub">Москва. Платформа лидогенерации на базе ИИ. <a href="https://robotkarl.ru/" target="_blank" rel="noopener">robotkarl.ru</a></p>
 
-<hr>
+      <div class="gar goal"><p><b class="tag tag-goal">Цель</b> Сделать стабильную работу телефонии в высоконагруженной системе.</p></div>
+      <div class="gar act"><p><b class="tag tag-act">Действие</b> Реализовал сервис асинхронной перезагрузки шлюзов и приложение распределения звонков с контролем состояний и переключением сим-карт (десятки шлюзов, сотни SIM-карт). Написал парсеры ЛК бизнес-аккаунтов операторов, данных шлюзов и маршрутизатора сим-карт. Запуск по расписанию организовал через Celery.</p></div>
+      <div class="gar res"><p><b class="tag tag-res">Результат</b> Звонки распределяются стабильнее, рутинные операции автоматизированы.</p></div>
 
-<!--<h2 style="font-size: 33px; "><a href="https://www.instagram.com/radif.ru/" target="_blank">Инстаграм</a></h2>
-<h2 style="font-size: 33px; "><a href="https://vk.com/radif_ru" target="_blank">ВКонтакте</a></h2>-->
+      <div class="gar goal"><p><b class="tag tag-goal">Цель</b> Снизить нагрузку от смежного сервиса на PHP.</p></div>
+      <div class="gar act"><p><b class="tag tag-act">Действие</b> Провёл research чужого проекта на PHP, переработал и оптимизировал его взаимодействие с нашим сервисом на Python.</p></div>
+      <div class="gar res"><p><b class="tag tag-res">Результат</b> Нагрузка на системы снизилась, производительность взаимодействия выросла в разы.</p></div>
 
-<h2 style="font-size: 0.1px; "><a href="https://www.instagram.com/radif.ru/" target="_blank">Инстаграм</a></h2>
-<h2 style="font-size: 0.1px; "><a href="https://vk.com/radif_ru" target="_blank">ВКонтакте</a></h2>
+      <div class="gar goal"><p><b class="tag tag-goal">Цель</b> Автоматизировать управление сервисами и убрать ручные операции через консоль.</p></div>
+      <div class="gar act"><p><b class="tag tag-act">Действие</b> Собрал веб-админку с разными БД: видны логи и конфиги, есть распределение прав и ролей, запуск отдельных сервисов, утилит и методов по кнопкам в интерфейсе и по расписанию. Сервисы спроектировал так, чтобы их можно было разносить по разным серверам.</p></div>
+      <div class="gar res"><p><b class="tag tag-res">Результат</b> Рутинные запуски ушли на расписание и кнопки в интерфейсе — отпала необходимость в администраторах, которые раньше делали это вручную через терминал. Управлять системой стало проще, а код с аннотацией типов и документацией не стыдно передать другим.</p></div>
 
-<h2 style="font-size: 0.1px; ">Радиф Рашитович Илалтдинов. Программист. Разработчик</h2>
-<h2 style="font-size: 0.1px; ">Родился 23 февраля 1991 года, 23.02.1991</h2>
+      <div class="tech-line">
+        <div class="label">Стек</div>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Django</span><span class="chip">Django REST framework</span><span class="chip">FastAPI</span><span class="chip">AsyncIO</span><span class="chip">Celery</span><span class="chip">Redis</span><span class="chip">RabbitMQ</span><span class="chip">MySQL</span><span class="chip">SQLAlchemy</span><span class="chip">Django ORM</span><span class="chip">Selenium</span><span class="chip">Linux (Ubuntu)</span><span class="chip">GitLab CI/CD</span><span class="chip">Jira</span><span class="chip">Confluence</span><span class="chip">Bitbucket</span><span class="chip">Zabbix</span></div>
+      </div>
+    </article>
+    <article class="job">
+      <div class="job-head">
+        <h3><span class="company">Проектная работа</span> — Fullstack-разработчик</h3>
+        <span class="job-period">Май 2019 — Январь 2022</span>
+      </div>
+      <p class="job-sub">Казань. Частная практика. Коммерческий код под защитой NDA - в приватных репозиториях.</p>
 
+      <div class="gar goal"><p><b class="tag tag-goal">Цель</b> Закрывать проекты полного цикла под ключ.</p></div>
+      <div class="gar act"><p><b class="tag tag-act">Действие</b> Делал дизайн-вёрстку (Pixel Perfect по макетам и без), фронтенд на JS, бэкенд на Python и PHP. Здесь же работал с PHP, Composer и Yii2-Advanced. Деплоил вручную на чистый Linux VPS без виртуального хостинга, поднимал контейнеры Docker Compose с общей сетью, получал сертификаты Let's Encrypt и подключал HTTPS через Nginx.</p></div>
+      <div class="gar res"><p><b class="tag tag-res">Результат</b> Сдал 10+ проектов под ключ: сайты и сервисы доходили до продакшна и работали под нагрузкой.</p></div>
+
+      <p>Параллельно вёл пет-проекты и командную разработку. Открытый код на <a href="https://github.com/radif-ru" target="_blank" rel="noopener">GitHub</a> — детали в разделе <a href="#projects">«Проекты и open source»</a> ниже.</p>
+
+      <div class="tech-line">
+        <div class="label">Стек</div>
+        <div class="chips"><span class="chip">PHP</span><span class="chip">Composer</span><span class="chip">Yii2-Advanced</span><span class="chip">JavaScript</span><span class="chip">jQuery</span><span class="chip">AJAX</span><span class="chip">Vue.js</span><span class="chip">React</span><span class="chip">Redux</span><span class="chip">Node.js</span><span class="chip">Webpack</span><span class="chip">Gulp</span><span class="chip">Npm</span><span class="chip">Bower</span><span class="chip">SPA</span><span class="chip">HTML5 / CSS3</span><span class="chip">Sass</span><span class="chip">Bootstrap</span><span class="chip">Flexbox / Grid</span><span class="chip">Cookies / LocalStorage</span><span class="chip">Python</span><span class="chip">Django</span><span class="chip">Django REST framework</span><span class="chip">GraphQL</span><span class="chip">Aiohttp</span><span class="chip">PyQt5</span><span class="chip">Scrapy</span><span class="chip">BeautifulSoup</span><span class="chip">Selenium</span><span class="chip">XPath</span><span class="chip">MongoDB</span><span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">Gunicorn</span><span class="chip">Nginx</span><span class="chip">Apache</span><span class="chip">Docker Compose</span><span class="chip">Linux VPS</span><span class="chip">Let's Encrypt</span><span class="chip">Bash</span><span class="chip">Regex</span><span class="chip">Git</span><span class="chip">Agile / SCRUM</span></div>
+      </div>
+    </article>
+  </section>
+  <section id="projects" class="card">
+    <h2 class="section-title">Проекты и open source</h2>
+    <p class="muted">Весь код реализован мной. Развёрнутые проекты работают на моём VPS: чистый Linux, контейнеры Docker Compose с общей сетью, домены под SSL и HTTPS через Nginx.</p>
+
+    <div class="flagship">
+      <h3><a href="https://github.com/radif-ru/ai-multi-agent-system" target="_blank" rel="noopener">ai-multi-agent-system</a> <span class="badge">Флагман</span></h3>
+      <p>Локальная мульти-агентная система на self-hosted LLM через Ollama. Принимает задачу и крутит цикл «мысль → действие → наблюдение» до финального ответа. Мультимодальность: текст, документы (PDF/TXT/MD с OCR через Tesseract), голосовые (распознавание faster-whisper) и изображения (vision-модель + OCR) — всё обрабатывается единым агентным циклом. Это моя самая свежая и полная наработка: в неё вошли прежние ИИ-проекты, Telegram-бот и RAG, в переработанном виде. Веду по-инженерному: 14 закрытых спринтов с Definition of Ready/Done, покрытие тестами ≥80% и шесть автоматических гейтов качества в CI.</p>
+      <ul class="clean">
+        <li>Роли Planner, Executor и Critic с режимами рефлексии off / normal / deep, переключение под пользователя, изящная деградация при сбоях (graceful degradation).</li>
+        <li>Одно ядро обслуживает три канала: Telegram (aiogram 3), консоль и MAX. Адаптеры тонкие, новый канал не трогает логику ядра.</li>
+        <li>Под разные задачи разные локальные модели: отдельно для рассуждений, эмбеддингов и зрения, плюс распознавание речи через faster-whisper.</li>
+        <li>Долгосрочная семантическая память (RAG) на sqlite-vec с task-префиксами эмбеддингов для качества поиска. Инструменты: точная арифметика, OCR (Tesseract), веб-поиск, погода, чтение файлов, поиск по памяти, почта (IMAP — Яндекс + Gmail), Яндекс.Диск, планировщик регулярных cron-задач (ставятся на естественном языке, результат приходит в Telegram), запуск детерминированных скриптов скиллов в sandbox.</li>
+        <li>Скиллы с детерминированными скриптами: markdown-описания инжектятся в системный промпт, а механические операции выполняются кодом в sandbox — токены LLM тратятся на суждения, а не на механику. Тот же принцип в скиллах ассистента, например <a href="https://github.com/radif-ru/ai-multi-agent-system/blob/main/.agents/skills/git-discipline/scripts/preflight.sh" target="_blank" rel="noopener">preflight.sh</a> одной командой прогоняет весь ритуал проверок перед коммитом.</li>
+        <li>Тесты на pytest без сетевых вызовов (покрытие ≥80% как гейт в CI), структурные JSON-логи со сквозным trace_id, error tracking в self-hosted GlitchTip (разделение потоков Issues / Logs / Crons), журнал диалога только на дозапись (append-only), с фоновым восстановлением сессий после сбоя. Всё локально, без облачных LLM-API.</li>
+        <li>Безопасность по умолчанию: очистка ввода и «бастион» на выходе, у каждого пользователя своя (per-user) область видимости файлов, белый список (allowlist) для опасных инструментов, маскирование секретов в логах.</li>
+        <li>Заодно это полигон для процесса ИИ-ассистированной разработки: <a href="https://github.com/radif-ru/ai-multi-agent-system/blob/main/AGENTS.md" target="_blank" rel="noopener">AGENTS.md</a> как единый источник правил для всех агентов (зеркалится в CLAUDE.md / GEMINI.md / QWEN.md и правила Cursor / Windsurf / Devin), скиллы-дисциплины в <a href="https://github.com/radif-ru/ai-multi-agent-system/tree/main/.agents" target="_blank" rel="noopener">.agents</a>, доска со спринтами и задачами в <a href="https://github.com/radif-ru/ai-multi-agent-system/tree/main/_board" target="_blank" rel="noopener">_board</a> (process.md, plan.md, спринты 01–14), Definition of Done. Качество держат шесть CI-гейтов без ИИ: flake8, pytest с порогом покрытия ≥80% и <a href="https://github.com/radif-ru/ai-multi-agent-system/tree/main/scripts" target="_blank" rel="noopener">скрипты-проверки</a> (синхронность .env, ссылок в документации, спринтов и зеркал скиллов/промптов ассистента). Тот же подход внедрил на работе и в несколько раз ускорил разработку.</li>
+      </ul>
+      <div class="tech-line">
+        <div class="label">Стек</div>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Ollama</span><span class="chip">aiogram 3</span><span class="chip">httpx</span><span class="chip">sqlite-vec</span><span class="chip">faster-whisper</span><span class="chip">Tesseract OCR</span><span class="chip">Pydantic</span><span class="chip">Pytest</span><span class="chip">Multi-agent</span><span class="chip">RAG</span><span class="chip">IMAP</span><span class="chip">Яндекс.Диск API</span><span class="chip">MAX API</span><span class="chip">APScheduler</span><span class="chip">GlitchTip / Sentry</span></div>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <h3>Другие ИИ-наработки</h3>
+      <ul class="clean">
+        <li><a href="https://github.com/radif-ru/local-rag-mcp" target="_blank" rel="noopener">local-rag-mcp</a> — локальная privacy-first база знаний на RAG и MCP. Гибридный поиск (BM25 и векторный с объединением через RRF), cross-encoder reranker (BAAI/bge-reranker-base), расширение коротких запросов, FAISS, эмбеддинги SentenceTransformers, ответы локальной LLM через Ollama. Инструменты MCP (read / list / search) модель вызывает сама. Без облачных API.</li>
+        <li><a href="https://github.com/radif-ru/fine-tuning" target="_blank" rel="noopener">fine-tuning</a> — дообучение моделей под конкретные задачи.</li>
+        <li><a href="https://github.com/radif-ru/ai-tg-bot" target="_blank" rel="noopener">ai-tg-bot</a> — Telegram-бот-чат на локальной LLM с памятью контекста и суммаризацией истории. Ранняя версия идей, которые развиты во флагмане.</li>
+      </ul>
+    </div>
+
+    <div class="edu-item">
+      <h3>Этот сайт — <a href="https://github.com/radif-ru/www" target="_blank" rel="noopener">radif.ru</a> (open source)</h3>
+      <p>Сайт-резюме, который вы сейчас читаете — тоже мой код и живой пример Full Stack + DevOps под ключ, без фреймворков и сборщиков (vanilla). Открытый исходник: <a href="https://github.com/radif-ru/www" target="_blank" rel="noopener">github.com/radif-ru/www</a>.</p>
+      <ul class="clean">
+        <li><b>Frontend:</b> семантический HTML5, доступность (skip-link, ARIA-лендмарки, навигация с клавиатуры), адаптивная вёрстка на нативном CSS (переменные, <code>clamp()</code>, Grid, CSS-нестинг) и фоновая canvas-анимация «нейросети» на нативном JavaScript (ES6) с учётом энергосбережения и <code>prefers-reduced-motion</code>.</li>
+        <li><b>SEO:</b> OpenGraph / Twitter Cards, canonical, <code>robots.txt</code>, <code>sitemap.xml</code>, расширенные структурированные данные JSON-LD (<code>@graph</code>: Person, WebSite, ProfilePage, SoftwareSourceCode).</li>
+        <li><b>DevOps:</b> деплой в Docker за Nginx — TLS 1.2/1.3, HTTP/2, строгий Content-Security-Policy (<code>script-src 'self'</code>, без <code>unsafe-inline</code>) и security-заголовки, gzip, кэш-заголовки, healthcheck. Полностью на моём VPS.</li>
+        <li><b>PWA:</b> <code>manifest.webmanifest</code>, SVG-фавиконка, иконки 192/512 (в т.ч. maskable), <code>apple-touch-icon</code>, <code>theme-color</code> — устанавливается на главный экран как приложение.</li>
+        <li><b>Качество и CI:</b> Prettier, ESLint (flat config), Stylelint, html-validate, EditorConfig; GitHub Actions — автозапуск линтеров и Lighthouse-аудита на каждый push.</li>
+      </ul>
+      <div class="tech-line">
+        <div class="label">Стек</div>
+        <div class="chips"><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">JavaScript (ES6)</span><span class="chip">Canvas API</span><span class="chip">JSON-LD</span><span class="chip">PWA</span><span class="chip">Docker</span><span class="chip">Docker Compose</span><span class="chip">Nginx</span><span class="chip">TLS 1.3</span><span class="chip">HTTP/2</span><span class="chip">CSP</span><span class="chip">Let's Encrypt</span><span class="chip">Linux VPS</span><span class="chip">GitHub Actions</span><span class="chip">Lighthouse</span><span class="chip">Prettier</span><span class="chip">ESLint</span><span class="chip">Stylelint</span></div>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <h3>Командный проект: Notebook-платформа (аналог Jupyter)</h3>
+      <p>Разработали в команде на тренинге для Fullstack-программистов (<a href="https://coders.su/" target="_blank" rel="noopener">coders.su</a>): платформа заметок с выполнением JS- и Markdown-ячеек в браузере и AI-генерацией кода (AWS Bedrock / Claude, браузерная LLM — WebLLM). Работали по Scrum: спринты, code review, QA-процессы, production-readiness аудит, CI/CD на GitHub Actions с деплоем в AWS (ECS). Каждый спринт чередовали роли в команде: Техлид, DevOps, QA, Инженеры.</p>
+      <ul class="clean">
+        <li><b>Backend:</b> Python 3.11, FastAPI, Pydantic, PostgreSQL — <a href="https://github.com/larchanka-training/dmc-1-t1-notebook-api" target="_blank" rel="noopener">dmc-1-t1-notebook-api</a>.</li>
+        <li><b>Frontend:</b> React 18, TypeScript, Vite, Redux Toolkit, CodeMirror, Tailwind CSS — <a href="https://github.com/larchanka-training/dmc-1-t1-notebook-ui" target="_blank" rel="noopener">dmc-1-t1-notebook-ui</a>.</li>
+        <li><b>Инфраструктура и документация:</b> Docker Compose, Nginx, OpenTelemetry; архитектура, QA- и DevOps-гайды — <a href="https://github.com/larchanka-training/dmc-1-t1-notebook-mono" target="_blank" rel="noopener">dmc-1-t1-notebook-mono</a> (монорепозиторий).</li>
+      </ul>
+    </div>
+
+    <p class="period-note">Проекты ниже реализованы в основном в 2021 году и ранее</p>
+
+    <h3 class="subhead">Pet-проекты и командная разработка</h3>
+
+    <div class="edu-item">
+      <h3>Личный Full Stack проект</h3>
+      <p>Архитектуру, системы прав, ролей и хранения токенов придумал и реализовал сам — без шаблонов и туториалов. Backend на Django REST framework: JWT-авторизация, GraphQL-эндпоинт (graphene-django), async-обработка через AsyncIO и Aiohttp, контекстные переменные (Contextvars) для передачи состояния в async-контексте, свои middleware, метаклассы, декораторы и миксины. Frontend на React (React Router, Axios, Redux). OpenAPI-документация (Swagger / ReDoc), PostgreSQL, Gunicorn, Nginx, Docker Compose, деплой на Linux VPS.</p>
+      <p>Демо: <a href="https://backend.radif.ru/swagger/" target="_blank" rel="noopener">Swagger</a>, <a href="https://backend.radif.ru/redoc/" target="_blank" rel="noopener">ReDoc</a>, <a href="https://backend.radif.ru/api/" target="_blank" rel="noopener">REST API</a>, <a href="https://backend.radif.ru/graphql/" target="_blank" rel="noopener">GraphiQL</a>, <a href="https://frontend.radif.ru" target="_blank" rel="noopener">Frontend</a>. <a href="https://github.com/radif-ru/Full_Stack_Django_REST_React" target="_blank" rel="noopener">Код</a>.</p>
+    </div>
+
+    <div class="edu-item">
+      <h3>Командная разработка по Agile и SCRUM — <a href="https://github.com/radif-ru/Intergalactic_Entertainment" target="_blank" rel="noopener">Intergalactic Entertainment</a></h3>
+      <p>Командная разработка платформы с авторизацией, публикациями и CKEditor-редактором. Работали по Agile / SCRUM с рандомными участниками, задачи вели в Trello. Django, авторизация, ролевая модель (staff / user), загрузка изображений, REST-эндпоинты. Деплой на моём VPS: Docker Compose, Gunicorn, Nginx, SSL. <a href="https://intergalactic.radif.ru/" target="_blank" rel="noopener">Демо</a>. <a href="https://github.com/radif-ru/Intergalactic_Entertainment" target="_blank" rel="noopener">Код</a>.</p>
+    </div>
+
+    <div class="edu-item">
+      <h3>Backend-проекты по техническим спецификациям</h3>
+      <ul class="clean">
+        <li><a href="https://github.com/radif-ru/hospital-management-api" target="_blank" rel="noopener">Управление потоками людей в медучреждении</a> — Django, DRF, JWT, PostgreSQL, Celery (автогенерация слотов приёма через Celery beat), Pytest, Docker. Три группы пользователей (пациент / врач / админ), рабочие расписания врачей с учётом отпусков и перерывов, запись на приём, отмена записи, статистика записей по дням с группировкой на уровне БД.</li>
+        <li><a href="https://github.com/radif-ru/blog-api-without-drf" target="_blank" rel="noopener">MVP API для блога</a> — Django без DRF, собственная реализация API-эндпоинтов и токен-авторизации, CRUD статей с архивированием, ролевая модель (admin / user), кастомные management-команды для заполнения БД, тесты, dev / prod Docker-конфиги.</li>
+        <li><a href="https://github.com/radif-ru/blog-with-subscriptions" target="_blank" rel="noopener">Персональный блог с подписками</a> — Django, PostgreSQL, Docker. Подписки на блоги, лента постов в обратном хронологическом порядке, метки «прочитано», email-уведомления о новых постах, Class-based views, интеграция с админкой.</li>
+      </ul>
+    </div>
+
+    <h3 class="subhead">Учебные проекты — архитектуру, стек и методы разработки выбирал самостоятельно</h3>
+
+    <div class="edu-item">
+      <h3>Десктопный мессенджер на PyQt5</h3>
+      <p>Клиент-серверная архитектура: отдельные приложения для сервера и клиента, многопоточная обработка сетевых соединений. PyQt5 для GUI, SQLAlchemy для ORM, метаклассы для генерации моделей, потоки (Threads) для неблокирующего I/O. Регистрация пользователей, контакты, обмен сообщениями в реальном времени. <a href="https://github.com/radif-ru/Desktop_Apps_Messenger_PyQt" target="_blank" rel="noopener">Код</a>.</p>
+    </div>
+
+    <div class="edu-item">
+      <h3>Data Mining</h3>
+      <p>Парсеры, пауки и краулеры для сбора и структурирования данных из соцсетей, площадок объявлений и магазинов. Scrapy (асинхронные пауки), BeautifulSoup, Selenium (headless-браузер), XPath-селекторы, хранение в MongoDB и MySQL. <a href="https://github.com/radif-ru/data_mining" target="_blank" rel="noopener">Код</a>.</p>
+    </div>
+
+    <div class="edu-item">
+      <h3>Мессенджер на React</h3>
+      <p>SPA-мессенджер с Flux-архитектурой: Redux для управления состоянием, сборка через Webpack и Babel. <a href="https://github.com/radif-ru/react-messenger" target="_blank" rel="noopener">Код</a>.</p>
+    </div>
+
+    <div class="edu-item">
+      <h3>Интернет-магазин на Django</h3>
+      <p>Ajax, jQuery, собственная админка, регистрация через соцсети. Запущен в режиме отладки с инструментами разработчика (повышенная нагрузка). Сервер: Python / Django / Nginx / Gunicorn. <a href="https://django.radif.ru" target="_blank" rel="noopener">Демо</a>. <a href="https://github.com/radif-ru/Django_optimization_tools" target="_blank" rel="noopener">Код</a>.</p>
+    </div>
+
+    <div class="edu-item">
+      <h3>Интернет-магазин на JS</h3>
+      <p>Vue.js 3, Node.js, LocalStorage, Bootstrap, SASS, drag-and-drop корзина, автодополнение поиска. Всё хранится в браузере клиента, без бэкенда. <a href="https://radif.ru/JavaScriptProfessional-v2" target="_blank" rel="noopener">Демо</a>. <a href="https://github.com/radif-ru/JavaScriptProfessional-v2" target="_blank" rel="noopener">Код</a>.</p>
+    </div>
+  </section>
+  <section id="hardware" class="card">
+    <h2 class="section-title">Железо</h2>
+
+    <div class="flagship">
+      <h3>Рабочая станция для локального ИИ <span class="badge">Hardware</span></h3>
+      <p>Под мульти-агентные системы, локальные LLM, эмбеддинги, vision и дообучение моделей собрал отдельную мощную машину — с ней могу быстро включиться в работу даже если я на отпуске или в путешествии, но появилась срочная неотложная задача. Тяжёлые ИИ-задачи гоняю локально, без облака: данные не покидают устройство, нет внешних API-ключей и лимитов.</p>
+      <ul class="clean">
+        <li><b>Ноутбук:</b> ASUS ROG Strix SCAR 18 — флагманская мобильная рабочая платформа (быстрая DDR5-память, NVMe SSD (PCIe 5.0 x4), производительное охлаждение).</li>
+        <li><b>Порты:</b> высокопроизводительные, подходят для подключения внешних систем (в том числе дополнительных видеокарт): 2x Thunderbolt 5 (USB-C), 3x USB 3.2 Gen 2 Type-A, HDMI 2.1 FRL, 2.5G LAN port, 3.5mm Combo Audio Jack.</li>
+        <li><b>Экран:</b> 18 дюймов, 2.5K WQXGA (2560 x 1600), соотношение 16:10, ROG Nebula HDR, Mini-LED, 240 Гц, 1200 нит, 100% DCI-P3, Dolby Vision, G-SYNC — комфортно для долгой работы с кодом, точной цветопередачи и vision-задач.</li>
+        <li><b>GPU:</b> NVIDIA GeForce RTX 5090 (24 ГБ GDDR7 VRAM) — держит локальный инференс LLM, эмбеддинги и vision.</li>
+        <li><b>CPU:</b> Intel Core Ultra 9 275HX (24 ядра / 24 потока) с NPU-ядрами (Intel AI Boost) для ускорения ИИ-нагрузок.</li>
+        <li><b>SSD:</b> Kingston FURY Renegade G5 4 ТБ (SFYR2S/4T0) — флагманский NVMe-накопитель формата M.2 с интерфейсом PCIe 5.0 x4 и архитектурой 3D TLC NAND. Рекордная производительность для ресурсоёмких приложений и работы с большими объёмами данных (подключил в качестве дополнительного накопителя к основной системной SSD).</li>
+      </ul>
+      <div class="tech-line">
+        <div class="label">Применение</div>
+        <div class="chips"><span class="chip">Локальные LLM (Ollama)</span><span class="chip">Эмбеддинги / RAG</span><span class="chip">Vision</span><span class="chip">Fine-tuning</span><span class="chip">faster-whisper</span><span class="chip">Без облачных API</span></div>
+      </div>
+    </div>
+  </section>
+  <section id="education" class="card">
+    <h2 class="section-title">Образование и обучение</h2>
+
+    <div class="edu-item">
+      <h3>Тренинг для Fullstack-программистов — Миша Ларченко, coders.su <span class="when">— 2026 · сертификат</span></h3>
+      <p>Программа <a href="https://coders.su/" target="_blank" rel="noopener">«Современный Fullstack-инженер»</a>: инженерный фундамент (планирование, Clean Architecture, Vertical Slice, SOLID), фронтенд (JavaScript/TypeScript, React), бэкенд (Python, FastAPI), AI и агентная разработка (agentic loop, tool calling, RAG и fine-tuning, system prompts), DevOps и наблюдаемость (Terraform, OpenTelemetry, CI/CD), веб-безопасность, Scrum-процессы. Живые лекции, практика, code review и командная разработка на реальных проектах (<a href="https://github.com/larchanka-training" target="_blank" rel="noopener">github.com/larchanka-training</a>). В командной работе каждый спринт чередовали роли: Техлид, DevOps, QA, Инженеры.</p>
+      <p>Командный проект — Notebook-платформа (аналог Jupyter): <a href="https://github.com/larchanka-training/dmc-1-t1-notebook-mono" target="_blank" rel="noopener">монорепозиторий</a>, <a href="https://github.com/larchanka-training/dmc-1-t1-notebook-api" target="_blank" rel="noopener">backend</a>, <a href="https://github.com/larchanka-training/dmc-1-t1-notebook-ui" target="_blank" rel="noopener">frontend</a>. Сертификат: <a href="https://radif.ru/files/certificate-ru-114e4643-b57d-49b8-a126-e875a73da968.pdf" target="_blank" rel="noopener">русская версия</a>, <a href="https://radif.ru/files/certificate-en-114e4643-b57d-49b8-a126-e875a73da968.pdf" target="_blank" rel="noopener">English version</a>, <a href="https://coders.su/certificates/114e4643-b57d-49b8-a126-e875a73da968" target="_blank" rel="noopener">оригинал на coders.su</a>.</p>
+    </div>
+
+    <div class="edu-item">
+      <h3>Самообучение: ИИ и LLM <span class="when">— постоянно</span></h3>
+      <p>Мульти-агентные системы, локальные LLM (Ollama), дообучение моделей (fine-tuning), эмбеддинги, RAG и MCP, работа с vision и речью. Открытые репозитории веду как примеры и полигон для практики.</p>
+    </div>
+
+    <div class="edu-item">
+      <h3>GeekBrains / GeekUniversity (Mail.ru Group) <span class="when">— Декабрь 2019 — Сентябрь 2021</span></h3>
+      <p>Профессиональная переподготовка «Разработка программного обеспечения». Full-Stack разработчик: Python, Django, JavaScript, базы данных, Linux. <a href="https://radif.ru/files/диплом.jpg" target="_blank" rel="noopener">Диплом государственного образца</a>. Плюс 15 электронных сертификатов по курсам: Django REST framework, React, архитектура и шаблоны проектирования на Python, клиент-серверные приложения, базы данных и PyQt, data mining, продвинутый JavaScript, Agile/SCRUM, Git, Linux, алгоритмы и структуры данных, MySQL и др.</p>
+    </div>
+
+    <div class="edu-item">
+      <h3>КНИТУ-КАИ им. А.Н. Туполева <span class="when">— 2013 — 2015</span></h3>
+      <p>Магистр. Казанский национальный исследовательский технический университет им. А.Н. Туполева (бывший КГТУ).</p>
+    </div>
+
+    <div class="edu-item">
+      <h3>КНИТУ-КАИ им. А.Н. Туполева <span class="when">— 2009 — 2013</span></h3>
+      <p>Бакалавр. Казанский национальный исследовательский технический университет им. А.Н. Туполева (бывший КГТУ).</p>
+
+      <p>Дополнительно увлекался трейдингом, торговал на своём личном счёте у брокера, успешно использовал фундаментальный и технический анализ данных, побеждал в конкурсах. Тему изучил с нуля сам и обошёл соперников, то есть обеспечил призовое место техническому ВУЗу при конкуренции с профильными финансовыми ВУЗами:</p>
+      <ul class="clean">
+        <li><a href="https://radif.ru/files/trading.jpg" target="_blank" rel="noopener">2 место</a> во Всероссийском Студенческом Конкурсе Трейдеров среди ВУЗов России (финал) на счёте ММВБ с реальными деньгами. В задачу входило максимально увеличить стоимость портфеля.</li>
+        <li><a href="https://radif.ru/files/trading2.jpg" target="_blank" rel="noopener">1 место</a> во Всероссийском Студенческом Конкурсе Трейдеров среди ВУЗов Казани.</li>
+      </ul>
+    </div>
+  </section>
+  <section id="certificates" class="card">
+    <h2 class="section-title">Сертификаты</h2>
+    <p class="muted"><b>Тренинг для Fullstack-программистов</b> — курс <a href="https://coders.su/" target="_blank" rel="noopener">«Современный Fullstack-инженер»</a>, Миша Ларченко (coders.su). Сертификат выдан 04.07.2026. Оригинал можно посмотреть, проверить и скачать на <a href="https://coders.su/certificates/114e4643-b57d-49b8-a126-e875a73da968" target="_blank" rel="noopener">официальной странице coders.su</a>.</p>
+    <div class="chips wrap-chips">
+      <a class="chip" href="https://coders.su/certificates/114e4643-b57d-49b8-a126-e875a73da968" target="_blank" rel="noopener">Сертификаты на coders.su</a>
+      <a class="chip" href="https://radif.ru/files/certificate-ru-114e4643-b57d-49b8-a126-e875a73da968.pdf" target="_blank" rel="noopener">Сертификат — русская версия</a>
+      <a class="chip" href="https://radif.ru/files/certificate-en-114e4643-b57d-49b8-a126-e875a73da968.pdf" target="_blank" rel="noopener">Certificate — English version</a>
+    </div>
+    <h3 class="subhead">Национальная система оценки ИТ-компетенций (Минцифры России)</h3>
+    <p class="muted">Независимая оценка. Все компетенции подтверждены на <b>продвинутом уровне</b> электронными подписями. Теория и практика. Нажмите на любой, чтобы открыть PDF.</p>
+    <div class="chips wrap-chips">
+      <a class="chip" href="https://radif.ru/files/certificate-python.pdf" target="_blank" rel="noopener">Python</a>
+      <a class="chip" href="https://radif.ru/files/certificate-sql.pdf" target="_blank" rel="noopener">SQL</a>
+      <a class="chip" href="https://radif.ru/files/certificate-php.pdf" target="_blank" rel="noopener">PHP</a>
+      <a class="chip" href="https://radif.ru/files/certificate-postgresql.pdf" target="_blank" rel="noopener">PostgreSQL</a>
+      <a class="chip" href="https://radif.ru/files/certificate-linux.pdf" target="_blank" rel="noopener">Linux</a>
+      <a class="chip" href="https://radif.ru/files/certificate-docker.pdf" target="_blank" rel="noopener">Docker</a>
+      <a class="chip" href="https://radif.ru/files/certificate-git.pdf" target="_blank" rel="noopener">Git</a>
+      <a class="chip" href="https://radif.ru/files/certificate-api.pdf" target="_blank" rel="noopener">API</a>
+      <a class="chip" href="https://radif.ru/files/certificate-oop.pdf" target="_blank" rel="noopener">Архитектура и шаблоны (ООП)</a>
+      <a class="chip" href="https://radif.ru/files/certificate-algorithms-and-data-structures.pdf" target="_blank" rel="noopener">Алгоритмы и структуры данных</a>
+      <a class="chip" href="https://radif.ru/files/certificate-javascript.pdf" target="_blank" rel="noopener">JavaScript</a>
+      <a class="chip" href="https://radif.ru/files/certificate-html.pdf" target="_blank" rel="noopener">HTML</a>
+      <a class="chip" href="https://radif.ru/files/certificate-css.pdf" target="_blank" rel="noopener">CSS</a>
+    </div>
+  </section>
+  <section id="achievements" class="card">
+    <h2 class="section-title">Достижения и признание</h2>
+
+    <blockquote class="quote">
+      «Нацелен на результат, доводит работу до конца. Имеет хорошую техническую эрудицию и всегда предлагает варианты оптимальной реализации. Прислушивается к обратной связи и сам даёт обратную связь.»
+      <cite>akozich1, коллега — рекомендательное письмо на <a href="https://career.habr.com/radif-ru/opinions" target="_blank" rel="noopener">Habr Career</a></cite>
+    </blockquote>
+
+    <div class="ach-item">
+      <h3>Открытый код и живые демо</h3>
+      <p>Проекты на GitHub и развёрнутые демо на собственном VPS можно проверить в любой момент: <a href="https://github.com/radif-ru" target="_blank" rel="noopener">GitHub</a>, <a href="https://career.habr.com/radif-ru" target="_blank" rel="noopener">Habr Career</a>, <a href="https://pypi.org/user/radif.ru/" target="_blank" rel="noopener">PyPI</a>.</p>
+    </div>
+
+  </section>
+  <section id="contacts" class="card">
+    <h2 class="section-title">Контакты</h2>
+    <div class="contacts">
+      <a class="btn btn-primary" href="tel:+79872869693">+7&nbsp;987&nbsp;286&#8209;96&#8209;93</a>
+      <a class="btn" href="mailto:i@radif.ru">i@radif.ru</a>
+      <a class="btn" href="https://t.me/radif_ru" target="_blank" rel="noopener">Telegram @radif_ru</a>
+      <a class="btn" href="https://wa.me/79872869693" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn" href="https://max.ru/u/f9LHodD0cOI2pcFyBYQKOdJX05bvOOTviarDUdWU_XWtwPR6eytsUZzL2qY" target="_blank" rel="noopener">MAX</a>
+    </div>
+    <p class="muted">Телефон, Telegram, WhatsApp и MAX на один номер: +7 987 286-96-93. Город: Казань. Готов к удалённой и гибридной работе, переезду и командировкам.</p>
+
+  </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot">
+        <div class="profiles">
+          <a href="https://github.com/radif-ru" target="_blank" rel="noopener me">GitHub</a>
+          <a href="https://pypi.org/user/radif.ru/" target="_blank" rel="noopener me">PyPI</a>
+          <a href="https://career.habr.com/radif-ru" target="_blank" rel="noopener me">Habr Career</a>
+          <a href="https://vk.com/radif_ru" target="_blank" rel="noopener me">ВКонтакте</a>
+          <a href="https://www.instagram.com/radif.ru/" target="_blank" rel="noopener me">Instagram</a>
+          <a href="https://radif.ru/files/certificate-radif.ru.pdf" target="_blank" rel="noopener">Сертификат о владении доменом radif.ru</a>
+        </div>
+        <p class="reg"><a href="https://www.gosuslugi.ru/snet/681af8283c28a40629ee605f" target="_blank" rel="noopener">Ресурс включён в перечень Роскомнадзора</a></p>
+        <p class="descriptors">Исследователь, инженер, разработчик, системный аналитик. Дата рождения: 23 февраля 1991.</p>
+        <p class="copyright">© <span id="year">2026</span> Радиф Рашитович Илалтдинов. Все права защищены</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/app.js" defer></script>
 </body>
 </html>

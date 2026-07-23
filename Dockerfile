@@ -1,4 +1,5 @@
-FROM nginx:1.21.4-alpine
+# Актуальный стабильный nginx на Alpine (вместо устаревшего 1.21.4 от 2021 года).
+FROM nginx:1.27-alpine
 
 #COPY . /var/www/
 RUN rm /etc/nginx/conf.d/default.conf

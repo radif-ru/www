@@ -1,0 +1,252 @@
+/* Резюме — Радиф Илалтдинов. Тёмная тема + светлая печать/PDF. */
+:root {
+  /* Поверхности / фон */
+  --bg: #070b13; --bg2: #0c1322;
+  /* Видимость анимации за карточками: меньше альфа (последнее число, по умолчанию 0.62) = карточки прозрачнее, фон-анимация виднее. */
+  --panel: rgba(20, 28, 44, 0.62); --panel-solid: #111a2b;
+  --border: rgba(120, 160, 220, 0.16);
+  /* Текст */
+  --text: #e8eef8; --muted: #9fb0c8; --faint: #6f819b;
+  /* Акценты */
+  --accent: #36d1c4; --accent2: #7cf2a0; --accent3: #8aa2ff;
+  /* Чипы */
+  --chip: rgba(120, 160, 220, 0.10); --chip-border: rgba(120, 160, 220, 0.22);
+  /* Раскладка */
+  --radius: 16px; --maxw: 1020px;
+  /* Шрифты */
+  --mono: ui-monospace, "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html {
+  scroll-behavior: smooth; scroll-padding-top: 76px;
+  /* Защита от горизонтального сдвига на мобильных (свайп влево / pinch-zoom).
+     overflow-x: clip (а НЕ hidden) не создаёт скролл-контейнер, поэтому
+     position: sticky у меню продолжает работать (hidden ломал закрепление).
+     hidden оставлен фолбэком для старых браузеров (например Safari < 16). */
+  overflow-x: hidden; overflow-x: clip; max-width: 100%;
+  /* Сплошной тёмный цвет как нижний фолбэк: даже до отрисовки слоёв нет белой полосы. */
+  background-color: var(--bg);
+}
+/* Фон-подложка вынесена в отдельный ФИКСИРОВАННЫЙ GPU-слой (transform: translateZ),
+   закреплённый на высоту 100lvh (самый высокий вьюпорт). Слой НЕ перерисовывается при
+   показе/скрытии адресной строки мобильного браузера, поэтому открывшаяся снизу полоса
+   сразу залита градиентом — нет мгновенного затемнения голым background-color.
+   z-index:-2 — позади canvas #bg (z-index:-1), поэтому анимация остаётся видимой. */
+html::before {
+  content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; height: 100lvh;
+  z-index: -2; pointer-events: none;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(1200px 700px at 85% -10%, rgba(54, 209, 196, 0.10), transparent 60%),
+    radial-gradient(900px 600px at 5% 10%, rgba(138, 162, 255, 0.10), transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  background-repeat: no-repeat;
+  transform: translateZ(0); -webkit-transform: translateZ(0); backface-visibility: hidden; -webkit-backface-visibility: hidden;
+}
+body {
+  margin: 0; font-family: var(--sans); color: var(--text); line-height: 1.62;
+  min-height: 100vh; background: transparent;
+  overflow-x: hidden; overflow-x: clip; max-width: 100%; overflow-wrap: break-word; word-break: break-word;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+/* height: 100lvh — «large viewport»: на смартфоне не меняется при показе/скрытии адресной строки,
+   поэтому canvas не прыгает при листании. 100vh — фолбэк для старых браузеров. */
+#bg { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; height: 100lvh; z-index: -1; pointer-events: none; background: transparent;
+  /* Держим canvas на отдельном стабильном GPU-слое: при сворачивании панелей
+     мобильного браузера слой не перекомпоновывается и не мигает тёмным. */
+  transform: translateZ(0); -webkit-transform: translateZ(0); backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+a {
+  color: var(--accent); text-decoration: none;
+  &:hover { color: var(--accent2); text-decoration: underline; text-underline-offset: 3px; }
+}
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 20px 80px; }
+/* Закрепление вынесено на сам <header>, а не на .nav: когда .nav обёрнут в
+   <header>, sticky у вложенного элемента «прилипает» только в пределах родителя
+   (высотой с меню) и почти сразу открепляется. Sticky на самом <header> считается
+   от body и работает на всю прокрутку страницы, как и было. */
+.site-header { position: sticky; top: 0; z-index: 20; }
+/* Skip-link для доступности: спрятан над экраном, всплывает при фокусе с клавиатуры. */
+.skip-link {
+  position: absolute; left: 8px; top: -64px; z-index: 40;
+  padding: 10px 16px; border-radius: 10px; font-weight: 700;
+  background: var(--accent); color: #04231f;
+  visibility: hidden; opacity: 0; transition: top .2s ease, visibility 0s .2s, opacity .2s ease;
+  &:focus { top: 8px; outline: 2px solid #fff; text-decoration: none; visibility: visible; opacity: 1; transition: top .2s ease, visibility 0s, opacity .2s ease; }
+}
+#main:focus { outline: none; }
+.nav {
+  position: relative; display: flex; flex-wrap: wrap; align-items: center;
+  gap: 6px 18px; padding: 12px 20px; margin-bottom: 8px;
+  /* Фон меню: альфа по умолчанию 0.72, blur 10px. Меньше - анимация виднее. */
+  background: rgba(7, 11, 19, 0.72); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  & .brand { font-weight: 800; letter-spacing: 0.2px; margin-right: auto; }
+  & a { color: var(--muted); font-size: 0.92rem; font-weight: 600; }
+  & a:hover { color: var(--text); text-decoration: none; }
+  & .links { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; }
+}
+.nav-toggle {
+  display: none; align-items: center; justify-content: center; width: 42px; height: 38px;
+  padding: 0; border-radius: 10px; border: 1px solid var(--chip-border); background: var(--chip);
+  color: var(--text); cursor: pointer; transition: border-color .15s, background .15s;
+  &:hover { border-color: var(--accent); }
+  & .bars { position: relative; display: block; width: 20px; height: 14px; }
+  & .bars span { position: absolute; left: 0; width: 100%; height: 2px; border-radius: 2px; background: currentColor; transition: transform .25s ease, opacity .2s ease, top .25s ease; }
+  & .bars span:nth-child(1) { top: 0; }
+  & .bars span:nth-child(2) { top: 6px; }
+  & .bars span:nth-child(3) { top: 12px; }
+}
+.nav.open .nav-toggle .bars span:nth-child(1) { top: 6px; transform: rotate(45deg); }
+.nav.open .nav-toggle .bars span:nth-child(2) { opacity: 0; }
+.nav.open .nav-toggle .bars span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
+.btn {
+  display: inline-flex; align-items: center; gap: 7px; padding: 9px 15px; border-radius: 999px;
+  border: 1px solid var(--chip-border); background: var(--chip); color: var(--text);
+  font-weight: 600; font-size: 0.92rem; cursor: pointer; transition: border-color .15s, transform .15s, background .15s;
+  &:hover { border-color: var(--accent); transform: translateY(-1px); text-decoration: none; color: var(--text); }
+}
+.btn-primary { background: linear-gradient(135deg, rgba(54,209,196,.22), rgba(138,162,255,.22)); border-color: rgba(54,209,196,.5); }
+.hero {
+  padding: 40px 0 14px;
+  & h1 {
+    font-size: clamp(2.1rem, 5vw, 3.3rem); line-height: 1.05; margin: 0 0 10px; font-weight: 800; letter-spacing: -0.5px;
+    background: linear-gradient(120deg, #fff 10%, var(--accent) 55%, var(--accent3) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  & .role { font-size: clamp(1.05rem, 2.4vw, 1.3rem); color: var(--text); font-weight: 600; margin: 0 0 6px; }
+  & .role b { color: var(--accent); }
+  & .meta { color: var(--muted); margin: 10px 0 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 0.96rem; }
+  & .meta span { display: inline-flex; align-items: center; gap: 7px; }
+}
+.dot { color: var(--accent2); }
+.contacts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+section { scroll-margin-top: 76px; }
+.card {
+  position: relative; background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 26px 28px; margin: 18px 0;
+  /* Blur карточек: по умолчанию 7px, (webkit blur 7px). Меньше - анимация лучше просвечивает. */
+  backdrop-filter: blur(7px); -webkit-backdrop-filter: blur(7px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+h2.section-title {
+  font-size: 1.4rem; margin: 0 0 16px; display: flex; align-items: center; gap: 12px;
+  &::before { content: ""; width: 10px; height: 22px; border-radius: 3px; background: linear-gradient(180deg, var(--accent), var(--accent3)); }
+}
+.subhead { font-size: 0.92rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); font-family: var(--mono); margin: 30px 0 10px; padding-top: 18px; border-top: 2px solid transparent; border-image: linear-gradient(90deg, var(--accent), var(--accent3), transparent) 1; }
+.period-note { font-size: 1.15rem; color: var(--muted); margin: 28px 0 0; font-weight: 600; padding-top: 16px; border-top: 1px solid var(--chip-border); }
+.lead { font-size: 1.05rem; color: var(--text); }
+.muted { color: var(--muted); }
+code { font-family: var(--mono); font-size: 0.9em; padding: 1px 5px; border-radius: 5px; background: var(--chip); border: 1px solid var(--chip-border); color: var(--text); }
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; }
+.skill-group h3 { margin: 0 0 10px; font-size: 1rem; color: var(--accent); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font-family: var(--mono); font-size: 0.82rem; padding: 5px 11px; border-radius: 8px;
+  background: var(--chip); border: 1px solid var(--chip-border); color: var(--text); white-space: normal; line-height: 1.35; overflow-wrap: break-word;
+}
+.chips.wrap-chips .chip { white-space: normal; line-height: 1.35; }
+a.chip {
+  transition: border-color .15s, background .15s;
+  &:hover { border-color: var(--accent); color: var(--text); text-decoration: none; background: var(--chip-border); }
+}
+.job { padding: 4px 0; }
+.job + .job { margin-top: 8px; border-top: 1px dashed var(--border); padding-top: 22px; }
+.job-head {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; align-items: baseline;
+  & h3 { margin: 0; font-size: 1.18rem; }
+  & .company { color: var(--accent); }
+}
+.job-period { color: var(--faint); font-family: var(--mono); font-size: 0.86rem; white-space: nowrap; }
+.job-sub { color: var(--muted); font-size: 0.94rem; margin: 2px 0 14px; }
+.job-context { color: var(--text); margin: 0 0 14px; }
+.gar {
+  margin: 12px 0; padding: 12px 16px; border-left: 3px solid var(--border); border-radius: 0 10px 10px 0; background: rgba(255,255,255,0.02);
+  & p { margin: 4px 0; }
+  & b.tag { display: inline-block; min-width: 0; max-width: 100%; font-size: 0.74rem; letter-spacing: 0.6px; text-transform: uppercase; font-family: var(--mono); overflow-wrap: break-word; }
+  &.goal { border-left-color: var(--accent3); }
+  &.act { border-left-color: var(--accent); }
+  &.res { border-left-color: var(--accent2); background: rgba(124, 242, 160, 0.05); }
+}
+.tag-goal { color: var(--accent3); } .tag-act { color: var(--accent); } .tag-res { color: var(--accent2); }
+ul.clean { margin: 10px 0; padding-left: 20px; }
+ul.clean li { margin: 6px 0; }
+.tech-line {
+  margin-top: 14px;
+  & .label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.6px; color: var(--faint); margin-bottom: 7px; font-family: var(--mono); }
+}
+.edu-item, .ach-item { padding: 12px 0; }
+.edu-item + .edu-item, .ach-item + .ach-item { border-top: 1px dashed var(--border); }
+.edu-item h3, .ach-item h3 { margin: 0 0 3px; font-size: 1.05rem; }
+.edu-item .when { color: var(--faint); font-family: var(--mono); font-size: 0.84rem; font-weight: 400; }
+blockquote.quote {
+  margin: 10px 0; padding: 10px 16px; border-left: 3px solid var(--accent2); color: var(--text); font-style: italic; background: rgba(124,242,160,0.05); border-radius: 0 10px 10px 0;
+  & cite { display: block; margin-top: 6px; font-style: normal; color: var(--muted); font-size: 0.88rem; }
+}
+.foot {
+  margin-top: 26px; color: var(--muted); font-size: 0.92rem;
+  & .profiles { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 10px 0; }
+  & .descriptors { color: var(--faint); font-size: 0.88rem; margin-top: 14px; }
+  & .reg { font-size: 0.82rem; color: var(--faint); margin-top: 8px; }
+  & .copyright { color: var(--faint); font-size: 0.88rem; margin-top: 16px; }
+}
+/* Семантический подвал сайта: отделён линией, использует общий контейнер .wrap. */
+.site-footer { border-top: 1px solid var(--border); }
+.site-footer .wrap { padding-top: 4px; padding-bottom: 48px; }
+.site-footer .foot { margin-top: 20px; }
+.flagship {
+  position: relative; margin: 14px 0 8px; padding: 18px 20px; border-radius: 14px;
+  background: linear-gradient(135deg, rgba(54, 209, 196, 0.10), rgba(138, 162, 255, 0.08));
+  border: 1px solid rgba(54, 209, 196, 0.32);
+  & h3 { margin: 0 0 6px; font-size: 1.18rem; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  & .badge {
+    font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.7px; text-transform: uppercase; font-weight: 700;
+    padding: 3px 9px; border-radius: 999px; color: #06231f; background: linear-gradient(135deg, var(--accent), var(--accent2));
+  }
+  & .tech-line { margin-top: 12px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+/* Бургер-меню включается JS (класс .nav.burger), когда пункты + «Скачать PDF»
+   не помещаются в одну строку — независимо от медиа-запросов и ориентации. */
+.nav.burger .nav-toggle { display: inline-flex; margin-left: auto; }
+.nav.hide-brand .brand { display: none; }
+.nav.burger [id="printBtn"] { display: block; margin: 0; justify-content: center; text-align: center; }
+.nav.burger .links {
+  position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 4px 0;
+  background: rgba(7, 11, 19, 0.97); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  padding: 0 18px; max-height: 0; overflow: hidden; opacity: 0; visibility: hidden;
+  transition: opacity .2s ease, padding .28s ease, visibility .2s;
+}
+.nav.burger.open .links { max-height: 80vh; opacity: 1; visibility: visible; padding: 4px 18px 4px; }
+.nav.burger .links a { display: block; padding: 12px 4px; font-size: 1rem; border-bottom: 1px solid rgba(120, 160, 220, 0.10); }
+.nav.burger .links [id="printBtn"] { display: block; padding: 12px 4px; font-size: 1rem; line-height: inherit; }
+.nav.burger .links > a:last-child { border-bottom: 0; }
+@media (max-width: 620px) {
+  .card { padding: 20px 18px; }
+  .job-period { white-space: normal; }
+}
+@media print {
+  :root { --text: #111; --muted: #333; --faint: #555; }
+  body { background: #fff !important; color: #111; line-height: 1.45; font-size: 11.5px; }
+  #bg, .site-header, .nav, .skip-link, .no-print { display: none !important; }
+  .site-footer { border-top: 1px solid #d4dae3; }
+  .wrap { max-width: 100%; padding: 0 6mm; }
+  .hero { padding: 6px 0 10px; }
+  .hero h1 { color: #0b2a4a !important; -webkit-text-fill-color: #0b2a4a; background: none; font-size: 24px; }
+  .hero .role b, .job-head .company, .skill-group h3, h2.section-title { color: #0b2a4a !important; }
+  .subhead { color: #555 !important; border-image: none; border-top: 2px solid #d4dae3; }
+  .hero .meta, .muted, .job-sub { color: #333 !important; }
+  a { color: #0b3a7a !important; text-decoration: none; }
+  .card { background: #fff !important; border: 1px solid #d4dae3; box-shadow: none; backdrop-filter: none; padding: 12px 14px; margin: 10px 0; break-inside: avoid; }
+  .job, .gar, .edu-item, .ach-item, blockquote.quote { break-inside: avoid; }
+  h2.section-title::before { background: #0b2a4a; }
+  .chip { background: #f1f4f8; border: 1px solid #cbd3de; color: #1d2733; font-size: 9.5px; padding: 2px 6px; }
+  code { background: #f1f4f8; border: 1px solid #cbd3de; color: #1d2733; }
+  .gar { background: #f7f9fc; border-left-color: #0b2a4a; }
+  .gar.res, blockquote.quote { background: #f3faf5; }
+  .flagship { background: #f3faf5 !important; border: 1px solid #bfe3d6; padding: 10px 12px; break-inside: avoid; }
+  .flagship .badge { background: #0b2a4a !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .contacts .btn { border: 1px solid #cbd3de; background: #fff; color: #111; padding: 3px 8px; }
+  @page { margin: 12mm 10mm; }
+}
