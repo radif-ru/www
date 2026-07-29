@@ -15,6 +15,8 @@ server {
     listen [::]:80;
     listen 443 ssl;
     listen [::]:443 ssl;
+    # HTTP/2 включаем современной директивой http2 on; (listen ... http2 устарел в nginx >= 1.25).
+    http2 on;
 #     listen django.radif.ru:80;
 #     listen django.radif.ru:443 ssl http2;
     server_name django.radif.ru;

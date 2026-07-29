@@ -1,0 +1,29 @@
+# Зависимости
+node_modules/
+
+# Хендмейд-файлы сайта: намеренно компактное форматирование, Prettier их не трогает
+index.html
+assets/style.css
+assets/app.js
+
+# Статика и конфиги с ручным форматированием/комментариями
+files/
+audio/
+etc/
+docker-compose.prod.yml
+Dockerfile
+favicon.svg
+sitemap.xml
+manifest.webmanifest
+yandex_1673f55ee03a714d.html
+
+# Вложенные репозитории (git-подмодули)
+Django_optimization_tools/
+Full_Stack_Django_REST_React/
+HTML-CSS-Base/
+HTML-CSS-Prof/
+Intergalactic_Entertainment/
+pro-gidroizolyaciya/
+JavaScriptProfessional/
+JavaScriptProfessional-v2/
+html-css_interactive/
