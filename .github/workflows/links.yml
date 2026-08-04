@@ -1,0 +1,25 @@
+name: Links
+
+# Проверка внешних ссылок ходит в сеть, поэтому вынесена из основного CI:
+# сторонние сервисы отдают 429 и 5xx по своим причинам, и блокировать этим
+# каждый push бессмысленно. Гоняем по расписанию и по кнопке — чтобы вовремя
+# заметить переименованный репозиторий или упавшее демо.
+on:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    name: Внешние ссылки (index.html + README.md)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.x"
+      - name: check_links
+        run: python3 scripts/check_links.py

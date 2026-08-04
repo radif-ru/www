@@ -1,0 +1,13 @@
+# Правила проекта
+
+Источник истины — [`AGENTS.md`](../../AGENTS.md) в корне репозитория. Следуй ему всегда.
+
+Ключевое: это резюме, поэтому каждая цифра должна иметь проверяемый источник, а границы NDA
+соблюдаются буквально. Перед правками текста читай
+[`.agents/skills/resume-content-discipline/SKILL.md`](../../.agents/skills/resume-content-discipline/SKILL.md),
+перед правками бейджей — [`.agents/skills/badge-discipline/SKILL.md`](../../.agents/skills/badge-discipline/SKILL.md).
+
+`index.html`, `assets/style.css` и `assets/app.js` отформатированы вручную и лежат
+в `.prettierignore` — не переформатируй их.
+
+Перед коммитом: `./scripts/preflight.sh` (и `--links` перед публикацией).

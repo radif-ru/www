@@ -211,6 +211,35 @@ a.badge {
   &:hover { filter: brightness(1.1); transform: translateY(-1px); text-decoration: none; color: #06231f; }
 }
 .hero-demo { margin: 12px 0 0; color: var(--muted); font-size: 0.96rem; }
+/* Плитка «Инженерные показатели»: проверяемые цифры со ссылкой на доказательство.
+   auto-fit + minmax позволяет сетке самой перестраиваться 3 → 2 → 1 колонки. */
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px; margin-top: 16px; }
+.fact {
+  display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border-radius: 12px;
+  background: var(--chip); border: 1px solid var(--chip-border); border-left: 3px solid var(--accent);
+}
+.fact-num {
+  font-family: var(--mono); font-size: clamp(1.35rem, 3vw, 1.7rem); font-weight: 800; line-height: 1.1;
+  background: linear-gradient(120deg, var(--accent) 15%, var(--accent3) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.fact-label { color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
+/* Карьерный трек внутри компании: нумерованная линия с точками по годам. */
+.track {
+  margin: 0 0 16px; padding: 12px 16px 12px 18px; border-radius: 12px;
+  background: rgba(138, 162, 255, 0.06); border: 1px solid rgba(138, 162, 255, 0.22);
+  & .track-title { margin: 0 0 6px; font-family: var(--mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.6px; color: var(--accent3); }
+  & .track-list { margin: 0; padding-left: 18px; list-style: none; }
+  & .track-list li { position: relative; margin: 7px 0; padding-left: 4px; }
+  & .track-list li::before {
+    content: ""; position: absolute; left: -14px; top: 0.62em; width: 7px; height: 7px;
+    border-radius: 50%; background: var(--accent3);
+  }
+  & .track-list li:not(:last-child)::after {
+    content: ""; position: absolute; left: -11.5px; top: 1.5em; bottom: -0.6em; width: 2px;
+    background: linear-gradient(180deg, var(--accent3), transparent);
+  }
+}
 /* Блок «опыт подтверждён документально»: акцент на проверяемости фактов резюме. */
 .trust {
   margin: 0 0 20px; padding: 14px 18px; border-radius: 12px;
@@ -331,6 +360,15 @@ body.lb-open > *:not(.lightbox) { visibility: hidden; }
   .flagship .badge { background: #0b2a4a !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .trust { background: #f3faf5 !important; border: 1px solid #bfe3d6; border-left: 3px solid #0b2a4a; padding: 8px 12px; margin-bottom: 12px; break-inside: avoid; }
   .trust .trust-title { color: #0b2a4a !important; }
+  .track { background: #f7f9fc !important; border: 1px solid #cbd3de; padding: 6px 10px 6px 14px; margin-bottom: 10px; break-inside: avoid; }
+  .track .track-title { color: #0b2a4a !important; }
+  .track .track-list li::before { background: #0b2a4a; }
+  .track .track-list li:not(:last-child)::after { background: #cbd3de; }
+  /* Показатели в PDF: компактнее, тремя колонками, без градиента в цифрах. */
+  .facts { grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 8px; break-inside: avoid; }
+  .fact { background: #f7f9fc; border: 1px solid #cbd3de; border-left: 3px solid #0b2a4a; padding: 6px 8px; break-inside: avoid; }
+  .fact-num { color: #0b2a4a !important; -webkit-text-fill-color: #0b2a4a; background: none; font-size: 15px; }
+  .fact-label { color: #333 !important; font-size: 10px; }
   .hero-demo, .trust .muted, .shot-cap, .hint { color: #333 !important; }
   /* В PDF скриншоты не печатаем (тяжёлые и обрезанные) — остаются текстовые подписи. */
   .gallery { display: block; }

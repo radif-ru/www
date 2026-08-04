@@ -28,6 +28,24 @@ jobs:
       - name: html-validate (HTML)
         run: npm run lint:html
 
+  gates:
+    name: Гейты синхронности (мета-данные, зеркала правил)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.x"
+      # Детерминированные проверки без сети.
+      # Заголовки в четырёх местах, дата модификации в JSON-LD и sitemap,
+      # валидность JSON-LD, внутренние якоря, rel="noopener" у внешних ссылок.
+      - name: check_meta_sync
+        run: python3 scripts/check_meta_sync.py
+      # Зеркала AGENTS.md и скиллов остались symlink'ами, а не копиями;
+      # в репозитории нет путей, работающих только на машине автора.
+      - name: check_agents_sync
+        run: python3 scripts/check_agents_sync.py
+
   lighthouse:
     name: Lighthouse (homepage)
     runs-on: ubuntu-latest
