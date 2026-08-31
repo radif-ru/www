@@ -178,7 +178,7 @@ ul.clean li { margin: 6px 0; }
 .edu-item, .ach-item { padding: 12px 0; }
 .edu-item + .edu-item, .ach-item + .ach-item { border-top: 1px dashed var(--border); }
 .edu-item h3, .ach-item h3 { margin: 0 0 3px; font-size: 1.05rem; }
-.edu-item .when { color: var(--faint); font-family: var(--mono); font-size: 0.84rem; font-weight: 400; }
+.edu-item .when, .skill-group .when { color: var(--faint); font-family: var(--mono); font-size: 0.84rem; font-weight: 400; }
 blockquote.quote {
   margin: 10px 0; padding: 10px 16px; border-left: 3px solid var(--accent2); color: var(--text); font-style: italic; background: rgba(124,242,160,0.05); border-radius: 0 10px 10px 0;
   & cite { display: block; margin-top: 6px; font-style: normal; color: var(--muted); font-size: 0.88rem; }

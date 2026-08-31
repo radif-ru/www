@@ -36,8 +36,7 @@
 <details>
 <summary>Какие бейджи обновляются автоматически</summary>
 
-Живые: `CI` (статус пайплайна), `radif.ru` (доступность сайта), `last commit`, `commit activity`,
-`stars`, `issues`, `repo size`, `code size` — всё это shields.io запрашивает у GitHub при отрисовке.
+Живые: `CI` (статус пайплайна), `radif.ru` (доступность сайта), `issues`, `repo size`, `code size` — всё это shields.io запрашивает у GitHub при отрисовке.
 Остальные статические: они фиксируют стек, принципы и текущие пороги (`CI checks`, `Lighthouse`,
 `build step`, `runtime deps`, `submodules`), которые проверяются в CI или конфигами и меняются
 вместе с кодом.
