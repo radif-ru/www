@@ -32,10 +32,41 @@
   // Корзины прозрачности линий для батчинга: ближе узлы — ярче (макс. 0.5).
   const BUCKETS = 5, bucketSeg = [], bucketColor = [];
   for (let bi = 0; bi < BUCKETS; bi++) { bucketSeg.push([]); bucketColor.push(`rgba(70,190,210,${(((bi + 1) / BUCKETS) * 0.5).toFixed(3)})`); }
+  // Словарь летящих токенов: код, ИИ/ML, данные, инфраструктура, немного математики.
+  // Набор намеренно большой, а слово берётся из перемешанной колоды (nextWord) — за
+  // сессию видно весь словарь, а не одну и ту же горстку слов.
   const WORDS = ["def","async","await","class","{ }","</>","AI","LLM","token","model","RAG","agent",
     "prompt","vector","fn()","git","SQL","==>","λ","0x1F","npm","docker","yield","return","import",
-    "GPT","embed","tensor","->","::","neural","fastapi","redis","k8s","[ ]","self"];
+    "GPT","embed","tensor","->","::","neural","fastapi","redis","k8s","[ ]","self",
+    "Ollama","MCP","LoRA","epoch","loss","∇","softmax","attn","context","chunk","top-k","cosine",
+    "numpy","torch","pandas","pytest","assert","commit","rebase","merge","diff","CI/CD","lint",
+    "JSON","YAML","HTTP","gRPC","REST","JWT","S3","cron","nginx","uvicorn","psql","SELECT","JOIN",
+    "INDEX","migrate","alembic","socket","ws://","OCR","vision","whisper","MLOps","ETL","DWH",
+    "A/B","p-value","σ","∑","π","≈","=>","!=","&&","0b1011","lambda","None","True","dict{}",
+    "list[]","match","with","try","except","grep","curl","ssh"];
   const rand = (a, b) => a + Math.random() * (b - a);
+  // Колода индексов слов: пока она не опустела, слово не повторяется — набор фраз
+  // меняется на любом экране. Раньше слово фиксировалось при создании токена, и до
+  // перезагрузки страницы менялось только его положение; на узком экране токенов
+  // было всего шесть, поэтому словарь визуально не менялся вообще.
+  let wordBag = [];
+  const nextWord = () => {
+    if (!wordBag.length) {
+      for (let i = 0; i < WORDS.length; i++) wordBag.push(i);
+      for (let i = wordBag.length - 1; i > 0; i--) { const j = (Math.random() * (i + 1)) | 0, sw = wordBag[i]; wordBag[i] = wordBag[j]; wordBag[j] = sw; }
+    }
+    return WORDS[wordBag.pop()];
+  };
+  // Слово, скорость, размер и прозрачность токен получает и при рождении, и при
+  // каждом возврате снизу — иначе разнообразие теряется после первого прохода.
+  const spawnToken = (tk, y) => {
+    tk.x = Math.random() * W; tk.y = y;
+    tk.w = nextWord();
+    tk.vy = rand(-2.03, -0.55);
+    tk.a = rand(0.05, 0.16);
+    tk.s = rand(11, 17) | 0;
+    return tk;
+  };
   const applyPowerProfile = () => {
     // Спокойный режим: короче связи, кап 30 FPS и ниже скорость. Движение привязано
     // ко времени (dt), поэтому кап FPS экономит CPU и НЕ меняет скорость анимации;
@@ -68,11 +99,14 @@
     nodes = [];
     // Узлы сети (точки + связи): скорость дрейфа — rand(...) по vx и vy.
     for (let i = 0; i < count; i++) nodes.push({ x: Math.random()*W, y: Math.random()*H, vx: rand(-1.00,1.00), vy: rand(-1.00,1.00) });
-    // Кол-во летящих токенов: count / 5 (минимум 6).
-    const tcount = Math.max(6, Math.round(count / 5));
+    // Кол-во летящих токенов считаем от площади ОТДЕЛЬНО от узлов. Раньше было
+    // count / 5, а на узком экране узлов минимум по площади — токенов оставалось
+    // шесть. Текст дёшев (один fillText на токен) в отличие от связей узлов с их
+    // O(n²), поэтому на мобильном можно держать больше без просадки FPS.
+    const tcount = Math.max(lowPower ? 10 : 14, Math.min(lowPower ? 18 : 28, Math.round((W * H) / 40000)));
     tokens = [];
     // Летящие снизу вверх токены: скорость подъёма — vy (отрицательная; ближе к нулю = медленнее).
-    for (let j = 0; j < tcount; j++) tokens.push({ x: Math.random()*W, y: Math.random()*H, vy: rand(-2.03,-0.55), w: WORDS[(Math.random()*WORDS.length)|0], a: rand(0.05,0.16), s: rand(11,17)|0 });
+    for (let j = 0; j < tcount; j++) tokens.push(spawnToken({}, Math.random() * H));
   };
   const frame = (now) => {
     raf = requestAnimationFrame(frame);
@@ -119,7 +153,7 @@
     for (let t = 0; t < tokens.length; t++) {
       const tk = tokens[t];
       tk.y += tk.vy * dt * speedScale;
-      if (tk.y < -24) { tk.y = H + 24; tk.x = Math.random() * W; }
+      if (tk.y < -24) spawnToken(tk, H + 24); // новое слово, а не только новое место
       ctx.fillStyle = `rgba(150,180,255,${tk.a})`;
       ctx.font = `${tk.s}px ui-monospace, monospace`;
       ctx.fillText(tk.w, tk.x, tk.y);

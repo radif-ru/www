@@ -27,3 +27,6 @@ pro-gidroizolyaciya/
 JavaScriptProfessional/
 JavaScriptProfessional-v2/
 html-css_interactive/
+
+# Рабочий каталог агента: скриншоты, выгрузки, промежуточные файлы (в .gitignore)
+tmp/
