@@ -63,7 +63,7 @@ HTTP/2 и строгим Content-Security-Policy.
 | Автоматических проверок в CI | **7** — Prettier, Stylelint, ESLint, html-validate, 2 гейта синхронности, Lighthouse | [`.github/workflows/ci.yml`](./.github/workflows/ci.yml) |
 | Проверок в одном `preflight` | **7** до коммита, все детерминированные (без ИИ)                                     | [`scripts/preflight.sh`](./scripts/preflight.sh)         |
 | Порог Lighthouse             | **≥ 90** по accessibility, SEO и best practices                                      | [`lighthouserc.json`](./lighthouserc.json)               |
-| Объём кода сайта             | **~1,5 тыс. строк** — разметка, стили и скрипт целиком                               | [`index.html`](./index.html), [`assets/`](./assets)      |
+| Объём кода сайта             | **~1,6 тыс. строк** — разметка, стили и скрипт целиком                               | [`index.html`](./index.html), [`assets/`](./assets)      |
 | Схем JSON-LD в `@graph`      | **5** — `Person`, `WebSite`, `ProfilePage` и два `SoftwareSourceCode`                | [`index.html`](./index.html), `<head>`                   |
 | Скриншотов демо в галерее    | **5** в WebP, ленивая загрузка по `IntersectionObserver`                             | [`files/screenshots/`](./files/screenshots)              |
 | Подключённых pet-проектов    | **9** git-подмодулей                                                                 | [`.gitmodules`](./.gitmodules)                           |
@@ -117,11 +117,12 @@ HTTP/2 и строгим Content-Security-Policy.
 | `#cross-brand`         | сводная аналитика по двум брендам без общей базы                                                                |
 | `#one-codebase`        | один бэкенд и один бандл на две федеральные сети                                                                |
 | `#ai-process`          | процесс ИИ-ассистированной разработки и темп итераций                                                           |
+| `#hotfix-lane`         | внеспринтовый контур: журналы maintenance, хотфикс в день обнаружения при тех же гейтах                         |
 | `#open-vs-work`        | чем открытый проект отличается от рабочего контура под NDA                                                      |
 | `#taken-over`          | принятые на поддержку проекты смежных отделов, интеграции маркетинга                                            |
 
 **Проекты:** `#project-ai-multi-agent` (флагман) · `#project-other-ai` · `#project-www` ·
-`#project-notebook`
+`#project-notebook` · `#project-foundation` (своё вместо готового)
 
 **Образование и сертификаты:** `#edu-mephi` (магистратура НИЯУ МИФИ) ·
 `#edu-digital-department` (Цифровая кафедра) · `#edu-coders` · `#edu-geekuniversity` ·
