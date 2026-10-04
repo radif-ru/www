@@ -3,7 +3,7 @@
 [![CI](https://github.com/radif-ru/www/actions/workflows/ci.yml/badge.svg)](https://github.com/radif-ru/www/actions/workflows/ci.yml)
 [![website](https://img.shields.io/website?url=https%3A%2F%2Fradif.ru&label=radif.ru&up_message=online&down_message=offline&logo=nginx&logoColor=white)](https://radif.ru)
 [![Lighthouse](https://img.shields.io/badge/Lighthouse-a11y_·_SEO_·_best_practices_%E2%89%A590-F44B21?logo=lighthouse&logoColor=white)](./lighthouserc.json)
-[![CI checks](https://img.shields.io/badge/CI_checks-5-2088FF?logo=githubactions&logoColor=white)](./.github/workflows/ci.yml)
+[![CI checks](https://img.shields.io/badge/CI_checks-7-2088FF?logo=githubactions&logoColor=white)](./.github/workflows/ci.yml)
 [![Prettier](https://img.shields.io/badge/Prettier-checked-F7B93E?logo=prettier&logoColor=black)](./.prettierrc.json)
 [![ESLint](https://img.shields.io/badge/ESLint-flat_config-4B32C3?logo=eslint&logoColor=white)](./eslint.config.mjs)
 [![Stylelint](https://img.shields.io/badge/Stylelint-standard-263238?logo=stylelint&logoColor=white)](./.stylelintrc.json)
@@ -85,8 +85,9 @@ HTTP/2 и строгим Content-Security-Policy.
   сертификатов Let's Encrypt, gzip, кэш-заголовки, healthcheck. Content-Security-Policy — строгий:
   `default-src 'self'`, `script-src 'self'` (без `unsafe-inline`), `object-src 'none'`, плюс HSTS,
   `X-Content-Type-Options`, `Referrer-Policy` и `Permissions-Policy`.
-- **Качество:** Prettier, ESLint (flat config), Stylelint, html-validate и Lighthouse — все пять
-  проверок гоняет CI на GitHub Actions на каждый push и pull request. Хендмейд-файлы сайта
+- **Качество:** Prettier, ESLint (flat config), Stylelint, html-validate, два гейта синхронности
+  и Lighthouse — все семь проверок гоняет CI на GitHub Actions на каждый push в `main` и pull
+  request. Хендмейд-файлы сайта
   сознательно исключены из автоформатирования, чтобы разметка оставалась читаемой.
 
 ## Глубокие ссылки на разделы резюме
