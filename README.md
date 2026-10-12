@@ -30,6 +30,7 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-3fb950?logo=opensourceinitiative&logoColor=white)](./LICENSE)
 
 [![issues](https://img.shields.io/github/issues/radif-ru/www?logo=github&logoColor=white)](https://github.com/radif-ru/www/issues)
+[![last commit](https://img.shields.io/github/last-commit/radif-ru/www?logo=github&logoColor=white)](https://github.com/radif-ru/www/commits)
 [![repo size](https://img.shields.io/github/repo-size/radif-ru/www?logo=github&logoColor=white)](https://github.com/radif-ru/www)
 [![code size](https://img.shields.io/github/languages/code-size/radif-ru/www?logo=github&logoColor=white)](https://github.com/radif-ru/www)
 
