@@ -102,7 +102,7 @@ HTTP/2 и строгим Content-Security-Policy.
 **Разделы:** `#facts` · `#about` · `#skills` · `#experience` · `#projects` · `#demo` ·
 `#hardware` · `#education` · `#certificates` · `#achievements` · `#contacts`
 
-**Места работы:** `#job-creative` (Творческое Образование) · `#job-pelmeni` ·
+**Места работы:** `#job-edpalm` (ЭдПалм) · `#job-creative` (Творческое Образование) · `#job-pelmeni` ·
 `#job-investor` (Ваш инвестор) · `#job-karl` (Робот Карл) · `#job-principal` (частная практика)
 
 **Отдельные инженерные истории** (цель → действие → результат):
